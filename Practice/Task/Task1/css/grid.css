@@ -1,0 +1,33 @@
+*{
+    margin:0;
+    padding:0;
+    box-sizing: border-box;
+}
+
+.row-1,.row-2{
+    display: grid;
+    height: 50vh;
+}
+.row-1{
+    grid-template-columns:50% 25% 25%;
+}
+.row-2{
+    grid-template-columns: 50% 50%;
+}
+/* 
+.col-block-25{
+    width: 25%;
+}
+.col-block-50{
+    width: 50%;
+} */
+
+.col-block-25,.col-block-50{
+    display: flex;
+    place-items: center;
+    place-content: center;
+    outline:1px solid gray;
+    background-color: indigo;
+    color:white;
+    height: inherit;
+}
