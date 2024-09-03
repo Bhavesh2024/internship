@@ -1,0 +1,25 @@
+*{
+    margin:0;
+    padding: 0;
+    box-sizing: border-box;
+}
+.main{
+    display: flex;
+}
+.media,.document{
+    width: 50%;
+    height: 100vh;
+}
+iframe{
+
+    width:100%;
+    height: 100%;
+}
+@media screen and (max-width:767px) {
+    .main{
+        flex-direction:column;
+    }
+    .media,.document{
+        width: 100%;
+    }
+}
