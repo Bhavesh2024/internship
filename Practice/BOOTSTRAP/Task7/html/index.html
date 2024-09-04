@@ -1,0 +1,335 @@
+<!DOCTYPE html>
+<html lang="en">
+	<head>
+		<meta charset="UTF-8" />
+		<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+		<title>Primary</title>
+		<link rel="stylesheet" href="../css/style.css">
+		<link
+			rel="stylesheet"
+			href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css"
+		/>
+		<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.6.0/css/all.min.css">
+	</head>
+	<body>
+		<header>
+			<!-- Navbar -->
+			<nav class="navbar text-bg-white border-bottom position-relative z-3">
+				<div class="container">
+					<div class="navbar-brand d-flex">
+						<img src="../image/logo/logo.png" alt="" height="40" width="40">&nbsp;
+						<h2 class="fw-light">Primary</h2>
+					</div>
+					<div class="menu-list h-100">
+						<ul class="nav primary-menu h-100">
+							<li class="nav-item h-100"><a href="#" class="nav-link text-secondary fw-lighter">Home</a></li>
+							<li class="nav-item position-relative pages">
+								<a href="#" class="nav-link text-secondary fw-lighter  ">Pages</a>
+								<ul class="navbar-nav position-absolute mt-0 pages-menu bg-white d-none ">
+								<li class="nav-item border-bottom"><a href="#" class="nav-link text-secondary fw-lighter">About Us</a></li>
+								<li class="nav-item border-bottom"><a href="#" class="nav-link text-secondary fw-lighter">Service</a></li>
+								<li class="nav-item border-bottom"><a href="#" class="nav-link text-secondary fw-lighter">Contact</a></li>
+								<li class="nav-item border-bottom"><a href="#" class="nav-link text-secondary fw-lighter">Pricing Table</a></li>
+								<li class="nav-item border-bottom"><a href="#" class="nav-link text-secondary fw-lighter">404 Error</a></li>
+								<li class="nav-item border-bottom"><a href="#" class="nav-link text-secondary fw-lighter">F.A.Q</a></li>
+								<li class="nav-item border-bottom position-relative third-level-menu">
+									<a href="#" class="nav-link text-secondary fw-lighter">Third Level Menu</a>
+									<ul class="navbar-nav position-absolute top-0 ms-5 w-100 bg-white page-submenu d-none">
+									<li class="nav-item border-bottom"><a href="#" class="nav-link text-secondary fw-lighter">Sublevel Title</a></li>
+									<li class="nav-item border-bottom"><a href="#" class="nav-link text-secondary fw-lighter">Another Menu</a></li>
+									<li class="nav-item border-bottom"><a href="#" class="nav-link text-secondary fw-lighter">And Many More</a></li>
+								</ul>
+								</li>
+							</ul>
+							</li>
+							<li class="nav-item portfolio">
+								<a href="#" class="nav-link text-secondary fw-lighter">Portfolio</a>
+								<ul class="navbar-nav position-absolute mt-0 portfolio-menu bg-white">
+								<li class="nav-item border-bottom"><a href="#" class="nav-link text-secondary fw-lighter">2 Columns</a></li>
+								<li class="nav-item border-bottom"><a href="#" class="nav-link text-secondary fw-lighter">3 Columns</a></li>
+								<li class="nav-item border-bottom"><a href="#" class="nav-link text-secondary fw-lighter">4 Columns</a></li>
+								<li class="nav-item border-bottom"><a href="#" class="nav-link text-secondary fw-lighter">Full Screen</a></li>
+								<li class="nav-item border-bottom"><a href="#" class="nav-link text-secondary fw-lighter">Single Portfolio Half</a></li>
+								<li class="nav-item border-bottom"><a href="#" class="nav-link text-secondary fw-lighter">Single Portfolio Wide</a></li>
+								
+
+								</ul>
+							</li>
+							<li class="nav-item blog"><a href="#" class="nav-link text-secondary fw-lighter">The Blog</a>
+							<ul class="navbar-nav position-absolute drop-menu mt-0 bg-white">
+								<li class="nav-item border-bottom"><a href="#" class="nav-link text-secondary fw-lighter">Classic Fullwidth</a></li>
+								<li class="nav-item border-bottom"><a href="#" class="nav-link text-secondary fw-lighter">Classic Sidebar</a></li>
+								<li class="nav-item border-bottom"><a href="#" class="nav-link text-secondary fw-lighter">Medium Sidebar</a></li>
+								<li class="nav-item border-bottom"><a href="#" class="nav-link text-secondary fw-lighter">Single Fullwidth</a></li>
+							</ul></li>
+							<li class="nav-item"><a href="#" class="nav-link text-secondary fw-lighter">Shortcodes</a></li>
+							<button class="shopping-cart-icon position-relative btn">
+								<i class="fa-solid fa-basket-shopping  text-secondary "></i>
+								<span class="count rounded-circle px-1  position-absolute top-0 end-0 mb-5 ms-5 bottom-5">0</span>
+								
+							</button>
+						</ul>
+					</div>
+				</div>
+			</nav>
+			<section class="hero z-1" >
+				<div class="carousel slide" id="slider">
+					<div class="carousel-indicators">
+						<button type="button" data-bs-target="#slider" data-bs-slide-to="0" class="dot rounded-circle p-1 active"></button>
+						<button type="button" data-bs-target="#slider" data-bs-slide-to="1" class="dot rounded-circle p-1"></button>
+						
+
+					</div>
+					<div class="carousel-inner">
+						<div class="carousel-item active">
+								<img src="../image/slider-image1.jpg" alt="" class="slider-image d-block w-100">
+								<div class="carousel-caption d-none d-md-flex flex-column justify-content-center ">
+										
+										<p class="fs-1 fw-light mb-5">Our Company Help With Your Problem</p>
+										<h1 class="slide-heading my-3">Clean<span class="text-danger">.</span>Simple<span class="text-danger">.</span>Perfect</h1>
+										<button class="btn rounded-0 p-2 px-3 purchase-btn text-white d-flex mx-auto my-5">Purchase now</button>
+								</div>
+						</div>
+						<div class="carousel-item ">
+							<img src="../image/slider-image1.jpg" alt="" class="slider-image d-block w-100">
+							<div class="carousel-caption d-none d-md-flex flex-column justify-content-center ">
+							
+									<h1 class="slide-heading my-5">Primary - Made for Real Business</h1>
+									<p class="fs-1 fw-light mb-3">Every Line of Code Written With Love</p>
+									<button class="btn rounded-0 p-2 px-3 purchase-btn text-white d-flex mx-auto my-5">Purchase now</button>
+							</div>
+					</div>
+					
+					</div>
+					<button type="button" class="carousel-control-prev" data-bs-target="#slider" data-bs-slide="prev">
+						<span class="carousel-control-prev-icon"></span>
+					</button>
+					<button type="button" class="carousel-control-next" data-bs-target="#slider" data-bs-slide="next">
+						<span class="carousel-control-next-icon"></span>
+					</button>
+					
+				</div>
+			</section>
+		</header>
+		<section class="service">
+			<div class="container py-5">
+				<div class="row">
+					<div class="col-12 col-md-6 col-lg-4 col-xl-3">
+						<div class="service-box d-flex flex-column justify-content-between align-items-center p-2">
+							<div class="icon-container p-4">
+								<i class="fa-solid fa-layer-group service-icon"></i>
+							</div>
+							
+							<h3 class="fw-light">Minimal Design</h3>
+							<div class="line"></div>
+							<p class="fw-light">Remainder household direction zealously the unwilling roused enable estate</p>
+						</div>
+						
+					</div>
+					<div class="col-12 col-md-6 col-lg-4 col-xl-3">
+						<div class="service-box d-flex flex-column justify-content-between align-items-center p-2">
+							<div class="icon-container p-4">
+								<i class="fa-regular fa-heart service-icon"></i>
+							</div>
+						
+							<h3 class="fw-light">Love Our Clients</h3>
+							<div class="line"></div>
+							<p class="fw-light">Remainder household direction zealously the unwilling roused enable estate</p>
+						</div>
+						
+					</div>
+					<div class="col-12 col-md-6 col-lg-4 col-xl-3">
+						<div class="service-box d-flex flex-column justify-content-between align-items-center p-2">
+							<div class="icon-container p-4">
+								<i class="fa-solid fa-screwdriver-wrench service-icon"></i>
+							</div>
+							
+							<h3 class="fw-light">Powerful & Flexible </h3>
+							<div class="line"></div>
+							<p class="fw-light">Remainder household direction zealously the unwilling roused enable estate</p>
+						</div>
+						
+					</div>
+					<div class="col-12 col-md-6 col-lg-4 col-xl-3">
+						<div class="service-box d-flex flex-column justify-content-between align-items-center p-2">
+							<div class="icon-container p-4">
+
+								<i class="fa-solid fa-earth-americas service-icon"></i>
+							</div>
+							<h3 class="fw-light">Premium Support</h3>
+							<div class="line"></div>
+							<p class="fw-light">Remainder household direction zealously the unwilling roused enable estate</p>
+						</div>
+						
+					</div>
+				</div>
+			</div>
+			
+		</section>
+		<!-- Recent Work Section  -->
+		<section class="recent-work py-5 px-3">
+			<div class="container text-center">
+				<h1 class="fw-light">
+					Recent Work
+				</h1>
+				<div class="red-line my-3 mx-auto"></div>
+				<p class="fw-light">Best of the best</p>
+	
+				<div class="row px-1">
+					<div class="col-12 col-md-6 col-lg-4 g-4">
+							<div class="work-card fw-light bg-white text-center">
+								<img src="../image/work/work-image1.png" alt="" height="250" class="work-image">
+								<div class="work-card-footer p-2 bg-white">
+
+									<div class="work-title fs-3 text-secondary">
+										Paint Drips
+									</div>
+									<div class="author text-secondary fw-light">
+										by Jason Travis
+									</div>
+								</div>
+							</div>
+					</div>
+					<div class="col-12 col-md-6 col-lg-4 g-4">
+						<div class="work-card fw-light bg-white text-center">
+							<img src="../image/work/work-image2.png" alt="" height="250" class="work-image">
+							<div class="work-card-footer p-2 bg-white">
+
+								<div class="work-title fs-3 text-secondary">
+									Pantone Time!
+								</div>
+								<div class="author text-secondary fw-light">
+									by Jonathan Howell
+								</div>
+							</div>
+						</div>
+				</div>
+
+				<div class="col-12 col-md-6 col-lg-4 g-4">
+					<div class="work-card fw-light bg-white text-center">
+						<img src="../image/work/work-image3.png" alt="" height="250" class="work-image">
+						<div class="work-card-footer p-2 bg-white">
+
+							<div class="work-title fs-3 text-secondary">
+								House / RPG
+							</div>
+							<div class="author text-secondary fw-light">
+								by Creative Mints
+							</div>
+						</div>
+					</div>
+			</div>
+			<div class="col-12 col-md-6 col-lg-4 g-4">
+				<div class="work-card fw-light bg-white text-center">
+					<img src="../image/work/work-image4.png" alt="" height="250" class="work-image">
+					<div class="work-card-footer p-2 bg-white">
+
+						<div class="work-title fs-3 text-secondary">
+							Map pins – heart
+						</div>
+						<div class="author text-secondary fw-light">
+							by Eddie Lobanovskiy
+						</div>
+					</div>
+				</div>
+		</div>
+		<div class="col-12 col-md-6 col-lg-4 g-4">
+			<div class="work-card fw-light bg-white text-center">
+				<img src="../image/work/work-image5.png" alt="" height="250" class="work-image">
+				<div class="work-card-footer p-2 bg-white">
+
+					<div class="work-title fs-3 text-secondary">
+						Handbook for Brands
+					</div>
+					<div class="author text-secondary fw-light">
+						by Maykel Loomans
+					</div>
+				</div>
+			</div>
+	</div>
+	<div class="col-12 col-md-6 col-lg-4 g-4">
+		<div class="work-card fw-light bg-white text-center">
+			<img src="../image/work/work-image6.png" alt="" height="250" class="work-image">
+			<div class="work-card-footer p-2 bg-white">
+
+				<div class="work-title fs-3 text-secondary">
+					First shot
+				</div>
+				<div class="author text-secondary fw-light">
+					by Tiago Calliari
+				</div>
+			</div>
+		</div>
+</div>
+				</div>
+				<button class="btn m-auto d-flex rounded-0 bg-white text-secondary mt-5 fw-light"> Load Full Portfolio</button>
+			</div>
+			
+
+		</section>
+		
+
+		<!-- Blog Section -->
+
+		<section class="blog my-5">
+			<div class="container text-center">
+				<h1 class="text-secondary fw-lighter">From Blog</h1>
+				<div class="red-line m-auto my-3"></div>
+				<p class="fw-light">Awesome Post</p>
+				<div class="row">
+					<div class="col-12 col-md-6 col-lg-4 g-2">
+						<div class="blog-card">
+							<div class="image">
+								<img src="../image/blog/blog1.png" alt="" height="300" class="blog-image">
+							</div>
+							<div class="blog-content">
+								<div class="blog-title fs-4 fw-light">
+									You fully seems stand inquietude own
+	
+								</div>
+								<div class="post-date">
+									18 January, 2017 by DankovThemes, in Envato
+								</div>
+							</div>
+						</div>
+					</div>
+					<div class="col-12 col-md-6 col-lg-4 g-2">
+						<div class="blog-card">
+							<div class="image">
+								<img src="../image/blog/blog2.png" alt="" height="300" class="blog-image">
+							</div>
+							<div class="blog-content">
+								<div class="blog-title fs-4 fw-light">
+									You fully seems stand inquietude own
+	
+								</div>
+								<div class="post-date">
+									18 January, 2017 by DankovThemes, in Envato
+								</div>
+							</div>
+						</div>
+					</div>
+					<div class="col-12 col-md-6 col-lg-4 g-2">
+						<div class="blog-card">
+							<div class="image">
+								<img src="../image/blog/blog3.png" alt="" height="300" class="blog-image">
+							</div>
+							<div class="blog-content">
+								<div class="blog-title fs-4 fw-light">
+									You fully seems stand inquietude own
+	
+								</div>
+								<div class="post-date">
+									18 January, 2017 by DankovThemes, in Envato
+								</div>
+							</div>
+						</div>
+					</div>
+					
+				</div>
+			</div>
+		</section>
+		<script src="../js/script.js"></script>
+		<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
+	</body>
+</html>

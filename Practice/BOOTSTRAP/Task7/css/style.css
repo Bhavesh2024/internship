@@ -1,0 +1,133 @@
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+.navbar{
+    min-height: 75px;
+}
+.navbar > .container{
+    height: inherit;
+}
+.count{
+    font-size: 10px;
+    background-color: rgba(227, 226, 226, 0.763);
+    padding:2px;
+}
+
+.primary-menu:only-child{
+    
+    
+    height: 100%;
+}
+.primary-menu:only-child::before{
+    content: "";
+    position:absolute;
+    top:0;
+   
+    height:2px;
+    width: 60px;
+    background-color: red;
+}
+
+.page-submenu,.pages-menu,.portfolio-menu,.drop-menu{
+    display: none !important;
+}
+.pages-menu{
+    /* display:none !important; */
+    min-width: 150px;
+    
+}
+.pages-menu > li.nav-item, .drop-menu > li.nav-item,.page-submenu > li.nav-item,.portfolio-menu > li.nav-item{
+    padding-inline: 15px;
+}
+.page-submenu{
+    left:100px;
+    
+}
+
+.pages:hover ul.pages-menu,.third-level-menu:hover ul.page-submenu,.portfolio:hover ul.portfolio-menu, .blog:hover ul.drop-menu{
+    display: block !important;
+}
+
+
+.pages > .pages-menu > li.nav-item:hover, .third-level-menu > .page-submenu > li.nav-item:hover,.portfolio > .portfolio-menu > li.nav-item:hover,.drop-menu > li.nav-item:hover{
+    background-color:rgba(220, 220, 220, 0.37) !important;
+}
+
+/* Slider Section */
+/* 
+.slider-image{
+    height: calc(100vh - 75px);
+} */
+.carousel-caption{
+   height: 100%;
+}
+.purchase-btn{
+    background-color:rgba(255, 255, 255, 0.374) !important;
+}
+
+.slider-image{
+    min-height:90vh;
+}
+.slide-heading{
+    font-size: 4rem;
+}
+
+.dot{
+    width: 3px !important;
+    background-color: rgba(0, 0, 0, 0.408) !important;
+}
+
+/* Service Section */
+.service-box{
+    gap:15px;
+}
+.line{
+    width:20px;
+    background-color: rgba(229, 223, 223, 0.295);
+    height: 2px;
+}
+.service-icon{
+    
+    font-size:44px !important;
+}
+.icon-container{
+    color:#F44336;
+}
+.icon-container:hover{
+    border-radius:100%;
+    
+    background-color:#F44336;
+    color: white;
+}
+ 
+/* Recent Work */
+.recent-work{
+    background-color: rgba(220, 220, 220, 0.47);
+}
+
+.work-image{
+    width: 100%;
+}
+
+/* Blog Section style */
+.blog-image{
+    width: 95%;
+}
+.red-line{
+    background-color:#F44336;
+    width: 50px;
+    height: 2px;
+}
+
+.post-date{
+    color:rgb(132, 130, 130);
+    font-size: 13px;
+}
+@media screen and (max-width:576px){
+    .slider-image{
+        min-height: 40vh;
+    }
+}
