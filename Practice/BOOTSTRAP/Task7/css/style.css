@@ -8,41 +8,49 @@
 .icon-color {
 	color: #f44336;
 }
-.navbar{
+.navbar {
 	min-height: 75px;
 	margin: 0 !important;
 	padding: 0 !important;
-	
 }
 /* .navbar > .container {
 	height: inherit;
 } */
-.navbar .primary-menu{
-	height:75px;
-	border: 1px solid;
-	
+.navbar .primary-menu {
+	height: 75px;
 }
 .count {
 	font-size: 10px;
 	background-color: rgba(227, 226, 226, 0.763);
 	padding: 2px;
 }
-
-.primary-menu:first-child{
+.primary-menu > li {
 	position: relative;
+	padding: 10px 15px;
+	height: 100%;
 }
-.primary-menu:first-child::after{
+
+.primary-menu > li::before {
 	content: "";
-	height: 5px;
-	width: 100%;
 	position: absolute;
+	height: 3px;
+	width: 0;
+	background-color: red;
 	top: 0;
-	background-color: rgb(255, 34, 0);
-	
+	left: 0;
+	transition: width 0.1s ease;
 }
 
+.primary-menu > li:hover::before {
+	width: 100%;
+}
 
-
+.primary-menu > li.nav-item > a.nav-link {
+	display: flex;
+	justify-content: center;
+	align-items: center;
+	height: inherit;
+}
 .drop-submenu,
 .drop-menu {
 	display: none !important;
@@ -61,12 +69,11 @@
 }
 
 .drop-hover-item:hover ul.drop-menu,
-.third-level-menu:hover ul.drop-submenu{
+.third-level-menu:hover ul.drop-submenu {
 	display: block !important;
 }
 
 .third-level-menu > .drop-submenu > li.nav-item:hover,
-
 .drop-menu > li.nav-item:hover {
 	background-color: rgba(220, 220, 220, 0.37) !important;
 }
@@ -118,7 +125,8 @@
 }
 
 /* Recent Work */
-.recent-work,.testimonial {
+.recent-work,
+.testimonial {
 	background-color: rgba(220, 220, 220, 0.47);
 }
 .work-image {
@@ -126,7 +134,7 @@
 }
 
 /* Testimonial Style */
-.fs-normal{
+.fs-normal {
 	font-size: 15px;
 }
 
@@ -140,19 +148,22 @@
 	height: 2px;
 }
 
-.post-date{
+.post-date {
 	color: rgb(132, 130, 130);
 	font-size: 13px;
 }
-.fs-small{
+.fs-small {
 	font-size: 13px;
 }
 /* Footer Style */
-.text-gray{
+.text-gray {
 	color: rgba(220, 220, 220, 0.47);
 }
-.border-gray{
+.border-gray {
 	border-bottom: 1px solid rgba(154, 149, 149, 0.233) !important;
+}
+.border-grey {
+	border: 1px solid rgba(154, 149, 149, 0.233) !important;
 }
 @media screen and (max-width: 576px) {
 	.slider-image {

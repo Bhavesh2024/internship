@@ -36,8 +36,8 @@
 						<h2 class="fw-light">Primary</h2>
 					</div>
 					<div class="menu-list h-100">
-						<ul class="nav primary-menu  align-items-center">
-							<li class="nav-item  ">
+						<ul class="nav primary-menu ">
+							<li class="nav-item active d-flex align-items-center ">
 								<a
 									href="#"
 									class="nav-link text-secondary fw-lighter "
@@ -230,17 +230,23 @@
 									>Shortcodes</a
 								>
 							</li>
-							<button
-								class="shopping-cart-icon position-relative btn"
+							<!-- <button
+								class="shopping-cart-icon btn h-100 "
+							>
+							<span
+								class="count rounded-circle px-1 position-absolute bottom-5  end-0  ms-5 "
+								>0</span
 							>
 								<i
-									class="fa-solid fa-basket-shopping text-secondary"
+									class="fa-solid fa-basket-shopping text-secondary position-relative"
 								></i>
-								<span
-									class="count rounded-circle px-1 position-absolute top-0 end-0 mb-5 ms-5 bottom-5"
-									>0</span
-								>
-							</button>
+								
+						</button>
+						<button type="button" class="btn position-relative">
+							<i
+									class="fa-solid fa-basket-shopping text-secondary position-relative"
+								></i> <span class="position-absolute top-0 start-100 translate-middle badge border border-light rounded-circle bg-danger p-1"><span class="visually-hidden">unread messages</span></span>
+						  </button> -->
 						</ul>
 					</div>
 				</div>
@@ -785,43 +791,48 @@
 			</div>
 		</section>
 		<footer class="footer text-bg-dark px-2">
-			<div class="container">
-
-				<div class="row">
-					<div class="col-2 border border-top-0 border-end-0">
-							<div class="footer-icon  py-3 text-center">
-								<i class="fa-brands fa-facebook-f fs-5  text-gray  border border-gray border-2  rounded-circle py-3 px-3" ></i>
+			<div class="container-fluid border-gray">
+				<div class="row   m-auto">
+					
+					<div class="col-2 border-grey border-top-0 border-end-0 border-bottom-0 ">
+							<div class="footer-icon  py-3 text-center d-flex justify-content-center">
+								<i class="fa-brands fa-facebook-f fs-5  text-gray  border border-secondary  border-2  rounded-circle py-3 px-3" ></i>
 							</div>
 					</div>
-					<div class="col-2 gx-2 border ">
-						<div class="footer-icon  py-3 text-center border-top-0 border-end-0">
-							<i class="fa-brands fa-twitter fs-5 text-gray  border border-gray border-2 rounded-circle py-3 px-3"></i>
+					<div class="col-2  border-grey border-bottom-0">
+						<div class="footer-icon  py-3 text-center border-top-0 border-end-0  d-flex justify-content-center">
+							<i class="fa-brands fa-twitter fs-5 text-gray  border border-secondary border-2 rounded-circle py-3 px-3"></i>
 						</div>
 				</div>
-				<div class="col-2 gx-2 border border-top-0 border-end-0">
-					<div class="footer-icon  py-3 text-center">
-						<i class="fa-brands fa-google-plus-g fs-5 text-gray  border border-gray border-2 rounded-circle py-3 px-3"></i>
+				<div class="col-2  ">
+					<div class="footer-icon  py-3 text-center d-flex justify-content-center">
+						<i class="fa-brands fa-google-plus-g fs-5 text-gray  border border-secondary  border-2 rounded-circle py-3 px-3"></i>
 					</div>
 			</div>
-			<div class="col-2 gx-2 border border-top-0 border-end-0">
-				<div class="footer-icon  py-3 text-center">
-					<i class="fa-brands fa-dribbble fs-5 text-gray  border border-gray border-2 rounded-circle py-3 px-3"></i>
+			<div class="col-2 border-grey border-top-0 border-end-0 border-bottom-0">
+				<div class="footer-icon  py-3 text-center d-flex justify-content-center">
+					<i class="fa-brands fa-dribbble fs-5 text-gray  border border-secondary border-2 rounded-circle py-3 px-3"></i>
 				</div>
 		</div>
-		<div class="col-2 gx-2 border border-top-0 border-end-0">
-			<div class="footer-icon  py-3 text-center">
-				<i class="fa-brands fa-linkedin-in fs-5 text-gray  border border-gray border-2 rounded-circle py-3 px-3"></i>
+		<div class="col-2  border-grey border-top-0 border-end-0 border-bottom-0">
+			<div class="footer-icon  py-3 text-center d-flex justify-content-center">
+				<i class="fa-brands fa-linkedin-in fs-5 text-gray  border border-secondary  border-2 rounded-circle py-3 px-3"></i>
 			</div>
 	</div>
-	<div class="col-2 gx-2 border border-top-0 border-end">
-		<div class="footer-icon py-3 text-center">
-			<i class="material-symbols-outlined fs-5 text-gray  border border-gray border-2 rounded-circle py-3 px-3">
+	<div class="col-2  border-grey border-top-0 border-bottom-0">
+		<div class="footer-icon py-3 text-center d-flex justify-content-center">
+			<i class="material-symbols-outlined fs-5 text-gray  border border-secondary border-2 rounded-circle py-3 px-3">
 				rss_feed
 			</i>
 			
 		</div>
-</div>
+	</div>
 				</div>
+			</div>
+			
+			<div class="container">
+
+			
 				<div class="row py-5">
 					<div class="col-12 col-md-6 col-lg-3 g-3">
 							<div class="footer-logo d-flex">
