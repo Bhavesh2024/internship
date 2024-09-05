@@ -2,16 +2,25 @@
 	margin: 0;
 	padding: 0;
 	box-sizing: border-box;
+	/* font-family: "Helvetica Neue", Helvetica, Arial, sans-serif !important; */
 }
 /* Utility Classes */
 .icon-color {
 	color: #f44336;
 }
-.navbar {
+.navbar{
 	min-height: 75px;
+	margin: 0 !important;
+	padding: 0 !important;
+	
 }
-.navbar > .container {
+/* .navbar > .container {
 	height: inherit;
+} */
+.navbar .primary-menu{
+	height:75px;
+	border: 1px solid;
+	
 }
 .count {
 	font-size: 10px;
@@ -19,49 +28,45 @@
 	padding: 2px;
 }
 
-.primary-menu:only-child {
-	height: 100%;
+.primary-menu:first-child{
+	position: relative;
 }
-.primary-menu:only-child::before {
+.primary-menu:first-child::after{
 	content: "";
+	height: 5px;
+	width: 100%;
 	position: absolute;
 	top: 0;
-
-	height: 2px;
-	width: 60px;
-	background-color: red;
+	background-color: rgb(255, 34, 0);
+	
 }
 
-.page-submenu,
-.pages-menu,
-.portfolio-menu,
+
+
+.drop-submenu,
 .drop-menu {
 	display: none !important;
 }
-.pages-menu {
+.drop-menu {
 	/* display:none !important; */
 	min-width: 150px;
 }
-.pages-menu > li.nav-item,
 .drop-menu > li.nav-item,
-.page-submenu > li.nav-item,
+.drop-submenu > li.nav-item,
 .portfolio-menu > li.nav-item {
 	padding-inline: 15px;
 }
-.page-submenu {
+.drop-submenu {
 	left: 100px;
 }
 
-.pages:hover ul.pages-menu,
-.third-level-menu:hover ul.page-submenu,
-.portfolio:hover ul.portfolio-menu,
-.blog:hover ul.drop-menu {
+.drop-hover-item:hover ul.drop-menu,
+.third-level-menu:hover ul.drop-submenu{
 	display: block !important;
 }
 
-.pages > .pages-menu > li.nav-item:hover,
-.third-level-menu > .page-submenu > li.nav-item:hover,
-.portfolio > .portfolio-menu > li.nav-item:hover,
+.third-level-menu > .drop-submenu > li.nav-item:hover,
+
 .drop-menu > li.nav-item:hover {
 	background-color: rgba(220, 220, 220, 0.37) !important;
 }
@@ -113,12 +118,16 @@
 }
 
 /* Recent Work */
-.recent-work {
+.recent-work,.testimonial {
 	background-color: rgba(220, 220, 220, 0.47);
 }
-
 .work-image {
 	width: 100%;
+}
+
+/* Testimonial Style */
+.fs-normal{
+	font-size: 15px;
 }
 
 /* Blog Section style */
@@ -131,9 +140,19 @@
 	height: 2px;
 }
 
-.post-date {
+.post-date{
 	color: rgb(132, 130, 130);
 	font-size: 13px;
+}
+.fs-small{
+	font-size: 13px;
+}
+/* Footer Style */
+.text-gray{
+	color: rgba(220, 220, 220, 0.47);
+}
+.border-gray{
+	border-bottom: 1px solid rgba(154, 149, 149, 0.233) !important;
 }
 @media screen and (max-width: 576px) {
 	.slider-image {
