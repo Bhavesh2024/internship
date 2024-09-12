@@ -1,0 +1,41 @@
+*{
+  margin:0;
+  padding:0;
+  box-sizing: border-box;
+}
+
+body{
+  position: relative;
+  width: 100%;
+}
+
+.modal{
+  display:none;
+  position: absolute;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+   padding: 10px;
+   background: aliceblue;
+   border:1px solid gainsboro;
+   width:25%;
+   left:37%;
+   gap:10px;
+   top:50px;
+}
+
+.search,form{
+  width: 100%;
+}
+input{
+  padding: 10px 12px;
+  width: 90%;
+  align-self: center;
+}
+
+@media screen and (max-width:576px) {
+  .modal{
+    width:90%;
+    left:5%;
+  }
+}

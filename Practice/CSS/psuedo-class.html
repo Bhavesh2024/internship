@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+  <style>
+    *{
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+    /* :hover */
+    div.container:hover{
+      background-color: ghostwhite;
+      color: rgb(81, 77, 77);
+    }
+    a:active{
+      color:white;
+      background-color: blue;
+    }
+
+    a:link{
+      color: white;
+      background-color: black;
+    }
+
+    a:visited{
+      color:yellow;
+      background-color: crimson;
+    }
+    div.container:first-child{
+      color:blue
+    }
+    q:lang(single){
+      quotes: "'" "'"; 
+      color:gray;
+      font-size: larger;
+    }
+  </style>
+</head>
+<body>
+    <div class="container">
+      <h1>Psuedo Class</h1>
+      <a href="#active" class="active">I am active</a>
+      <a href="https://adobe.com">I am not visited</a>
+      <a href="https://google.com">I am visited</a>
+    </div>
+    <div id="active">
+      Lorem ipsum dolor sit, amet consectetur adipisicing elit. Perferendis natus, ut neque, cumque repellendus reiciendis architecto, quia velit vero nobis dolor. Totam autem iste mollitia minima ab. Fugit, error suscipit.
+    </div>
+    <q lang="single">Lorem ipsum dolor sit amet consectetur adipisicing elit. Similique autem sit assumenda excepturi ab eius illum debitis rerum iste est quae quisquam, porro quasi delectus nulla, facere dolore, quos asperiores?</q>
+</body>
+</html>

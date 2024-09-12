@@ -1,0 +1,88 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+  <style>
+    *{
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    /* descendant selector*/
+    div.demo1 p{
+      color:blue
+    }
+
+    /* Child Selector */
+    div.box2 > p{
+      color:orange;
+    }
+    div.demo2 > p{
+      color:plum
+    }
+
+    /* Adjacent Selector */
+    div.box3 + p{
+      background: blue;
+      color:white;
+      padding: 10px;
+    }
+
+    /* General Sibling Selector */
+    div.box4 ~ p{
+      background-color: red;
+    }
+  </style>
+</head>
+<body>
+    <div class="demo1">
+      <h1>Descendant Child</h1>
+      <div class="box1">
+        <p>This is paragraph 1</p>
+        <p>This is paragraph 2</p>
+        <p>This is paragraph 3</p>
+        <p>This is paragraph 4</p>
+      </div>
+    </div>
+  <div class="demo2">
+    <h1>Child Selector</h1>
+    <div class="box2">
+      <p>This is paragraph 1</p>
+        <p>This is paragraph 2</p>
+        <p>This is paragraph 3</p>
+        <p>This is paragraph 4</p>
+    </div>
+    <p>This is Paragraph 5</p>
+    <p>This is Paragraph 6</p>
+  </div>
+
+  <div class="demo3">
+    <h1>Adjacent Selector</h1>
+    <div class="box3">
+      <p>This is paragraph 1</p>
+        <p>This is paragraph 2</p>
+        <p>This is paragraph 3</p>
+        <p>This is paragraph 4</p>
+    </div>
+    <p>This is Paragraph 5</p>
+    <p>This is Paragraph 6</p>
+  </div>
+
+  <div class="demo4">
+    <h1>General Sibling Selector</h1>
+    <div class="box4">
+      <p>This is paragraph 1</p>
+        <p>This is paragraph 2</p>
+        <p>This is paragraph 3</p>
+        <p>This is paragraph 4</p>
+    </div>
+    <p>This is Paragraph 5</p>
+    <p>This is Paragraph 6</p>
+  </div>
+
+
+</body>
+</html>

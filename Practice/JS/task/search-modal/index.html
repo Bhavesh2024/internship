@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+  <link rel="stylesheet" href="./style.css">
+</head>
+<body>
+  <div class="modal">
+    <div class="search">
+      <form action="" onsubmit="handleSearch(event)">
+        <input  type="search"  id="search" name="search" placeholder="search here .." oninput="searchData(event)" onchange="checkIsEmpty(event)" value="">
+      </form>
+    </div>
+    <div class="search-result">
+        No Data Found
+    </div>
+  </div>
+  <script src="./script.js"></script>
+</body>
+</html>

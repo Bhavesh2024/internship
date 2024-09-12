@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+</head>
+<body>
+  
+  <button id="myButton">Click Me</button>
+  <script>
+//      Add Click Event: Write JavaScript code to add a click event listener to a button with the `id` "myButton". When the button is clicked, it should display an alert saying "Button Clicked!".
+// - Remove Event Listener: Write JavaScript code to remove the click event listener from the button after it has been clicked once. Assume you have already added the listener to the button.
+    const btn = document.getElementById('myButton');
+    
+    const messageFunc = ()=>{
+       console.log(isClicked)
+      alert("Button Clicked");
+      btn.removeEventListener('click',messageFunc);
+    }
+  
+      btn.addEventListener('click',messageFunc)
+    
+
+  
+  </script>
+</body>
+</html>

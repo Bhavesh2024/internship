@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+</head>
+<body>
+  <script>
+    // Write a JavaScript function performOperation that takes three parameters: two numbers and a string representing the operation ('add', 'subtract', 'multiply', 'divide'). The function should return the result of the specified operation.
+
+    function mathOperation(num1,num2,str){
+       switch(str){
+        case 'add' : return parseInt(num1) + parseInt(num2);
+        break;
+
+        case 'sub' : return num1 - num2;
+        break;
+
+        case 'mul' : return num1 * num2;
+        break;
+
+        case 'div' : return num1 / num2;
+        break;
+       }
+
+       return "No Operation Found"
+    }
+
+    let a = prompt("Enter value for A : ");
+    let b = prompt("Enter value for B : ");
+
+    const operation = prompt("Enter Value from Following to Perform Operation : \n `add` for Addition \n `sub` for Subtraction \n `mul` for Multiplication \n `div` for Division  ")
+    document.writeln(mathOperation(a,b,operation));
+  </script>
+</body>
+</html>

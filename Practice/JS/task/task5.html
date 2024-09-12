@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+</head>
+<body>
+  <script>
+     async function fetchData(url) {
+       
+       try{
+          const res = await fetch(url);
+          const translate = await fetch('https://translate.googleapis.com/$discovery/rest?version=v3');
+          if(res.ok){
+            console.log(translate);
+            data = await res.json();
+            translateData = await translate.json();
+            console.log(translateData)
+            translateData.translateText(data.title)
+            // data.map((value,index) =>{
+            //   console.log(value)
+            // })
+            console.log(url)
+            console.log(data.userId);
+            console.log(data.id);
+            console.log(data.title)
+            console.log(data.body);
+          
+            
+          }
+        }catch(e){
+          console.log(e);
+        }
+     }
+     const url = "https://jsonplaceholder.typicode.com/posts/1";
+     fetchData(url)
+  </script>
+</body>
+</html>

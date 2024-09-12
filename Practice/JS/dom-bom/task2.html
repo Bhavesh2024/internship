@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+  <style>
+    body{
+      text-align: center;
+      height: 100vh;
+      display: flex;
+      place-items: center;
+      place-content: center;
+      flex-direction: column;
+      gap: 15px;
+    }
+    button{
+      background-color: black;
+      color: white;
+      display: flex;
+      margin:0 auto;
+      padding:10px;
+      border-radius: 10px;
+    }
+    #message{
+      font-size:3rem;
+      font-weight: 700;
+    }
+  </style>
+</head>
+<body>
+    <div id="message">
+      My Message
+    </div>
+    <button id="changeBtn">Change Message</button>
+    <script>
+      let message = document.getElementById('message');
+      const changeBtn = document.getElementById('changeBtn');
+
+      changeBtn.addEventListener('click',() =>{
+        message.innerHTML = "Message Updated";
+      })
+    </script>
+</body>
+</html>

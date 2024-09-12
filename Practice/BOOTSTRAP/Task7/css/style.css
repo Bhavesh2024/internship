@@ -1,8 +1,13 @@
+@import url('https://fonts.googleapis.com/css2?family=Roboto+Slab:wght@100..900&display=swap');
+
 * {
 	margin: 0;
 	padding: 0;
 	box-sizing: border-box;
 	/* font-family: "Helvetica Neue", Helvetica, Arial, sans-serif !important; */
+}
+h1,h2,h3,h4,h5{
+	font-family: Roboto Slab,serif;
 }
 /* Utility Classes */
 .icon-color {
@@ -94,7 +99,7 @@
 	min-height: 90vh;
 }
 .slide-heading {
-	font-size: 4rem;
+	font-size: 3rem;
 }
 
 .dot {
@@ -116,14 +121,17 @@
 }
 .icon-container {
 	color: #f44336;
+	border-radius: 100%;
 }
 .icon-container:hover {
-	border-radius: 100%;
-
 	background-color: #f44336;
 	color: white;
+	opacity: 1;
+	transition:all .5s ease-in;
 }
-
+.author{
+	font-weight: 400 !important;
+}
 /* Recent Work */
 .recent-work,
 .testimonial {
@@ -165,8 +173,94 @@
 .border-grey {
 	border: 1px solid rgba(154, 149, 149, 0.233) !important;
 }
+
+.show{
+	display:block !important;
+}
+
+.ff-roboto-slab{
+	font-family: Roboto Slab, 'Open Sans', Arial, sans-serif;
+}
+.footer-icon:hover{
+	color:white !important;
+	/* background-color: blue !important; */
+}
+
+.slide-content{
+	font-size:2.3rem !important;
+}
+.carousel-caption{
+	gap:10%;
+}
 @media screen and (max-width: 576px) {
+	.menu-list{
+		display: none;
+			
+		right:10% !important;
+		top:20%;
+		
+		min-width: 60% !important;
+		
+	}
 	.slider-image {
 		min-height: 40vh;
 	}
+	.slide-heading {
+		font-size: 1.5rem;
+	}
+	.carousel-caption{
+		gap:15px;
+	}
+	.slide-content{
+		font-size:1rem !important;
+	}
+	.navbar{
+		position: relative;
+	}
+
+.drop-menu > li.nav-item:hover a.nav-link,.third-level-menu > .drop-submenu > li.nav-item:hover a.nav-link{
+	color: rgb(23, 1, 1) !important;
+}
+.third-level-menu > .drop-submenu > li.nav-item a.nav-link{
+	color: white !important;
+}
+	
+}
+
+@media screen and (max-width:991px){
+	.menu-list{
+		display: none;
+		
+		/* z-index: 100; */
+		
+		right:20%;
+		top:20%;
+		position: absolute;
+		/* position:relative; */
+		min-width: 40%;
+		
+	}
+		
+	.primary-menu{
+	
+		display:block !important;
+	}
+	.primary-menu li{
+		background-color: red;
+		position: static;
+	}
+	.primary-menu li{
+		display: flex;
+		flex-direction: column;
+	}
+	.primary-menu > li > ul{
+		position:initial !important;
+		z-index:10;
+	
+	}
+	
+	.primary-menu li a.nav-link{
+		color:white !important
+	}
+	
 }

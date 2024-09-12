@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+  <style>
+    *{
+      margin:0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    body{
+      display:flex;
+      justify-content: center;
+      align-items: center;
+
+      height: 100vh;
+    }
+    input{
+      padding:12px;
+    }
+
+    input[type='submit']{
+      background-color: black;
+      border-radius: 5px;
+      color:white;
+      width: 100px;
+    }
+  </style>
+</head>
+<body>
+    <form onsubmit="redirect()">
+        <input type="url" name="url" id="url" placeholder="Enter a URL" required>
+        <input type="submit" name="submit" value="Submit">
+    </form>
+    <script>
+      // document.writeln(window.location.href)
+      const currentURL = window.location.href;
+      var urlInput = document.getElementById('url').value = currentURL;
+
+      function redirect(e){
+          
+        // e.preventDefault();
+        const url = document.getElementById('url').value;
+        window.location.href = url;
+          alert(url);
+          // console.log("Hello")
+      }
+    </script>
+</body>
+</html>

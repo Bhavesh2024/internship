@@ -1,0 +1,124 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+  <style>
+    *{
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+      font-family: Calibri, 'Trebuchet MS', sans-serif;
+    }
+
+    :root{
+      --light-theme:black;
+      --dark-theme :white;
+    }
+    .container{
+      width:20% ;
+      height: 100vh;
+      border-right: 1px solid gainsboro;
+      background-color: rgb(255, 237, 218);
+    }
+    .drop-arrow{
+      display: inline-block;
+  font-size: 24px; /* Adjust size as needed */
+  transform: rotate(180deg); /* Rotate less-than sign to point downwards */
+  color: rgb(184, 177, 177);
+  line-height: 1; /* Adjust line-height to align with other text */
+  transition: all .2s ease-in-out;
+
+    }
+    .header{
+      display:flex;
+      justify-content: space-between;
+      align-items: center;
+      padding: 10px;
+      border-bottom: 1px solid gainsboro;
+      background-color: var(--light-theme);
+      color:var(--dark-theme);
+      
+    }
+
+    .close{
+      font-size: 1.7rem;
+    }
+    .menu{
+      margin: 15px;
+    }
+    .menu  ul{
+      list-style: none;
+      
+    }
+    
+
+    .drop-menu{
+      display: flex;
+      justify-content: space-between;
+      align-items:center;
+      
+    }
+    .menu > ul > li > ul{
+      display: none;
+      margin-left: 15px;
+    }
+    a{
+      width: 100%;
+      display: block;
+      padding: 10px;
+      text-decoration:none;
+      color: var(--light-theme);
+    }
+    .menu ul > li > a:hover{
+      background-color:var(--light-theme);
+      color: var(--dark-theme);
+    }
+    .menu > ul > li:hover ul{
+      display: block;
+    }
+    .menu > ul > li:hover .drop-arrow{
+      /* animation: turn 0.5s linear; */
+      /* transition: all .2s ease-in-out; */
+      transform: rotate(0deg);
+    }
+
+    /* @keyframes turn {
+        0%{
+          background-color: white;
+          transform: rotate(180deg);
+        }
+        100%{
+          background-color: red;
+        }
+    } */
+  </style>
+</head>
+<body>
+  <div class="container">
+    <div class="header">
+      <h1>Menu</h1>
+      <span class="close">&times;</span>
+    </div>
+    <div class="menu">
+       <ul>
+        <li><a href="#">Home </a></li>
+        <li><a href="#">About </a></li>
+        <li><a class="drop-menu">
+          <span>Product</span ><span class="drop-arrow">^</span></a>
+          <ul >
+            <li><a href="#">Product 1 </a></li>
+            <li><a href="#">Product 2 </a></li>
+            <li><a href="#">Product 3 </a></li>
+            <li><a href="#">Product 4 </a></li>
+          </ul>
+        <li><a href="#">Contact</li>
+       </ul>
+    </div>
+    <div class="footer">
+
+    </div>
+  </div>
+</body>
+</html>

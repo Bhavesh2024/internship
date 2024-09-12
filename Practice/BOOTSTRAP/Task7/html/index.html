@@ -35,9 +35,12 @@
 						/>&nbsp;
 						<h2 class="fw-light">Primary</h2>
 					</div>
-					<div class="menu-list h-100">
-						<ul class="nav primary-menu ">
-							<li class="nav-item active d-flex align-items-center ">
+					<div class="bar-icon">
+						<i class="fa-solid fa-bars fs-2 d-inline d-lg-none"></i>
+					</div>
+					<div class="menu-list h-100" id="menuList">
+						<ul class="nav primary-menu">
+							<li class="nav-item active d-flex align-items-center  justify-content-center">
 								<a
 									href="#"
 									class="nav-link text-secondary fw-lighter "
@@ -230,11 +233,11 @@
 									>Shortcodes</a
 								>
 							</li>
-							<!-- <button
-								class="shopping-cart-icon btn h-100 "
+						 <button
+								class="shopping-cart-icon btn h-100 position-relative d-none d-lg-block"
 							>
 							<span
-								class="count rounded-circle px-1 position-absolute bottom-5  end-0  ms-5 "
+								class="count rounded-circle px-1 position-absolute bottom-5 top-0 end-0 mt-3  ms-5 "
 								>0</span
 							>
 								<i
@@ -242,11 +245,7 @@
 								></i>
 								
 						</button>
-						<button type="button" class="btn position-relative">
-							<i
-									class="fa-solid fa-basket-shopping text-secondary position-relative"
-								></i> <span class="position-absolute top-0 start-100 translate-middle badge border border-light rounded-circle bg-danger p-1"><span class="visually-hidden">unread messages</span></span>
-						  </button> -->
+						
 						</ul>
 					</div>
 				</div>
@@ -275,9 +274,9 @@
 								class="slider-image d-block w-100"
 							/>
 							<div
-								class="carousel-caption d-none d-md-flex flex-column justify-content-center"
+								class="carousel-caption d-flex flex-column justify-content-center"
 							>
-								<p class="fs-1 fw-light mb-5">
+								<p class="slide-content fw-light">
 									Our Company Help With Your Problem
 								</p>
 								<h1 class="slide-heading my-3">
@@ -286,7 +285,7 @@
 									>Perfect
 								</h1>
 								<button
-									class="btn rounded-0 p-2 px-3 purchase-btn text-white d-flex mx-auto my-5"
+									class="btn rounded-0 p-2 px-3 purchase-btn text-white d-flex mx-auto"
 								>
 									Purchase now
 								</button>
@@ -299,16 +298,16 @@
 								class="slider-image d-block w-100"
 							/>
 							<div
-								class="carousel-caption d-none d-md-flex flex-column justify-content-center"
+								class="carousel-caption d-flex flex-column justify-content-center"
 							>
-								<h1 class="slide-heading my-5">
+								<h1 class="slide-heading">
 									Primary - Made for Real Business
 								</h1>
-								<p class="fs-1 fw-light mb-3">
+								<p class=" slide-content fw-light">
 									Every Line of Code Written With Love
 								</p>
 								<button
-									class="btn rounded-0 p-2 px-3 purchase-btn text-white d-flex mx-auto my-5"
+									class="btn rounded-0 p-2 px-3 purchase-btn text-white d-flex mx-auto"
 								>
 									Purchase now
 								</button>
@@ -426,7 +425,7 @@
 								class="work-image"
 							/>
 							<div class="work-card-footer p-2 bg-white">
-								<div class="work-title fs-3 text-secondary">
+								<div class="work-title fs-3 text-secondary ff-roboto-slab">
 									Paint Drips
 								</div>
 								<div class="author text-secondary fw-light">
@@ -444,7 +443,7 @@
 								class="work-image"
 							/>
 							<div class="work-card-footer p-2 bg-white">
-								<div class="work-title fs-3 text-secondary">
+								<div class="work-title fs-3 text-secondary ff-roboto-slab">
 									Pantone Time!
 								</div>
 								<div class="author text-secondary fw-light">
@@ -463,7 +462,7 @@
 								class="work-image"
 							/>
 							<div class="work-card-footer p-2 bg-white">
-								<div class="work-title fs-3 text-secondary">
+								<div class="work-title fs-3 text-secondary ff-roboto-slab">
 									House / RPG
 								</div>
 								<div class="author text-secondary fw-light">
@@ -481,7 +480,7 @@
 								class="work-image"
 							/>
 							<div class="work-card-footer p-2 bg-white">
-								<div class="work-title fs-3 text-secondary">
+								<div class="work-title fs-3 text-secondary ff-roboto-slab">
 									Map pins – heart
 								</div>
 								<div class="author text-secondary fw-light">
@@ -499,7 +498,7 @@
 								class="work-image"
 							/>
 							<div class="work-card-footer p-2 bg-white">
-								<div class="work-title fs-3 text-secondary">
+								<div class="work-title fs-3 text-secondary ff-roboto-slab">
 									Handbook for Brands
 								</div>
 								<div class="author text-secondary fw-light">
@@ -517,10 +516,10 @@
 								class="work-image"
 							/>
 							<div class="work-card-footer p-2 bg-white">
-								<div class="work-title fs-3 text-secondary">
+								<div class="work-title fs-3 text-secondary ff-roboto-slab">
 									First shot
 								</div>
-								<div class="author text-secondary fw-light">
+								<div class="author text-secondary">
 									by Tiago Calliari
 								</div>
 							</div>
@@ -536,11 +535,11 @@
 		</section>
 		<section class="our-service my-5">
 			<div class="container text-center">
-				<h1 class="fw-light text-secondary text-center">
+				<h1 class="fw-light text-secondary text-center ff-roboto-slab">
 					Our Services
 				</h1>
 				<div class="red-line my-3 mx-auto"></div>
-				<p class="text-secondary mb-5">Core Features</p>
+				<p class="text-secondary mb-5 fw-light">Core Features</p>
 				<div class="row">
 					<div class="col-12 col-md-6 col-xl-4 g-5">
 						<div class="service-card text-secondary d-flex">
@@ -550,7 +549,7 @@
 								></i>
 							</div>
 							<div class="service-card-col-2 pt-1">
-								<h5 class="fs-5 fw-light text-start">
+								<h5 class="fw-light text-start ff-roboto-slab service-name">
 									High Quality Code
 								</h5>
 								<p class="text-start fw-light mt-3">
@@ -570,7 +569,7 @@
 								</span>
 							</div>
 							<div class="service-card-col-2 pt-1">
-								<h5 class="fs-5 fw-light text-start">
+								<h5 class="fw-light text-start ff-roboto-slab service-name">
 									Seo Optimized
 								</h5>
 								<p class="text-start fw-light mt-3">
@@ -590,7 +589,7 @@
 								</span>
 							</div>
 							<div class="service-card-col-2 pt-1">
-								<h5 class="fs-5 fw-light text-start">
+								<h5 class="fw-light text-start ff-roboto-slab service-name">
 									Tons of Shortcodes
 								</h5>
 								<p class="text-start fw-light mt-3">
@@ -610,7 +609,7 @@
 								</span>
 							</div>
 							<div class="service-card-col-2 pt-1">
-								<h5 class="fs-5 fw-light text-start">
+								<h5 class="fw-light text-start ff-roboto-slab service-name">
 									Responsive Ready
 								</h5>
 								<p class="text-start fw-light mt-3">
@@ -630,7 +629,7 @@
 								</span>
 							</div>
 							<div class="service-card-col-2 pt-1">
-								<h5 class="fs-5 fw-light text-start">
+								<h5 class="fw-light text-start ff-roboto-slab service-name">
 									Easy to Customize
 								</h5>
 								<p class="text-start fw-light mt-3">
@@ -650,7 +649,7 @@
 								</span>
 							</div>
 							<div class="service-card-col-2 pt-1">
-								<h5 class="fs-5 fw-light text-start">
+								<h5 class="fw-light text-start ff-roboto-slab service-name">
 									Well Documented
 								</h5>
 								<p class="text-start fw-light mt-3">
@@ -667,7 +666,7 @@
 		<!-- Testimonial Section -->
 		 <section class="testimonial py-5">
 				<div class="container">
-					<h1 class="text-center text-secondary fw-light my-3">Testimonials</h1>
+					<h1 class="text-center fw-light my-3">Testimonials</h1>
 					<div class="red-line m-auto my-2"></div>
 					<p class="text-center text-secondary fw-light my-2">Happy Costumers</p>
 					<div class="row justify-content-center">
@@ -723,7 +722,7 @@
 
 		<section class="blog my-5">
 			<div class="container text-center">
-				<h1 class="text-secondary fw-lighter">From Blog</h1>
+				<h1 class=" fw-light">From Blog</h1>
 				<div class="red-line m-auto my-3"></div>
 				<p class="fw-light">Awesome Post</p>
 				<div class="row">
@@ -796,32 +795,32 @@
 					
 					<div class="col-2 border-grey border-top-0 border-end-0 border-bottom-0 ">
 							<div class="footer-icon  py-3 text-center d-flex justify-content-center">
-								<i class="fa-brands fa-facebook-f fs-5  text-gray  border border-secondary  border-2  rounded-circle py-3 px-3" ></i>
+								<i class="fa-brands fa-facebook-f fs-5    border border-secondary  border-2  rounded-circle py-3" style="padding-inline: 20px"></i>
 							</div>
 					</div>
 					<div class="col-2  border-grey border-bottom-0">
 						<div class="footer-icon  py-3 text-center border-top-0 border-end-0  d-flex justify-content-center">
-							<i class="fa-brands fa-twitter fs-5 text-gray  border border-secondary border-2 rounded-circle py-3 px-3"></i>
+							<i class="fa-brands fa-twitter fs-5   border border-secondary border-2 rounded-circle py-3 px-3"></i>
 						</div>
 				</div>
 				<div class="col-2  ">
 					<div class="footer-icon  py-3 text-center d-flex justify-content-center">
-						<i class="fa-brands fa-google-plus-g fs-5 text-gray  border border-secondary  border-2 rounded-circle py-3 px-3"></i>
+						<i class="fa-brands fa-google-plus-g fs-5   border border-secondary  border-2 rounded-circle py-3 px-3"></i>
 					</div>
 			</div>
 			<div class="col-2 border-grey border-top-0 border-end-0 border-bottom-0">
 				<div class="footer-icon  py-3 text-center d-flex justify-content-center">
-					<i class="fa-brands fa-dribbble fs-5 text-gray  border border-secondary border-2 rounded-circle py-3 px-3"></i>
+					<i class="fa-brands fa-dribbble fs-5   border border-secondary border-2 rounded-circle py-3 px-3"></i>
 				</div>
 		</div>
 		<div class="col-2  border-grey border-top-0 border-end-0 border-bottom-0">
 			<div class="footer-icon  py-3 text-center d-flex justify-content-center">
-				<i class="fa-brands fa-linkedin-in fs-5 text-gray  border border-secondary  border-2 rounded-circle py-3 px-3"></i>
+				<i class="fa-brands fa-linkedin-in fs-5  border border-secondary  border-2 rounded-circle py-3 px-3"></i>
 			</div>
 	</div>
 	<div class="col-2  border-grey border-top-0 border-bottom-0">
 		<div class="footer-icon py-3 text-center d-flex justify-content-center">
-			<i class="material-symbols-outlined fs-5 text-gray  border border-secondary border-2 rounded-circle py-3 px-3">
+			<i class="material-symbols-outlined fs-5   border border-secondary border-2 rounded-circle py-3 px-3">
 				rss_feed
 			</i>
 			
@@ -876,6 +875,7 @@
 				<div class="col-12 col-md-6 col-lg-3 g-3">
 				
 					<h2 class="menu-title fw-light text-gray fs-3 ">Flickr Photos</h2>
+					<img src="../image/flickr.png" alt="" style="width: 90%;">
 				
 	
 		</div>

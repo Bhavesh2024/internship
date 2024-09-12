@@ -1,0 +1,103 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+  <link rel="stylesheet" href="./style.css">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.6.0/css/all.min.css">
+</head>
+<body>
+  <div class="container">
+    <div class="user-data-form">
+        <form onsubmit="storeData(event)" id="register-form">
+            <fieldset>
+              <legend>Register Form</legend>
+              <div class="form-input">
+                 <input type="text" id="fname" name="fname" placeholder="First Name" oninput='validateData(event)' required>
+                 <input type="text" id="lname" name="lname" placeholder="Last Name" oninput="validateData(event)" required>
+              </div>
+              <div class="form-input">
+                <input type="number" id="age" name="age" placeholder="Your Age" oninput="validateData(event)" required>
+              </div>
+              <div class="form-input">
+                <input type="tel" id="phone" name="phone" placeholder="Phone Number" oninput="validateData(event)" required>
+              </div>
+              <div class="form-input">
+                <input type="email" id="email" name="email" placeholder="Email" oninput="validateData(event)" required>
+              </div>
+              <div class="form-input">
+                <input type="password" id="password" name="password" placeholder="Password" oninput="validateData(event)" required>
+                <i class="fa-solid fa-eye icon"></i>
+              </div>
+              <div class="form-input">
+                <button type="submit" class="submit-btn">Submit</button>
+              </div>
+            </fieldset>
+        </form>
+        <div class="user-data">
+            <table>
+              <tr>
+                <th>Id</th>
+                <td>1</td>
+              </tr>
+              <tr>
+                <th>Name</th>
+                <td>Bhavesh Parmar</td>
+              </tr>
+              <tr>
+                <th>Age</th>
+                <td>20</td>
+              </tr>
+              <tr>
+                <th>Contact</th>
+                <td>9723884857</td>
+              </tr>
+              <tr>
+                <th>Email</th>
+                <td>bparmar1722004@gmail.com</td>
+              </tr>
+              <tr>
+                <th>Password</th>
+                <td>Bhavesh@1724</td>
+              </tr>
+            </table>
+        </div>
+    </div>
+    <div class="search-user">
+       <form action="" onsubmit="handleSearchResult(event)" id="searchUser">
+          <div class="form-input">
+            <input type="search" id="search" name="search" placeholder="Search here..." oninput="searchData(event)">
+            <i class="fa-solid fa-magnifying-glass icon"></i>
+          </div>
+       </form>
+       <div class="search-result">
+           <table>
+              <thead>
+                <th>Id</th>
+                <th>Name</th>
+                <th>Age</th>
+                <th>Phone</th>
+                <th>Email</th>
+                <th>Password</th>
+              </thead>
+              <tbody>
+                <tr>
+                  <td>1</td>
+                  <td>Bhavesh Parmar</td>
+                  <td>20</td>
+                  <td>9723884857</td>
+                  <td>bparmar1722004@gmail.com</td>
+                  <td>Bhavesh@1724</td>
+                </tr>
+              </tbody>
+              <tbody>
+
+              </tbody>
+           </table>
+       </div>
+    </div>
+  </div>
+  <script src="./script.js"></script>
+</body>
+</html>

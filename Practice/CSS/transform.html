@@ -1,0 +1,87 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+  <style>
+    *{
+      margin:0;
+      padding: 0;
+      box-sizing: border-box;
+      font-family: 'Courier New', Courier, monospace;
+    }
+
+    body{
+      height: 100vh;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+    }
+    .container{
+      display: grid;
+      grid-template-columns:200px 200px 200px;
+      flex-wrap: wrap;
+      padding:20px;
+      gap: 10px;
+      justify-content: center;
+      border:1px solid;
+      background-color: rgb(198, 235, 193);
+    }
+    .box{
+      background-color: gainsboro;
+      border:1px solid grey;
+      height:150px;
+      width: 150px;
+      display: flex;
+      margin:0 auto;
+      transition:all 1s ease-in;
+      justify-content: center;
+      align-items: center;
+    }
+
+    .box:nth-child(1):hover{
+      transform:rotateX(90deg);
+    }
+    .box:nth-child(2):hover{
+      transform: rotateY(360deg);
+    }
+    .box:nth-child(3):hover{
+      transform: rotateZ(40deg);
+    }
+
+    .box:nth-child(4):hover{
+      transform: skew(30deg);
+    }
+    .box:nth-child(5):hover{
+      transform: skewX(60deg);
+    }
+    .box:nth-child(6):hover{
+      transform: skewY(90deg);
+    }
+    .box:nth-child(7):hover{
+      transform: translate(-150px);
+    }
+    .box:nth-child(8):hover{
+      transform: translateX(100px);
+    }
+    .box:nth-child(9):hover{
+      transform: translateY(50px);
+    }
+    
+  </style>
+</head>
+<body>
+    <div class="container">
+      <div class="box">rotateX</div>
+      <div class="box">roateY</div>
+      <div class="box">rotateZ</div>
+      <div class="box">skew</div>
+      <div class="box">skewX</div>
+      <div class="box">skewY</div>
+      <div class="box">translate</div>
+      <div class="box">translateX</div>
+      <div class="box">translateY</div>
+    </div>
+</body>
+</html>

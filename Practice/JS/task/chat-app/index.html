@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="./style.css">
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@20..48,100..700,0..1,-50..200" />
+    
+  </head>
+  <body>
+  <span class="material-symbols-outlined delete-ic hidden">
+    delete
+    </span>
+  <div class="container">
+    <div class="header">
+        <img src="./person.png" alt="Chat Person" title="Chat Person" height="40" width="40" class="person-image">
+        <span class="person-name">Bhavesh Parmar</span>
+    </div>
+    <div class="content" id="chatbox">
+       <!-- <div class="message-right">Hi  -->
+         <!-- <div class="message-left">Hello How are you<br> I am fine and you</div> -->
+       <!-- <div class="delete-modal">
+           <button class="delete"><span class="material-symbols-outlined">
+             delete
+             </span> Delete </button>
+       </div></div> -->
+       
+    </div>
+    <div class="footer">
+      <form id="chat-form" onsubmit="handleChat(event)">
+        <div class="chat">
+          <input type="text" name="message" id="message" placeholder="Write your message.." multiline>
+          <button type="submit" name="" class="submit"><span class="material-symbols-outlined">
+            send
+            </span></button>
+        </div>
+      </form>
+    </div>
+  </div>
+  <script src="./script.js"></script>
+</body>
+</html>

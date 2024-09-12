@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+  <style>
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    body {
+      height: 100vh;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+    }
+
+    input {
+      padding: 12px;
+    }
+
+    input[type="submit"] {
+      width: 100px;
+      background-color: black;
+      color: white;
+      margin: 0 auto;
+      border-radius: 10px;
+    }
+
+    form {
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      gap: 10px;
+      width: 350px;
+    }
+  </style>
+</head>
+<body>
+
+    <form id="form">
+      <input type="text" id="name" placeholder="Full Name" required>
+      <input type="number" id="age" placeholder="Age" required>
+      <input type="tel" id="phone" placeholder="Phone Number" required>
+      <input type="email" id="email" placeholder="Email" required>
+      <input type="password" id="password" placeholder="Password" required>
+
+      <input type="submit" name="submit" value="Submit">
+    </form>
+    <script>
+      document.getElementById('form').addEventListener('submit', function(event) {
+        event.preventDefault(); 
+
+        const nameInput = document.getElementById('name').value;
+        const phoneInput = document.getElementById('phone').value;
+        const passwordInput = document.getElementById('password').value;
+
+    
+        const namePattern = /^[a-zA-Z\s]+$/;
+        if (!namePattern.test(nameInput)) {
+          console.log("Name is not in a valid format");
+        }
+
+      
+        const phonePattern = /^\d+$/; 
+        if (!phonePattern.test(phoneInput)) {
+          console.log("Phone number is not in a valid format");
+        }
+
+      
+        const passwordPattern = /^(?=.*[a-z])(?=.*[A-Z])(?=.*\d)(?=.*[@$!%*?&])[A-Za-z\d@$!%*?&]{8,}$/;
+       
+        if (!passwordPattern.test(passwordInput)) {
+          console.log("Password must be at least 8 characters long, include one uppercase letter, one lowercase letter, one digit, and one special character");
+        }
+      });
+    </script>
+</body>
+</html>

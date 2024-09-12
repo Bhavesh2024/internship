@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+</head>
+<body>
+    <script>
+        // String Function: Write a function formatString that takes a number and a string, converts the number to a string, and concatenates it with the provided string. For example, formatString(123, "is your number") should return "123 is your number".
+        function formatString(num,str){
+          console.log(typeof(num));
+
+          document.writeln(num +" " +str);
+          console.log(num + str);
+        }
+        const num = parseInt(prompt("Enter a number : "));
+        const str = prompt("Enter a Postfix Message : ");
+
+        formatString(num,str)
+
+    </script>
+</body>
+</html>
