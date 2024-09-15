@@ -27,8 +27,8 @@
                 <input type="email" id="email" name="email" placeholder="Email" oninput="validateData(event)" required>
               </div>
               <div class="form-input">
-                <input type="password" id="password" name="password" placeholder="Password" oninput="validateData(event)" required>
-                <i class="fa-solid fa-eye icon"></i>
+                <input type="password" id="password" autocomplete="current-password" name="password" placeholder="Password" oninput="validateData(event)" required>
+                <i class="fa-solid fa-eye fa-eye-slash icon" onclick="togglePassword(event)"></i>
               </div>
               <div class="form-input">
                 <button type="submit" class="submit-btn">Submit</button>
@@ -39,27 +39,27 @@
             <table>
               <tr>
                 <th>Id</th>
-                <td>1</td>
+                <td class="data"></td>
               </tr>
               <tr>
                 <th>Name</th>
-                <td>Bhavesh Parmar</td>
+                <td class="data"></td>
               </tr>
               <tr>
                 <th>Age</th>
-                <td>20</td>
+                <td class="data"></td>
               </tr>
               <tr>
                 <th>Contact</th>
-                <td>9723884857</td>
+                <td class="data"></td>
               </tr>
               <tr>
                 <th>Email</th>
-                <td>bparmar1722004@gmail.com</td>
+                <td class="data"></td>
               </tr>
               <tr>
                 <th>Password</th>
-                <td>Bhavesh@1724</td>
+                <td class="data"></td>
               </tr>
             </table>
         </div>
@@ -83,12 +83,12 @@
               </thead>
               <tbody>
                 <tr>
-                  <td>1</td>
+                  <!-- <td>1</td>
                   <td>Bhavesh Parmar</td>
                   <td>20</td>
                   <td>9723884857</td>
                   <td>bparmar1722004@gmail.com</td>
-                  <td>Bhavesh@1724</td>
+                  <td>Bhavesh@1724</td> -->
                 </tr>
               </tbody>
               <tbody>
