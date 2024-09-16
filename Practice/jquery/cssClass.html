@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.7.1/jquery.min.js"></script>
+  <style>
+     .dark{
+      background-color:darkblue;
+      color:white;
+     }
+
+     .yellow{
+      background-color: yellow;
+     }
+
+     .blue{
+      background-color: blue;
+     }
+  </style>
+</head>
+<body>
+     <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. </p>
+     <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. </p>
+     <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. </p>
+
+      <button id="add">Add</button>
+      <button id="remove">Remove</button>
+      <button id="toggle">Toggle</button>
+      <script>
+        const classes = ['red','yellow','blue']
+        $(document).ready(function(){
+           $('#add').click(function(){
+              $('p').addClass(`dark`)
+           })
+           $('#remove').click(function(){
+            $('p').removeClass(`dark`)
+
+          })
+          $('#toggle').click(function(){
+            $('p').toggleClass(`dark`)
+            
+          })
+
+        })
+      </script>
+</body>
+</html>

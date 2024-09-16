@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.7.1/jquery.min.js"></script>
+
+</head>
+<body>
+    <div>
+      <ul>
+        <li>
+          <span>1.1</span>
+          <span>1.2</span>
+        </li>
+        <li>
+          <span>2.1</span>
+          <span>2.2</span>
+          <span>2.3<ul>
+              <li>
+                <span>2.3.1</span>
+              </li>
+              <li>
+                <span>2.3.2</span>
+              </li>
+          </ul></span>
+        </li>
+        <li>
+          <span>
+             3.1
+          </span>
+        </li>
+      </ul>
+    </div>
+    <h1>1</h1>
+    <h2>2</h2>
+    <h3>3</h3>
+    <h4>4</h4>
+    <h5>5</h5>
+    <h6>6</h6>
+    <script>
+
+      $(document).ready(function(){
+          console.log($('span').siblings());
+          console.log($('li').next())
+          console.log($('span').nextAll())
+          console.log($('h1').nextUntil('h5'));
+          console.log($('li').prev())
+          console.log($('h6').prevAll());
+      })
+
+    </script>
+</body>
+</html>

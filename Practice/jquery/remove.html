@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.7.1/jquery.min.js"></script>
+  <style>
+    #mydiv{
+      min-height: 100px;
+      padding: 10px;
+      width: 200px;
+      background-color: aliceblue;
+    }
+  </style>
+</head>
+<body>
+  <div id="mydiv">
+    <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit.</p>
+    <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit.</p>
+    <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit.</p>
+    <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit.</p>
+  </div>
+  <button id="remove">Remove</button>
+  <button id="empty">Empty</button>
+    <script>
+
+      $(function(){
+        $("#remove").click(function(){
+          $('#mydiv').remove();
+        })
+        $("#empty").click(function(){
+
+          $('#mydiv').empty();
+        })
+      })
+    </script>
+</body>
+</html>

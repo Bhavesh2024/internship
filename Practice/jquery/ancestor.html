@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.7.1/jquery.min.js"></script>
+
+</head>
+<body> great great grand parent
+    <div> great grand parent
+      <ul> grand parent
+        <li> parent
+          <span>child</span>
+        </li>
+      </ul>
+    </div>
+
+    <script>
+       $(document).ready(function(){
+        console.log($('span').parent());
+         console.log($('span').parents());
+         console.log($('span').parentsUntil('body'))
+       })
+    </script>
+</body>
+</html>

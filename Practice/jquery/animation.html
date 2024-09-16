@@ -1,0 +1,102 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.7.1/jquery.min.js"></script>
+  <style>
+    .container{
+      position: relative;
+      height: 60vh;
+    }
+    .container > div{
+      height: 100px;
+      width: 100px;
+      background: aliceblue;
+      border: 1px solid;
+      border-radius: 10px;
+      position:absolute;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+    }
+    #box1{
+      top:0;
+      left:0;
+    }
+    #box2{
+      top:0;
+      right: 0;
+    }
+    #box3{
+      bottom:0;
+      left:0;
+    }
+    #box4{
+      bottom: 0;
+      right:0;
+    }
+  </style>
+</head>
+<body>
+  <div class="container">
+    <div id="box1">
+  
+      <button id="moveTopLeft">move Left</button>
+    </div>
+    <div id="box2">
+      <button id="moveTopRight">move Right</button>
+  
+    </div>
+    <div id="box3">
+      
+      <button id="moveBottomLeft">move Left</button>
+    </div>
+    <div id="box4">
+      
+      <button id="moveBottomRight">move Right</button>
+    </div>
+  </div>
+
+
+
+  <script>
+    $(document).ready(function(){
+        $('#moveTopLeft').on('click',function(){
+          $('#box1').animate({
+            // position:'absolute',
+            left:'+=400px',
+            opacity:'toggle'
+          },1000)
+        })
+        $('#moveTopRight').on('click',function(){
+          $('#box2').animate({
+            // position:'absolute',
+            right:'+=400px',
+          },2000).css('background-color','red')
+        })
+        $('#moveBottomLeft').on('click',function(){
+          $('#box3').animate({
+            // position:'absolute',
+            left:'+=400px'
+          },3000)
+          setTimeout(()=>{
+            $(this).animate({
+              background:'red',
+              padding:'10px',
+            })
+          },3000)
+          
+        })
+        $('#moveBottomRight').on('click',function(){
+          $('#box4').animate({
+            // position:'absolute',
+            right:'+=400px'
+          },4000)
+        })
+
+    })
+  </script>
+</body>
+</html>

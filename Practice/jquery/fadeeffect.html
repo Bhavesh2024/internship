@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.7.1/jquery.min.js"></script>
+  <style>
+     
+     div.container{
+      display: flex;
+      gap:20px;
+     }
+     div.effect-container{
+      height: 100px;
+      width: 100px;
+      background-color: gainsboro;
+      border:1px solid;
+      display: flex;
+      flex-direction:column;
+      justify-content: space-evenly;
+      align-items: center;
+      font-size: 2rem;
+     }
+     div.effect-container div{
+       display: none;
+     }
+     #div2,#div3{
+      display: block;
+     }
+  </style>
+</head>
+<body>
+  <div class="container">
+    <div class="effect-container">
+      <div id="div1">
+        1
+      </div>
+      <button id="fadeIn">Fade In</button>
+    </div>
+    <div class="effect-container">
+      <div id="div2">
+        2
+      </div>
+      <button id="fadeOut">Fade Out</button>
+    </div>
+    <div class="effect-container">
+
+      <div id="div3">
+        3
+      </div>
+      <button id="fadeTo">Fade To</button>
+    </div>
+    <div class="effect-container">
+      <div id="div4">
+        4
+      </div>
+      <button id="fadeToggle">Fade Toggle</button>
+
+    </div>
+  </div>
+
+  <script>
+     $(function(){
+        $('#fadeIn').click(function(){
+            $('#div1').fadeIn('slow')
+        })
+        $('#fadeOut').click(function(){
+            $("#div2").fadeOut('fast')
+        })
+        $('#fadeTo').click(function(){
+           $('#div3').fadeTo(3000,0.5)
+        })
+        $('#fadeToggle').click(function(){
+          $('#div4').toggle(2000)
+        })
+
+     })
+  </script>
+</body>
+</html>

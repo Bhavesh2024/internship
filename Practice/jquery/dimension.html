@@ -1,0 +1,98 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.7.1/jquery.min.js"></script>
+
+  <style>
+    body {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      flex-direction: column;
+      gap: 20px;
+    }
+    .mydiv {
+      height:400px;
+      width:400px;
+      border: 1px solid;
+      background-color: azure;
+      padding: 20px;
+      display:flex;
+      justify-content: center;
+      align-items: center;
+    }
+    .data {
+      display: none;
+    }
+    .btn {
+      color: white;
+      background-color: black;
+      padding: 15px;
+      border-radius: 5px;
+      border: none;
+    }
+  </style>
+</head>
+<body>
+  <div class="mydiv">
+    <div class="data">
+      <table>
+        <tr>
+          <th>Width</th>
+          <td>1</td>
+        </tr>
+        <tr>
+          <th>Height</th>
+          <td>2</td>
+        </tr>
+        <tr>
+          <th>InnerWidth</th>
+          <td>3</td>
+        </tr>
+        <tr>
+          <th>InnerHeight</th>
+          <td>4</td>
+        </tr>
+        <tr>
+          <th>OuterWidth</th>
+          <td>5</td>
+        </tr>
+        <tr>
+          <th>OuterHeight</th>
+          <td>6</td>
+        </tr>
+      </table>
+    </div>
+  </div>
+
+  <button class="btn">Show Dimensions</button>
+
+  <!-- Include the script at the end of the body -->
+  <script>
+    $(document).ready(() => {
+      // Store dimension data
+      const dimensionData = [
+        $('.mydiv').width(),
+        $('.mydiv').height(),
+        $('.mydiv').innerWidth(),
+        $('.mydiv').innerHeight(),
+        $('.mydiv').outerWidth(),
+        $('.mydiv').outerHeight()
+      ];
+
+      // Button click event
+      $('.btn').click(function() {
+        $('.data').show(); // Show the data div
+
+        // Update table cells with dimension data
+        $('td').each(function(index) {
+          $(this).text(dimensionData[index]);
+        });
+      });
+    });
+  </script>
+</body>
+</html>

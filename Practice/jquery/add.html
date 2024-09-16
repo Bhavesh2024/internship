@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.7.1/jquery.min.js"></script>
+
+</head>
+<body>
+    <p>Hi,My Name is </p>
+    <button id="append">Append</button>
+    <button id="prepend">Prepend</button>
+    <button id="before">Before</button>
+    <button id="after">After</button>
+    <script>
+        $(document).ready(()=>{
+          $('#append').click(function(){
+             $('p').append('Bhavesh')
+          })
+          $('#prepend').click(function(){
+             $('p').prepend('Het')
+          })
+          $('#before').click(function(){
+             $('p').before('Suresh')
+          })
+          $('#after').click(function(){
+             $('p').after('Satish')
+          })
+        })
+    </script>
+</body>
+</html>

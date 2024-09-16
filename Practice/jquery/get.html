@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.7.1/jquery.min.js"></script>
+
+</head>
+<body>
+   <h1 id="h1">Hello World</h1>
+   <h2 id="h2">Hello, i am bhavesh</h2>
+   <h3 id="h3">How are you</h3>
+   <input type="text" placeholder="Enter You Name" style="padding: 12px;" value="hi">
+   <script>
+     $(function(){
+       console.log($('#h1').text());
+       console.log($('#h2').html());
+       $('input').on('input',function(){
+         
+         console.log($('input').val());
+       })
+       console.log($('input').attr('type'))
+     })
+
+   </script>
+</body>
+</html>

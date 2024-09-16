@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.7.1/jquery.min.js"></script>
+</head>
+<body>
+    <div>
+      <p id="p1">1. Lorem ipsum dolor sit amet consectetur adipisicing elit. Quos fuga labore, doloribus voluptates atque doloremque. Incidunt ducimus praesentium dolor ab reprehenderit reiciendis quo, harum consequuntur quos, dignissimos alias esse minima.</p>
+      <p id="p2">2. Lorem ipsum dolor sit amet consectetur adipisicing elit. Quos fuga labore, doloribus voluptates atque doloremque. Incidunt ducimus praesentium dolor ab reprehenderit reiciendis quo, harum consequuntur quos, dignissimos alias esse minima.</p>
+      <p id="p3">3. Lorem ipsum dolor sit amet consectetur adipisicing elit. Quos fuga labore, doloribus voluptates atque doloremque. Incidunt ducimus praesentium dolor ab reprehenderit reiciendis quo, harum consequuntur quos, dignissimos alias esse minima.</p>
+      <p id="p4">4. Lorem ipsum dolor sit amet consectetur adipisicing elit. Quos fuga labore, doloribus voluptates atque doloremque. Incidunt ducimus praesentium dolor ab reprehenderit reiciendis quo, harum consequuntur quos, dignissimos alias esse minima.</p>
+      <p id="p5">5. Lorem ipsum dolor sit amet consectetur adipisicing elit. Quos fuga labore, doloribus voluptates atque doloremque. Incidunt ducimus praesentium dolor ab reprehenderit reiciendis quo, harum consequuntur quos, dignissimos alias esse minima.</p>
+    </div>
+    <input type="text" placeholder="First name">
+    <input type="text" placeholder="First name">
+    <script>
+      $(document).ready(()=>{
+        $('p').dblclick(function(){
+            $(this).hide();
+        })
+        // $('#p1').mouseenter(function(){
+        //   $(this).hide();
+        // })
+        // $('#p2').mouseleave(function(){
+        //   alert("bye para 2")
+        // })
+        // $('#p3').mouseup(function(){
+        //   alert('mouseup on me');
+        // })
+        // $('#p4').mousedown(function(){
+        //   alert('hi i am 4th paragrah')
+        // })
+        $('#p5').hover(function(){
+          $(this).css('color','royalblue')
+        })
+        $('input').focus(function(){
+           $(this).css('background','aliceblue')
+        })
+        $('input').blur(function(){
+          $(this).css('background','rosybrown')
+        })
+        $('div').on('mouseenter',function(){
+          $(this).css('background','black')
+          $(this).css('color','white')
+        })
+        $('div').on('mouseleave',function(){
+          $(this).css('color','black')
+          $(this).css('background','white')
+        })
+      })
+
+    </script>
+</body>
+</html>

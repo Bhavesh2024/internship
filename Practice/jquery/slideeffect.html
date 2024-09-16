@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.7.1/jquery.min.js"></script>
+  <style>
+    .content div{
+      display: none;
+    }
+    #slide2{
+      display:block;
+    }
+    .read-more{
+      background-color: transparent;
+      border:none;
+      color:gray
+    }
+  </style>
+</head>
+<body>
+  <div class="container">
+    <div class="effect-container">
+      <div class="content">
+        Lorem ipsum dolor sit amet consectetur adipisicing elit. Praesentium reprehenderit est recusandae saepe quas in corrupti consectetur adipisci natus commodi dolorum inventore, atque quod impedit omnis dignissimos dolorem temporibus nostrum modi cupiditate sunt illum. Nemo, quia veniam quasi hic et commodi quaerat ea numquam eligendi expedita modi blanditiis officia voluptas alias accusamus rerum aliquid repudiandae...<button class="read-more" id="slideDownBtn">Read More</button> 
+        <div id="slide1">
+          Quisquam asperiores excepturi neque, modi cum, voluptate consequatur placeat deserunt magnam blanditiis doloremque perferendis voluptatum nam obcaecati beatae? Nesciunt et, earum delectus similique accusamus ratione error beatae soluta asperiores laborum facilis, reiciendis quos placeat ducimus veritatis esse provident illum eveniet optio exercitationem sapiente accusantium blanditiis!
+        </div>
+      </div>
+      <div class="effect-container">
+        <div class="content">
+          Lorem ipsum dolor sit amet consectetur adipisicing elit. Praesentium reprehenderit est recusandae saepe quas in corrupti consectetur adipisci natus commodi dolorum inventore, atque quod impedit omnis dignissimos dolorem temporibus nostrum modi cupiditate sunt illum. Nemo, quia veniam quasi hic et commodi quaerat ea numquam eligendi expedita modi blanditiis officia voluptas alias accusamus rerum aliquid repudiandae...<button class="read-more" id="slideUpBtn">Read More</button> 
+          <div id="slide2">
+            Quisquam asperiores excepturi neque, modi cum, voluptate consequatur placeat deserunt magnam blanditiis doloremque perferendis voluptatum nam obcaecati beatae? Nesciunt et, earum delectus similique accusamus ratione error beatae soluta asperiores laborum facilis, reiciendis quos placeat ducimus veritatis esse provident illum eveniet optio exercitationem sapiente accusantium blanditiis!
+          </div>
+        </div>
+        <div class="effect-container">
+          <div class="content">
+            Lorem ipsum dolor sit amet consectetur adipisicing elit. Praesentium reprehenderit est recusandae saepe quas in corrupti consectetur adipisci natus commodi dolorum inventore, atque quod impedit omnis dignissimos dolorem temporibus nostrum modi cupiditate sunt illum. Nemo, quia veniam quasi hic et commodi quaerat ea numquam eligendi expedita modi blanditiis officia voluptas alias accusamus rerum aliquid repudiandae...<button class="read-more" id="slideToggleBtn">Read More</button> 
+            <div id="slide3">
+              Quisquam asperiores excepturi neque, modi cum, voluptate consequatur placeat deserunt magnam blanditiis doloremque perferendis voluptatum nam obcaecati beatae? Nesciunt et, earum delectus similique accusamus ratione error beatae soluta asperiores laborum facilis, reiciendis quos placeat ducimus veritatis esse provident illum eveniet optio exercitationem sapiente accusantium blanditiis!
+            </div>
+          </div>
+    </div>
+    
+    <script>
+      $(document).ready(function(){
+        $('#slideUpBtn').click(function(){
+            $('#slide2').slideUp('slow');
+        })
+        $('#slideDownBtn').click(function(){
+            $('#slide1').slideDown('slow');
+        })
+        $('#slideToggleBtn').click(function(){
+           $('#slide3').slideToggle(1500)
+        })
+        
+      })
+    </script>
+  </div>
+</body>
+</html>

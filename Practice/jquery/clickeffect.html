@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.7.1/jquery.min.js"></script>
+
+</head>
+<body>
+  <div>
+    <ul>
+      <li>Home</li>
+      <li>About</li>
+      <li>Contact</li>
+      <li>Service</li>
+      <li>Help</li>
+    </ul>
+  </div>
+  <button id="show">Show</button>
+  <button id="hide">Hide</button>
+  <button id="toggle">Toggle</button>
+
+  <script>
+      $(document).ready(function(){
+        $('#show').hide();
+        $('#hide').click(function(){
+          $('ul').hide();
+          $(this).hide();
+          $('#show').show();
+        })
+        $('#show').click(function(){
+          $('ul').show();
+          $('#hide').show();
+          $(this).hide();
+        })
+        $('#toggle').click(function(){
+          $('ul').toggle();
+        })
+      })
+  </script>
+</body>
+</html>
