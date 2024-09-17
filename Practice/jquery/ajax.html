@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.7.1/jquery.min.js"></script>
+
+</head>
+<body>
+    <p class="response"></p>
+    <button class="btn1">Load</button>
+    <button class="btn2">Get</button>
+    <button class="btn3">Post</button>
+    <script>
+      $(document).ready(function(){
+        $('.btn1').click(function(){
+
+          $('.response').load('https://jsonplaceholder.typicode.com/todos/1',function(responseTxt,statusTxt,xhr){
+              console.log(responseTxt);
+              console.log(xhr);
+              console.log(statusTxt)
+           })
+           
+        })
+
+        $('.btn2').click(function(){
+          $.get('https://jsonplaceholder.typicode.com/todos/1',function(data,status){
+            console.log(data);
+            console.log(status);
+            if(status == 'success'){
+              console.log('data retrieved successfully')
+            }
+          })
+          
+        })
+
+        $('.btn3').click(function(){
+          $.post('https://jsonplaceholder.typicode.com/todos',{userId:'1'},function(data,status){
+              console.log(data);
+              console.log(status);
+
+              if(status  == 'success'){
+                $('.response').text(data.id);
+                console.log($('.response').text());
+                console.log('Requested Data Get Successfully');
+              }
+          })
+        })
+        
+      })
+    </script>
+</body>
+</html>

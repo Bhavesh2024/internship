@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.7.1/jquery.min.js"></script>
+  <link rel="stylesheet" href="./style.css">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.6.0/css/all.min.css">
+</head>
+<body>
+    <div class="container">
+       <header>
+         <nav>
+            <div class="todo-title">
+               <input type="text" name="title" id="title" class="title" placeholder="Enter Title" value="">
+            </div>
+            <div class="todo-search">
+               <input type="search" class="search" id="search" name="search" placeholder="Search here..">
+               <i class="fa-solid fa-search input-icon"></i>
+            </div>
+         </nav>
+       </header>
+       <main>
+           <ul id="taskContainer">
+            <!-- <li class="todo-item" id="task1"><input type="text" id="taskName1" name="todo"> <i class="fa-solid fa-xmark input-icon todo-delete" id="deleteTodo1"></i></li> -->
+            <!-- Dynamically add Todos-->            
+          </ul>       
+          <button class="btn" id="addTodoBtn"><i class="fa-solid fa-plus"></i> Add Item</button>
+       </main>
+       <footer>
+           <button class="btn" id="deleteAllBtn">Delete All</button>
+           <button class="btn" id="saveBtn">Save</button>
+           <button class="btn" id="resetBtn">Reset</button>
+       </footer>
+    </div>
+  <script src="./script.js"></script>
+</body>
+</html>
