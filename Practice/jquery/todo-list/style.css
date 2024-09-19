@@ -89,7 +89,7 @@ input{
   width: 100%;
   background-color: white;
   justify-content: center;
-  border-bottom:1px solid;
+  /* border-bottom:1px solid; */
   padding-inline: 10px;
   align-items: center;
 }
@@ -117,7 +117,7 @@ input{
   background-color: transparent;
 }
 main{
-  margin-top:20px;
+  /* margin-top:20px; */
   height: 60vh;
   border-bottom: 1px solid;
 }
@@ -125,6 +125,12 @@ main ul{
   list-style: none;
 }
 
+/* i.fa-xmark{
+  display: none;
+} */
+ .hide{
+  display: none !important;
+ }
 footer{
   height: 50px;
   display: flex;

@@ -3,10 +3,26 @@ $(document).ready(function(){
   $('#addTodoBtn').click(function(){
      let addTodoItem = `<li class="todo-item" id="task${count}"><input type='checkbox' id='taskCheckBox${count}'> <input type="text" id="taskName${count}" name="todo"> <i class="fa-solid fa-xmark todo-delete" id='deleteTodo${count}'></i></li>`
     //  addTodoItem(count)
-     $('ul').append(addTodoItem)
+     $('#taskContainer').append(addTodoItem)
      $(`#deleteTodo${count}`).click(function(){
       console.log($(this).parent());
       $(this).parent().hide();
+     })
+
+     $(`#taskCheckBox${count}`).click(function(){
+       $(this).siblings('input').css('text-decoration','line-through');
+      //  console.log($(this).val())
+       if($(this).val() == 'on'){
+         $('#completedTaskContainer').append($(this).parent())
+        $(this).val('off')
+       }else{
+        $('#completedTaskContainer').remove($(this));
+        $(this).val('on')
+       $(this).siblings('input').css('text-decoration','none');
+        $('#taskContainer').append($(this).parent());
+       }
+      //  console.log($(this).val())
+
      })
      count = count + 1;
      console.log(addTodoItem)
@@ -23,6 +39,12 @@ $(document).ready(function(){
    $('#deleteAllBtn').click(function(){
     $('#taskContainer *').hide();
     count = 1;
+   })
+
+   $('#resetBtn').click(function(){
+    $('#taskContainer *').hide();
+    count = 1;
+    $('#title').val("")
    })
 })
 // const addTodoItem = (count) => {

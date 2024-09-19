@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+</head>
+<body>
+  
+
+  <script>
+    const xhr = new XMLHttpRequest();
+
+    xhr.open('GET','./data/dummy.xml',true);
+    xhr.setRequestHeader('Content-Type','application/xml');
+    xhr.onreadystatechange = function(){
+      if(this.readyState == 4 && this.status == 200){
+        console.log(this.responseXML)
+        const data = this.responseXML;
+        
+        console.log(data.getElementsByTagName('record'))
+        const record = data.getElementsByTagName('record');
+
+        console.log(record[0].innerHTML);
+        console.log(record[0].getElementsByTagName('first_name')[0].innerHTML)
+      }
+    }
+    xhr.send()
+  </script>
+</body>
+</html>

@@ -1,0 +1,138 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>MeShop</title>
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.6.0/css/all.min.css">
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@20..48,100..700,0..1,-50..200" />
+  <link rel="stylesheet" href="./css/style.css">
+  <script
+  src="https://code.jquery.com/jquery-3.7.1.js"></script>
+</head>
+<body>
+  <!-- Header Part-->
+  <header>
+    <!-- Navbar -->
+    <nav class="navbar text-bg-dark">
+        <div class="container">
+          <div class="wrapper d-flex align-items-center justify-content-between">
+            <div class="nav-brand">
+               <h1 class="fw-bold"><span class="brand-text-1">Me</span><span class="brand-text-2">Shop</span></h1>
+            </div>
+            <div class="buttons ms-3 d-none d-md-block">
+               <button class="btn btn-info text-white rounded-pill px-3">Sign Up</button>
+               <button class="btn btn-warning rounded-pill px-3">Login</button>
+            </div>
+          </div>
+           <div class="wrapper d-flex align-items-center justify-content-center">
+             <div class="searchbar position-relative d-flex align-items-center">
+               <input type="search" name="search" id="search" placeholder="search here.." class="form-control rounded-pill d-none d-md-inline">
+               <i class="fa-solid fa-search input-icon position-absolute end-0 text-secondary  me-2" data-bs-target="#searchModal"></i>
+             </div>
+             <div class="icons d-flex justify-content-center align-items-center">
+               <i class="fa-solid fa-cart-shopping"></i>
+               <span class="material-symbols-outlined">
+                 light_mode
+                </span>
+                <span class="material-symbols-outlined d-inline-block d-md-none" data-bs-target="#loginModal" data-bs-toggle="modal">
+                 
+                    account_circle
+                  
+                  </span>
+              </div>
+           </div>
+        </div>
+    </nav>
+    <!-- Search Modal -->
+     <div class="modal" id="searchModal">
+       <div class="modal-dialog">
+           <div class="modal-content text-bg-dark rounded-0 w-100"> 
+            <div class="modal-body position-relative py-5 px-3">
+                <i class="fa-solid fa-xmark position-absolute end-0 top-0 me-2 mt-2" data-bs-dismiss="modal"></i>
+                <div class="searchbar position-relative d-flex align-items-center">
+                  <input type="search" name="search" id="search" placeholder="search here.." class="form-control rounded-pill">
+                  <i class="fa-solid fa-search text-secondary position-absolute end-0 text-secondary  me-2" data-bs-target="#searchModal"></i>
+                </div>
+             </div>
+           </div>
+       </div>
+       </div>
+    <!-- Login Modal -->
+     <div class="modal " id="loginModal">
+      <div class="modal-dialog d-flex align-items-center">
+        <div class="modal-content">
+            <div class="modal-body">
+                <form action="">
+                  <fieldset>
+                    <legend class="h1 text-center fw-bold">Login</legend>
+                    <div class="mt-3 position-relative d-flex align-items-center">
+                      <input type="email" id="email" name="email" placeholder="Email" class="form-control py-2" required>
+                      <i class="fa-solid fa-envelope position-absolute end-0  me-2 text-secondary"></i>
+                    </div>
+                    <div class="mt-3 position-relative d-flex align-items-center">
+                      <input type="password" id="password" name="password" placeholder="Password" class="form-control py-2" required>
+                      <i class="fa-solid fa-eye position-absolute end-0  me-2 text-secondary"></i>
+                    </div>
+                    <span class="sign-up-link"><a href="./html/register.html" class="nav-link ms-2 mt-1">Create New Account</a></span>
+                    <div class="mt-3 d-flex">
+                      <button type="submit" class="btn btn-info text-white rounded-pill px-4 m-auto">Submit</button>
+                    </div>
+                  </fieldset>
+                </form>
+            </div>
+        </div>
+      </div>
+     </div>
+     </div>
+  </header>
+  <main>
+    <div class="product-card position-relative border text-bg-light">
+      <div class="card-header">
+        <img src="./images/product.jpg" alt="" class="img-thumbnail p-0 border-0 rounded-0 rounded-top-1">
+      </div>
+      <div class="card-body p-3 border-top">
+        <div class="product-info d-flex justify-content-between px-2">
+          <h4 class="product-name">Shoes</h4>
+          <span class="product-price fw-semibold">$98.65</s></span>
+        </div>
+        <div class="product-description">
+          <p class="description">
+            Lorem ipsum dolor sit amet, consectetur adipisicing elit. Laboriosam eaque id provident harum rem? Neque incidunt maiores, aperiam necessitatibus corrupti dicta enim, quis natus minima ea laboriosam veritatis officia sed.
+          </p><span class="remainText"></span><a href="#" class="text-secondary nav-link d-inline-block  read-more" id="read-more">...Read More</a>
+        </div>
+      </div>
+      <div class="card-footer d-flex justify-content-between py-3 px-2">
+        <a href="#" class="btn btn-info text-white">Add to Cart</a>
+        <a href="#" class="btn btn-dark text-white">Order Now</a>
+      </div>
+      <span class="badge rounded-pill text-bg-light p-2 position-absolute end-0 top-0">25% Off</span>
+    </div>
+
+    <div class="product-card position-relative border text-bg-light">
+      <div class="card-header">
+        <img src="./images/product.jpg" alt="" class="img-thumbnail p-0 border-0 rounded-0 rounded-top-1">
+      </div>
+      <div class="card-body p-3 border-top">
+        <div class="product-info d-flex justify-content-between px-2">
+          <h4 class="product-name">Shoes</h4>
+          <span class="product-price fw-semibold">$98.65</s></span>
+        </div>
+        <div class="product-description">
+          <p class="description">
+            Lorem ipsum dolor sit amet, consectetur adipisicing elit. Laboriosam eaque id provident harum rem? Neque incidunt maiores, aperiam necessitatibus corrupti dicta enim, quis natus minima ea laboriosam veritatis officia sed.
+          </p><span class="remainText"></span><a  class="text-secondary nav-link d-inline-block  read-more" id="read-more1">...Read More</a>
+        </div>
+      </div>
+      <div class="card-footer d-flex justify-content-between py-3 px-2">
+        <a href="#" class="btn btn-info text-white">Add to Cart</a>
+        <a href="#" class="btn btn-dark text-white">Order Now</a>
+      </div>
+      <!-- <span class="badge rounded-pill text-bg-light p-2 position-absolute end-0 top-0">25% Off</span> -->
+    </div>
+  </main>
+  <script src="./script/script.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
+</body>
+</html>

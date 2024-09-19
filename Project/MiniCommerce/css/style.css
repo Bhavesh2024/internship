@@ -1,0 +1,80 @@
+
+/* Default Style & Imports */
+@import url('https://fonts.googleapis.com/css2?family=Lily+Script+One&display=swap');
+
+*{
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: Calibri;
+}
+
+/* Variable */
+:root{
+  --brand-color-1:rgb(0, 229, 255);
+  --brand-color-2:rgb(57, 255, 133);
+}
+/* Navbar */
+.wrapper,.icons{
+  gap:10px
+}
+
+.brand-text-1,.brand-text-2{
+  font-size:2.4rem;
+  font-family:"Lily Script One", system-ui;
+}
+
+.brand-text-1{
+  color: var(--brand-color-1);
+}
+.brand-text-2{
+  color: var(--brand-color-2);
+}
+
+#search::-webkit-search-cancel-button{
+  display: none;
+}
+
+/* Login Modal */
+#loginModal .modal-dialog{
+  height: 100vh;
+
+}
+.sign-up-link{
+  font-size: 13px;
+}
+
+/* Product Card */
+.product-card{
+  width:calc(100% / 5);
+}
+.read-more{
+  font-size: 14.2px;
+}
+
+/* Register Form & Login*/
+#registerForm,#loginForm{
+  height: 100vh;
+}
+/* Mobile */
+@media screen and (max-width:768px) {
+   .input-icon{
+    color:white !important;
+   }
+   .product-card{
+    width:calc(100% - 10%);
+  }
+}
+/* Tablet */
+@media screen and (min-width:768px) and (max-width:1024px) {
+  
+}
+/* Laptop */
+
+@media screen and (min-width:1024px) and (max-width:1248px) {
+  
+}
+/* Desktop */
+@media screen and (min-width:1248px){
+
+}
