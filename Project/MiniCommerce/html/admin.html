@@ -7,13 +7,187 @@
   <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet">
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.6.0/css/all.min.css">
   <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@20..48,100..700,0..1,-50..200" />
-  <link rel="stylesheet" href="./css/style.css">
+  <link rel="stylesheet" href="../css/style.css">
   <script
   src="https://code.jquery.com/jquery-3.7.1.js"></script>
 </head>
 <body>
+  <header>
+    <!-- Admin Panel Navigation -->
+    <nav class="navbar text-bg-dark py-3 d-flex align-items-center">
+      <div class="container">
+        <div class="home d-flex align-items-center">
+          <i class="fa-solid fa-bars mx-3 d-inline-block d-md-none" id="menuBar"></i>
+          <a href="" class="nav-link"><i class="fa-solid fa-house"></i></a>
+        </div>
+        <div class="admin">
+          <h4>Admin</h4>
+        </div>
 
-  <script src="./script/script.js"></script>
+        <div class="nav-options">
+          <ul class="list-unstyled nav d-flex align-items-center">
+            <li><img src="../images/admin.png" class="admin-profile-img"/></li>
+            <li class=""><i class="fa-solid fa-bell"></i></li>
+            <li><i class="fa-solid fa-right-from-bracket" data-bs-target="#logoutModal" data-bs-toggle="modal"></i></li>
+          </ul>
+        </div>
+      </div>
+    </nav>
+  </header>
+  <main class="d-flex">
+    <aside class="text-bg-light border-0" id="sidebar">
+      <div class="d-flex justify-content-center w-100">
+        <ul class="list-unstyled mt-4 fs-5 d-flex flex-column">
+          <li class="d-inline-block ms-2 my-1"><a href="#" class="nav-link"><i class="fa-solid fa-user"></i>&nbsp;User</a></li>
+          <li class="d-inline-block my-1"><a href="#" class="nav-link"><i class="fa-solid fa-cart-flatbed"></i>&nbsp;Product</a></li>
+            <li class="d-inline-block my-1" data-bs-target="#logoutModal" data-bs-toggle="modal"><i class="fa-solid fa-right-from-bracket" ></i>&nbsp; Logout</li>
+
+
+        </ul>
+      </div>
+    </aside>
+    <section class="page-content w-100" id="pageContent">
+       <div class="user d-flex flex-column justify-content-start h-100">
+         <div class="searchbar position-relative d-flex align-items-center col-10 col-md-7 mx-auto py-5">
+           <input type="search" name="search" id="search" placeholder="search here.." class="form-control rounded-pill">
+           <i class="fa-solid fa-search text-secondary position-absolute end-0 text-secondary  me-2" data-bs-target="#searchModal"></i>
+         </div>
+         <div class="container">
+            <div class="table-responsive d-none">
+            <table class="table table-light table-striped table-hover  table-sm text-center text-nowrap ">
+               <thead class="table-dark">
+                 <th scope="col">Id</th>
+                 <th scope="col">Name</th>
+                 <th scope="col">Birth Date</th>
+                 <th scope="col">Gender</th>
+                 <th scope="col">Phone</th>
+                 <th scope="col">Email</th>
+                 <th scope="col">Password</th>
+                 <th scope="col">Update</th>
+                 <th scope="col">Remove</th>
+                 
+               </thead>
+               <tbody class="table-group-divider">
+                 <tr>
+                  <td scope="row">MES001</td>
+                  <td scope="row">Bhavesh Parmar</td>
+                  <td scope="row">17 Feb 2004</td>
+                  <td scope="row">Male</td>
+                  <td scope="row">9723884857</td>
+                  <td scope="row">bparmar1722004@gmail.com</td>
+                  <td scope="row">Bhavesh@1724</td>
+                  <th scope="col"><button class="btn btn-info">Edit</button></th>
+                 <th scope="col"><button class="btn btn-danger">Delete</button></th>
+                 </tr>
+                 <tr>
+                  <td scope="row">MES001</td>
+                  <td scope="row">Bhavesh Parmar</td>
+                  <td scope="row">17 Feb 2004</td>
+                  <td scope="row">Male</td>
+                  <td scope="row">9723884857</td>
+                  <td scope="row">bparmar1722004@gmail.com</td>
+                  <td scope="row">Bhavesh@1724</td>
+                  <th scope="col"><button class="btn btn-info">Edit</button></th>
+                 <th scope="col"><button class="btn btn-danger">Delete</button></th>
+                 </tr>
+               </tbody>
+            </table>
+            </div>
+            <section class="product">
+              <div class="table-responsive">
+                <table class="table table-responsive table-striped table-hover text-center table-bordered text-nowrap">
+                      <thead class="table-dark">
+                        <th scope="col">Product Id</th>
+                        <th scope="col">Product Image</th>
+                        <th scope="col">Product Name</th>
+                        <th scope="col">Description</th>
+                        <th scope="col">Price</th>
+                        <th scope="col">Discount</th>
+                        <th scope="col">Edit</th>
+                        <th scope="col">Remove</th>
+                      </thead>
+                      <tbody class="table-group-dividers">
+                          <tr>
+                            <td>1</td>
+                            <td><img src="../images/product.jpg" alt="" height="50" class=""></td>
+                            <td>Shoes</td>
+                            <td class="description">Lorem ipsum dolor sit amet consectetur adipisicing elit. Numquam, voluptate nesciunt. Cupiditate quaerat ab reprehenderit quod repudiandae accusantium blanditiis autem omnis dicta delectus ut modi explicabo eum, doloribus odio facilis?</td>
+                            <td>$98.65</td>
+                            <td>25%</td>
+                            <td><button class="btn btn-primary">Edit</button></td>
+                            <td><button class="btn btn-danger">Delete</button></td>
+
+                          </tr>
+                          <tr>
+                            <td>1</td>
+                            <td><img src="../images/product.jpg" alt="" height="50" class=""></td>
+                            <td>Shoes</td>
+                            <td class="description">Lorem ipsum dolor sit amet consectetur adipisicing elit. Numquam, voluptate nesciunt. Cupiditate quaerat ab reprehenderit quod repudiandae accusantium blanditiis autem omnis dicta delectus ut modi explicabo eum, doloribus odio facilis?</td>
+                            <td>$98.65</td>
+                            <td>25%</td>
+                            <td><button class="btn btn-primary">Edit</button></td>
+                            <td><button class="btn btn-danger">Delete</button></td>
+
+                          </tr>
+                          <tr>
+                          
+                            <td>1</td>
+                            <td><img src="../images/product.jpg" alt="" height="50" class=""></td>
+                            <td>Shoes</td>
+                            <td class="description">Lorem ipsum dolor sit amet consectetur adipisicing elit. Numquam, voluptate nesciunt. Cupiditate quaerat ab reprehenderit quod repudiandae accusantium blanditiis autem omnis dicta delectus ut modi explicabo eum, doloribus odio facilis?</td>
+                            <td>$98.65</td>
+                            <td>25%</td>
+                            <td><button class="btn btn-primary">Edit</button></td>
+                            <td><button class="btn btn-danger">Delete</button></td>
+
+                          </tr>
+                      </tbody>
+                </table>
+              </div>
+        
+            </section>
+            <ul class="pagination">
+              <li class="page-item">
+                <a href="#" class="page-link" aria-label="Previous">
+                  <span aria-hidden="true">&laquo;</span>
+                </a>
+              </li>
+              <li class="page-item"><a href="#" class="page-link active">1</a></li>
+              <li class="page-item"><a href="#" class="page-link">2</a></li>
+              <li class="page-item"><a href="#" class="page-link">3</a></li>
+              <li class="page-item"><a href="#" class="page-link">4</a></li>
+              <li class="page-item"></li>
+                <a href="#" class="page-link" aria-label="Next">
+                  <span aria-hidden="true">&raquo;</span>
+                </a>
+              </li>
+            </ul>
+         </div>
+       </div>
+    </section>
+  </main>
+
+  <!-- Logout Modal -->
+   <div class="modal" id="logoutModal">
+    <div class="modal-dialog">
+          <div class="modal-content">
+            <div class="modal-header d-flex justify-content-between">
+              <div class="modal-title fs-4 fw-semibold">Logout</div>
+              <i class="fa-solid fa-xmark" data-bs-dismiss="modal"></i>
+            </div>
+            <div class="modal-body position-relative">
+                <div class="alert-message py-2">
+                    Are you sure to logout ?
+                </div>
+                <div class="buttons d-flex justify-content-end">
+                  <button class="btn btn-primary px-4 mx-2">Yes</button>
+                  <button class="btn btn-primary px-4 mx-2">No</button>
+                </div>
+            </div>
+          </div>
+    </div>
+   </div>
+  <script src="../script/script.js"></script>
   <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
 </body>
 </html>

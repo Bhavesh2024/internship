@@ -35,6 +35,24 @@
   display: none;
 }
 
+/* Product Cart Modal*/
+.cart-product-image{
+  width:200px;
+}
+.product-link{
+  font-size: 14px;
+}
+.product-link a::after{
+  content: "| ";
+  height: 20px;
+  width: 5px;
+  color: gray;
+  font-size: 15px;
+  margin:0 7px;
+}
+.product-link a:last-child::after{
+  content: "";
+}
 /* Login Modal */
 #loginModal .modal-dialog{
   height: 100vh;
@@ -52,10 +70,31 @@
   font-size: 14.2px;
 }
 
+
 /* Register Form & Login*/
 #registerForm,#loginForm{
   height: 100vh;
 }
+
+/* Admin Dashboard */
+.admin-profile-img{
+  height: 30px;
+  width: 30px;
+}
+.nav-options ul{
+  gap:10px;
+  font-size: 1.1rem;
+}
+
+#sidebar{
+  height: calc(100vh - 70px);
+  overflow: auto;
+  width:calc(100% / 6);
+}
+#sidebar::-webkit-scrollbar,.table-responsive::-webkit-scrollbar{
+  display: none;
+}
+
 /* Mobile */
 @media screen and (max-width:768px) {
    .input-icon{
@@ -63,6 +102,17 @@
    }
    .product-card{
     width:calc(100% - 10%);
+  }
+
+  /* Admin Sidebar */
+  #sidebar{
+    position:absolute;
+    /* top:70px; */
+    display: none;
+    /* left:50%; */
+    z-index: 10;
+    width:calc(100% / 2);
+    transition:0.5s all ease-in-out;
   }
 }
 /* Tablet */

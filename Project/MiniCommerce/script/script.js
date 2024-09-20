@@ -1,5 +1,36 @@
-// Product Card
+// Search Modal
+try{
+  const searchIcon = document.querySelector('.fa-search');
+  if(matchMedia('max-width:768px')){
+     searchIcon.setAttribute('data-bs-toggle','modal');
+  }
+} catch(error){
+  console.error(error)
+}
+
 $(document).ready(function(){
+
+  //Toggle Password 
+  $('.fa-eye').on('click',function(){
+
+    const password = document.getElementById('password')
+    $(this).toggleClass('fa-eye')
+    $('#password').siblings().find('fa-eye-slash') ? password.type = 'text' : password.type = 'password'
+  
+    
+    // console.log($('#password').siblings().contains('fa-eye'))
+    
+  })
+  // Product Modal
+  $('.product').each(function(){
+    const $card = $(this);
+    const $description = $card.find('.product-detail .product-description p');
+    const descriptionLength = $description.text().length;
+    if(descriptionLength > 50){
+      $description.html($($description).text().slice(0,50)).append('...')
+    }
+  });
+  // Product Card
   $('.product-card').each(function() {
     const $card = $(this); // Cache the current card
     const $description = $card.find('.product-description .description');
@@ -29,4 +60,20 @@ $(document).ready(function(){
       $readMore.hide(); // Hide 'Read More' if the text is short
     }
   });
+
+  // Sidebar
+  $('#menuBar').click(function(){
+    // $('#sidebar').slide();
+    $('#sidebar').toggle();
+  })
+
+
+  // Product Data Table
+  $('.product table tbody tr').each(function(){
+     const $row = $(this);
+     const $description = $row.find('.description');
+     const cuttedDescription = $description.text().slice(0,50);
+     $description.html(cuttedDescription+"...")
+
+  })
 });
