@@ -1,0 +1,22 @@
+*{
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+.navbar{
+  background-color:black;
+  position: absolute;
+  width: 100%;
+  top: 0;
+  left: 0;
+  padding: 15px 10px;
+  display: flex;
+  gap: 15px;
+}
+.link{
+  color:white;
+}
+.lightgreen{
+  color: lightgreen;
+}

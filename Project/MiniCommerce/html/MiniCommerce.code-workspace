@@ -1,0 +1,13 @@
+{
+	"folders": [
+		{
+			"path": ".."
+		},
+		{
+			"path": "../../../Practice/JS/task/search-app"
+		}
+	],
+	"settings": {
+		"liveServer.settings.multiRootWorkspaceName": "MiniCommerce"
+	}
+}
