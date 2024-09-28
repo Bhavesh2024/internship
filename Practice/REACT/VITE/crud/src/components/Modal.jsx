@@ -1,36 +1,56 @@
-import React, { useContext } from 'react'
-import Form from './Form'
-import DataContext from '../context/DataContext'
-const UpdateModal = ({id}) =>{
-    return <>
-      {/* <Form title={"update"} data={data} handler={(myData)}/> */}
-    </>  
-}
+import React, { useContext, useState } from "react";
+import Form from "./Form";
+import DataContext from "../context/DataContext";
+const UpdateModal = ({ data }) => {
+	const [formData, setFormData] = useState(data);
+	return (
+		<>
+			<Form title={"update"} data={formData} handler={setFormData} />
+		</>
+	);
+};
+const DeleteModal = ({ id, data, handler }) => {
+	const deleteUser = () => {
+		const updatedData = data.filter((user) => user.id !== id); // Create a new array without the deleted user
+		handler(updatedData); // Update the state with the new array
+		console.log("Deleted user with id: " + id);
+	};
 
-const DeleteModal = ({id}) =>{
-   return (
-    <>
-      <div>
-         Are You Sure to Delete ?
-      </div>
-      <div className="buttons">
-          <button>Yes</button>
-          <button>No</button>
-      </div>
-    </>
-   )
-}
-const Modal = ({id,title}) => {
-  console.log(title)
-  const {userData,setUserData} = useContext(DataContext)
-  console.log(userData)
-  return (
-    <>
-        <div>
-           {title != 'update' ? <DeleteModal id={id}  /> : <UpdateModal id={id} />}
-        </div>
-    </>
-  )
-}
+	return (
+		<>
+			<div>Are You Sure to Delete?</div>
+			<div className="buttons">
+				<button onClick={deleteUser}>Yes</button>
+				<button>No</button>
+			</div>
+		</>
+	);
+};
 
-export default Modal
+const Modal = ({ id, title }) => {
+	console.log(title);
+	const { userData, setUserData } = useContext(DataContext);
+	console.log(userData);
+	return (
+		<>
+			{userData.map(
+				(value) =>
+					value.id == id && (
+						<div>
+							{title != "update" ? (
+								<DeleteModal
+									id={id}
+									data={userData}
+									handler={setUserData}
+								/>
+							) : (
+								<UpdateModal data={value} />
+							)}
+						</div>
+					)
+			)}
+		</>
+	);
+};
+
+export default Modal;
