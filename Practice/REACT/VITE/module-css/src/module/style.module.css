@@ -1,0 +1,6 @@
+.button{
+  background:linear-gradient(red,yellow);
+  width: 100px;
+  padding:10px;
+  border-radius: 10px;
+}
