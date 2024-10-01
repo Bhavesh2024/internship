@@ -11,8 +11,8 @@ const UpdateModal = ({ data }) => {
 };
 const DeleteModal = ({ id, data, handler }) => {
 	const deleteUser = () => {
-		const updatedData = data.filter((user) => user.id !== id); // Create a new array without the deleted user
-		handler(updatedData); // Update the state with the new array
+		const updatedData = data.filter((user) => user.id !== id);
+		handler(updatedData); 
 		console.log("Deleted user with id: " + id);
 	};
 

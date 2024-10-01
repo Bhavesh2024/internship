@@ -67,3 +67,11 @@
 .arrow{
   font-size: 20px;
 }
+
+/* Dark Mode  */
+.bg-dark{
+  background-color: black;
+}
+.white{
+  color:white;
+}

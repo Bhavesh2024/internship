@@ -23,11 +23,11 @@ const Form = ({ title, data, handler }) => {
 		e.preventDefault();
 		const updatedData = userData.map((user, index) => {
 			if (index === data.id - 1) {
-				return { ...user, ...data }; // Merge existing user data with new data
+				return { ...user, ...data }; 
 			}
-			return user; // Return the existing user if no match
+			return user; 
 		});
-		setUserData(updatedData); // Update state with the new user data array
+		setUserData(updatedData); 
 		console.log("Update Handler");
 	};
 
