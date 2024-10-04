@@ -5,10 +5,13 @@ import Login from '../components/form/Login'
 import SignUp from '../components/form/SignUp'
 import Cart from '../components/product/Cart'
 import Account from '../components/form/Account'
-import Product from '../components/product/CartProduct'
+import Product from '../components/product/Product'
 import Dashboard from '../admin/Dashboard'
 import CustomerHome from '../hocs/CustomerHome'
 import ProductCarouselContainer from '../components/layout/Slider/ProductCarouselContainer'
+import ProductDataTable from '../components/table/ProductDataTable'
+import UserDataTable from '../components/table/UserDataTable'
+import NotFound from './NotFound'
 
 const CustomHome = CustomerHome(Home)
 const RouteConfig = () => {
@@ -23,15 +26,18 @@ const RouteConfig = () => {
         <Route path=':username/account' element={<Account/>} />
         
         <Route path=':username/cart' element={<Cart />} />
+      
         </Route>
-        {/* <Route path='/' element={} />
-        <Route path='/' element={} />
-        <Route path='/' element={} />
-        <Route path='/' element={} />
-        <Route path='/' element={} />
-        <Route path='/' element={} />
-        <Route path='/' element={} />
-        <Route path='/' element={} /> */}
+        <Route path='/product/:id' element={<Product />} />
+        <Route path='/user/admin' element={<Dashboard />}>
+           {/* <Route path='/'  > */}
+           <Route path='account' element={<Account />} />
+           <Route path='products' element={<ProductDataTable />} />
+           <Route path='users' element={<UserDataTable />} />
+       
+      
+        </Route>
+        <Route path='*' element={<NotFound />} />
       </Routes>
     </BrowserRouter>
   )
