@@ -1,17 +1,15 @@
-import React from 'react'
-import { Outlet } from 'react-router-dom'
-import ProductCarouselContainer from '../layout/Slider/ProductCarouselContainer'
+import React from "react";
+import ProductCarouselContainer from "../layout/Slider/ProductCarouselContainer";
+import Navbar from "../layout/Navbar/Navbar";
+import Footer from "../layout/Footer/Footer";
+const Home = ({ withCarousel }) => {
+	return (
+		<div>
+			<Navbar />
+			{!withCarousel && <ProductCarouselContainer />}
+			<Footer />
+		</div>
+	);
+};
 
-const Home = ({withCarousel}) => {
-  return (
-    <div>
-      Home
-      {/* <Outlet /> */}
-      {
-      (!withCarousel && <ProductCarouselContainer />)
-      }
-    </div>
-  )
-}
-
-export default Home
+export default Home;
