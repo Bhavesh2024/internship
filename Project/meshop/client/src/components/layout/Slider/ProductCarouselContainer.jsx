@@ -1,11 +1,14 @@
-import React from 'react'
+import React from "react";
+import ProductCarousel from "./ProductCarousel";
+import SearchProductCard from "../../product/SearchProductCard";
 
 const ProductCarouselContainer = () => {
-  return (
-    <div>
-       Product Carousel Container
-    </div>
-  )
-}
+	return (
+		<div className="m-10">
+			<ProductCarousel />
+			<SearchProductCard />
+		</div>
+	);
+};
 
-export default ProductCarouselContainer
+export default ProductCarouselContainer;

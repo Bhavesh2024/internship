@@ -23,7 +23,7 @@ const AdminNavbar = () => {
 			<nav className="bg-slate-600 text-gray-200 h-20 flex justify-between px-5 items-center w-full">
 				<div className="flex items-center gap-4 text-xl">
 					<i
-						className="fa-solid fa-bars inline-block md:hidden"
+						className="fa-solid fa-bars inline-block"
 						onClick={() => setToggleSidebar(!toggleSidebar)}
 					></i>
 					<i className="fa-solid fa-house"></i>

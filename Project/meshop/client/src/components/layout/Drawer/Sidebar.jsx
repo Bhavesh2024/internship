@@ -10,6 +10,10 @@ const Sidebar = () => {
 	const [open, setOpen] = useState(false);
 	const activities = [
 		{
+			name: "Dashboard",
+			icon: <i className="material-symbols-outlined">dashboard</i>,
+		},
+		{
 			name: "Account",
 			icon: <i className="fa-solid fa-address-card"></i>,
 		},
@@ -31,8 +35,8 @@ const Sidebar = () => {
 				</Modal>
 			)}
 			<div
-				className={`w-1/2 md:w-2/5 lg:w-2/6 xl:w-2/12 bg-transparent top-0 absolute md:static transition-transform duration-300 ease-linear 
-					${!toggleSidebar ? "-translate-x-full md:translate-x-0" : "translate-x-0"}`}
+				className={`w-1/2 md:w-2/5 lg:w-1/5 xl:w-2/12 bg-transparent top-0 fixed z-10 transition-transform duration-300 ease-linear 
+					${!toggleSidebar ? "-translate-x-full " : "translate-x-0"}`}
 			>
 				<div
 					className={`bg-gray-100 h-dvh max-h-dvh flex w-full justify-center relative`}
@@ -41,8 +45,15 @@ const Sidebar = () => {
 						{activities.map((value, index) => (
 							<li key={index}>
 								<NavLink
-									to={`/user/admin/${value.name.toLowerCase()}${
-										value.name !== "Account" ? "s" : ""
+									to={`/user/admin/${
+										value.name != "Dashboard"
+											? value.name.toLowerCase()
+											: ""
+									}${
+										value.name != "Dashboard" &&
+										value.name !== "Account"
+											? "s"
+											: ""
 									}`}
 									className={({ isActive }) =>
 										isActive ? "text-indigo-600" : ""
@@ -56,7 +67,7 @@ const Sidebar = () => {
 					<i
 						className={`fa-solid fa-greater-than h-fit p-2 px-3 w-fit text-sm text-gray-50 bg-slate-700 rounded-full absolute top-1/2 transform ${
 							toggleSidebar ? "-end-2" : "end-0"
-						} md:-end-3 z-20 ms-24 flex md:hidden cursor-pointer`}
+						} md:-end-3 z-20 ms-24 flex  cursor-pointer`}
 						onClick={() => setToggleSidebar(!toggleSidebar)}
 					></i>
 					<button
