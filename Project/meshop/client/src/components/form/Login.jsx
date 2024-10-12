@@ -1,22 +1,70 @@
-import React, { useState } from "react";
-import { Link } from "react-router-dom";
-
-const Login = () => {
+import React, { useEffect, useState } from "react";
+import { Link, useNavigate } from "react-router-dom";
+import Modal from "../modal/Modal";
+import Error from "../modal/Error";
+import Success from "../modal/Success";
+import axios from "axios";
+const Login = ({user}) => {
 	const [loginData, setLoginData] = useState({
 		user: "",
 		password: "",
 	});
 
 	const [togglePassword, setTogglePassword] = useState(false);
+	const [message,setMessage] = useState({
+		text:"",
+		error:false,
+		success:false,
+	})
+
+	const [openModal,setOpenModal] = useState(false);
+	let [username,setUsername] = useState('');
 
 	const handleInput = (e) => {
 		const { name, value } = e.target;
 		setLoginData({ ...loginData, [name]: value });
 	};
 
+	const handleSubmit = async (e) => {
+		e.preventDefault();
+		console.log('hello')
+		try{
+			  
+				const response = await axios.post('http://localhost:5000/user/login',loginData)
+				if(response.status == 200){
+					// console.log(response.data.message);
+					// console.log(response.data.username)
+					setUsername(response.data.username);
+					setMessage({...message,text:response.data.message,success:true})
+					setOpenModal(!openModal);
+					
+				}
+				
+		}catch(e){
+			   const error = e.response.data.message;
+				console.log(e)
+					setMessage({...message,text:error,error:true})
+					setOpenModal(!openModal);
+		}
+	}
+
+	const moveToHome = () =>{
+		 const navigate = useNavigate();
+
+		 navigate('/');
+	}
+
+
+	useEffect(() => {
+		if(username != ''){
+			localStorage.setItem('user',username)
+			// setOpenModal(!openModal);
+		}
+		
+	},[username,message])
 	return (
 		<div>
-			<form className="flex justify-center min-h-dvh items-center p-3">
+			<form className="flex justify-center min-h-dvh items-center p-3" onSubmit={handleSubmit}>
 				<fieldset className="flex flex-col gap-3 border p-5 rounded-md w-11/12 sm:w-10/12 md:w-2/3 lg:w-1/2 xl:w-1/3 relative">
 					<legend className="text-center px-3 text-3xl font-bold">
 						Login
@@ -51,7 +99,7 @@ const Login = () => {
 						></i>
 					</div>
 					<div className="my-1 px-3 flex justify-between text-xs md:text-sm">
-						<Link to={"/auth/signup"}>Create New Accout</Link>
+						<Link to={"/auth/signup"}>Create New Account</Link>
 						<Link to={"#"}>Forgot Password?</Link>
 					</div>
 					<button
@@ -63,6 +111,16 @@ const Login = () => {
 					</button>
 				</fieldset>
 			</form>
+			{
+				<Modal open={openModal} onClose={setOpenModal}>
+					{ 
+						console.log(username)
+					}
+						{
+							message.error ? <Error message={message.text} handler={setMessage} onClose={setOpenModal}  /> : <Success message={message.text} handler={setMessage} onClose={setOpenModal} redirect={`/user/${username}/`}/>
+						}
+				</Modal>
+			}
 		</div>
 	);
 };

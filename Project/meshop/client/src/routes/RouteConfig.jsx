@@ -13,13 +13,15 @@ import ProductCarouselContainer from "../components/layout/Slider/ProductCarouse
 import ProductDataTable from "../components/table/ProductDataTable";
 import UserDataTable from "../components/table/UserDataTable";
 import NotFound from "./NotFound";
-
+import Test from "../components/form/Test";
+import AdminLogin from "../admin/AdminLogin";
 const CustomHome = CustomerHome(Home);
 const RouteConfig = () => {
 	return (
 		<BrowserRouter>
 			<Routes>
 				<Route path="/" element={<Home />} />
+				<Route path="/test" element={<Test />} />
 				<Route path="/auth/signup" element={<SignUp />} />
 				<Route path="/auth/login" element={<Login />} />
 				<Route path="/user" element={<CustomHome />}>
@@ -38,6 +40,7 @@ const RouteConfig = () => {
 					<Route path="products" element={<ProductDataTable />} />
 					<Route path="users" element={<UserDataTable />} />
 				</Route>
+				<Route path="/user/admin/login" element={<AdminLogin/>} />
 				<Route path="*" element={<NotFound />} />
 			</Routes>
 		</BrowserRouter>
