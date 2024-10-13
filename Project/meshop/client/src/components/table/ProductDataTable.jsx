@@ -1,5 +1,6 @@
 import axios from "axios";
 import React, { useState, useEffect } from "react";
+import AdminTableTool from "../layout/toolbar/AdminTableTool";
 
 const ProductDataTable = () => {
 	const [productData, setProductData] = useState([]);
@@ -83,6 +84,7 @@ const ProductDataTable = () => {
 	// };
 	return (
 		<div className="w-full max-w-full p-5">
+			<AdminTableTool />
 			<table className="text-nowrap table-auto border border-gray-500">
 				<thead>
 					{fields.map((value) =>

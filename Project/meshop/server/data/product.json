@@ -31,7 +31,6 @@
 					"Operating System": ["iOS 15"]
 				}
 			],
-			"available_colors": "White",
 			"ratings": "4.6",
 			"stock_status": "Out of Stock",
 			"warranty": "2 year"
@@ -67,7 +66,6 @@
 					"Operating System": ["iOS 15"]
 				}
 			],
-			"available_colors": "Blue",
 			"ratings": "4.7",
 			"stock_status": "In Stock",
 			"warranty": "2 year"
@@ -103,7 +101,6 @@
 					"Operating System": ["iOS 15"]
 				}
 			],
-			"available_colors": "Blue",
 			"ratings": "4.4",
 			"stock_status": "In Stock",
 			"warranty": "2 year"
@@ -139,7 +136,6 @@
 					"Operating System": ["iOS 15"]
 				}
 			],
-			"available_colors": "Blue",
 			"ratings": "4.6",
 			"stock_status": "Out of Stock",
 			"warranty": "1 year"
@@ -175,7 +171,6 @@
 					"Operating System": ["iOS 15"]
 				}
 			],
-			"available_colors": "Silver",
 			"ratings": "4.5",
 			"stock_status": "In Stock",
 			"warranty": "1 year"
@@ -211,7 +206,6 @@
 					"Operating System": ["iOS 15"]
 				}
 			],
-			"available_colors": "Black",
 			"ratings": "4.8",
 			"stock_status": "Out of Stock",
 			"warranty": "1 year"
@@ -247,7 +241,6 @@
 					"Operating System": ["iOS 15"]
 				}
 			],
-			"available_colors": "Blue",
 			"ratings": "4.7",
 			"stock_status": "In Stock",
 			"warranty": "1 year"
@@ -283,7 +276,6 @@
 					"Operating System": ["iOS 15"]
 				}
 			],
-			"available_colors": "Silver",
 			"ratings": "4.2",
 			"stock_status": "In Stock",
 			"warranty": "1 year"
@@ -319,7 +311,6 @@
 					"Operating System": ["iOS 15"]
 				}
 			],
-			"available_colors": "Silver",
 			"ratings": "4.4",
 			"stock_status": "In Stock",
 			"warranty": "1 year"
@@ -355,7 +346,6 @@
 					"Operating System": ["iOS 15"]
 				}
 			],
-			"available_colors": "Red",
 			"ratings": "4.7",
 			"stock_status": "In Stock",
 			"warranty": "1 year"
@@ -391,7 +381,6 @@
 					"Operating System": ["iOS 15"]
 				}
 			],
-			"available_colors": "Silver",
 			"ratings": "5.0",
 			"stock_status": "Out of Stock",
 			"warranty": "1 year"
@@ -427,7 +416,6 @@
 					"Operating System": ["iOS 15"]
 				}
 			],
-			"available_colors": "White",
 			"ratings": "4.8",
 			"stock_status": "Out of Stock",
 			"warranty": "1 year"
@@ -463,7 +451,6 @@
 					"Operating System": ["iOS 15"]
 				}
 			],
-			"available_colors": "Silver",
 			"ratings": "4.2",
 			"stock_status": "Out of Stock",
 			"warranty": "2 year"
@@ -499,7 +486,6 @@
 					"Operating System": ["iOS 15"]
 				}
 			],
-			"available_colors": "White",
 			"ratings": "5.0",
 			"stock_status": "In Stock",
 			"warranty": "2 year"
@@ -535,7 +521,6 @@
 					"Operating System": ["iOS 15"]
 				}
 			],
-			"available_colors": "Black",
 			"ratings": "4.6",
 			"stock_status": "In Stock",
 			"warranty": "2 year"
@@ -571,7 +556,6 @@
 					"Operating System": ["iOS 15"]
 				}
 			],
-			"available_colors": "Red",
 			"ratings": "4.0",
 			"stock_status": "Out of Stock",
 			"warranty": "2 year"
@@ -607,7 +591,6 @@
 					"Operating System": ["iOS 15"]
 				}
 			],
-			"available_colors": "White",
 			"ratings": "4.7",
 			"stock_status": "In Stock",
 			"warranty": "1 year"
@@ -643,7 +626,6 @@
 					"Operating System": ["iOS 15"]
 				}
 			],
-			"available_colors": "Blue",
 			"ratings": "4.8",
 			"stock_status": "Out of Stock",
 			"warranty": "2 year"
@@ -679,7 +661,6 @@
 					"Operating System": ["iOS 15"]
 				}
 			],
-			"available_colors": "Blue",
 			"ratings": "4.1",
 			"stock_status": "In Stock",
 			"warranty": "2 year"
@@ -715,7 +696,6 @@
 					"Operating System": ["iOS 15"]
 				}
 			],
-			"available_colors": "Red",
 			"ratings": "5.0",
 			"stock_status": "Out of Stock",
 			"warranty": "2 year"
@@ -751,7 +731,6 @@
 					"Operating System": ["iOS 15"]
 				}
 			],
-			"available_colors": "White",
 			"ratings": "4.6",
 			"stock_status": "In Stock",
 			"warranty": "2 year"
@@ -787,7 +766,6 @@
 					"Operating System": ["iOS 15"]
 				}
 			],
-			"available_colors": "Silver",
 			"ratings": "4.2",
 			"stock_status": "In Stock",
 			"warranty": "2 year"
@@ -823,7 +801,6 @@
 					"Operating System": ["iOS 15"]
 				}
 			],
-			"available_colors": "Red",
 			"ratings": "4.7",
 			"stock_status": "Out of Stock",
 			"warranty": "1 year"
@@ -859,7 +836,6 @@
 					"Operating System": ["iOS 15"]
 				}
 			],
-			"available_colors": "Black",
 			"ratings": "4.5",
 			"stock_status": "Out of Stock",
 			"warranty": "2 year"
@@ -895,7 +871,6 @@
 					"Operating System": ["iOS 15"]
 				}
 			],
-			"available_colors": "Black",
 			"ratings": "4.8",
 			"stock_status": "In Stock",
 			"warranty": "2 year"
@@ -931,7 +906,6 @@
 					"Operating System": ["iOS 15"]
 				}
 			],
-			"available_colors": "Black",
 			"ratings": "4.6",
 			"stock_status": "In Stock",
 			"warranty": "1 year"
@@ -967,7 +941,6 @@
 					"Operating System": ["iOS 15"]
 				}
 			],
-			"available_colors": "Blue",
 			"ratings": "4.8",
 			"stock_status": "In Stock",
 			"warranty": "1 year"
@@ -1003,7 +976,6 @@
 					"Operating System": ["iOS 15"]
 				}
 			],
-			"available_colors": "Blue",
 			"ratings": "4.4",
 			"stock_status": "Out of Stock",
 			"warranty": "1 year"
@@ -1039,7 +1011,6 @@
 					"Operating System": ["iOS 15"]
 				}
 			],
-			"available_colors": "Blue",
 			"ratings": "4.8",
 			"stock_status": "In Stock",
 			"warranty": "2 year"
@@ -1075,7 +1046,6 @@
 					"Operating System": ["iOS 15"]
 				}
 			],
-			"available_colors": "Silver",
 			"ratings": "4.1",
 			"stock_status": "In Stock",
 			"warranty": "1 year"
@@ -1111,7 +1081,6 @@
 					"Operating System": ["iOS 15"]
 				}
 			],
-			"available_colors": "Blue",
 			"ratings": "4.6",
 			"stock_status": "In Stock",
 			"warranty": "1 year"
@@ -1147,7 +1116,6 @@
 					"Operating System": ["iOS 15"]
 				}
 			],
-			"available_colors": "Black",
 			"ratings": "4.2",
 			"stock_status": "Out of Stock",
 			"warranty": "2 year"
@@ -1183,7 +1151,6 @@
 					"Operating System": ["iOS 15"]
 				}
 			],
-			"available_colors": "Red",
 			"ratings": "4.6",
 			"stock_status": "Out of Stock",
 			"warranty": "1 year"
@@ -1219,7 +1186,6 @@
 					"Operating System": ["iOS 15"]
 				}
 			],
-			"available_colors": "Silver",
 			"ratings": "4.1",
 			"stock_status": "Out of Stock",
 			"warranty": "2 year"
@@ -1255,7 +1221,6 @@
 					"Operating System": ["iOS 15"]
 				}
 			],
-			"available_colors": "Black",
 			"ratings": "4.4",
 			"stock_status": "Out of Stock",
 			"warranty": "2 year"
@@ -1291,7 +1256,6 @@
 					"Operating System": ["iOS 15"]
 				}
 			],
-			"available_colors": "Silver",
 			"ratings": "4.7",
 			"stock_status": "In Stock",
 			"warranty": "1 year"
@@ -1327,7 +1291,6 @@
 					"Operating System": ["iOS 15"]
 				}
 			],
-			"available_colors": "Silver",
 			"ratings": "4.8",
 			"stock_status": "In Stock",
 			"warranty": "2 year"
@@ -1363,7 +1326,6 @@
 					"Operating System": ["iOS 15"]
 				}
 			],
-			"available_colors": "Blue",
 			"ratings": "4.9",
 			"stock_status": "In Stock",
 			"warranty": "2 year"
@@ -1399,7 +1361,6 @@
 					"Operating System": ["iOS 15"]
 				}
 			],
-			"available_colors": "Black",
 			"ratings": "4.5",
 			"stock_status": "In Stock",
 			"warranty": "2 year"
@@ -1435,7 +1396,6 @@
 					"Operating System": ["iOS 15"]
 				}
 			],
-			"available_colors": "Silver",
 			"ratings": "4.0",
 			"stock_status": "Out of Stock",
 			"warranty": "1 year"
@@ -1471,7 +1431,6 @@
 					"Operating System": ["iOS 15"]
 				}
 			],
-			"available_colors": "Silver",
 			"ratings": "4.9",
 			"stock_status": "Out of Stock",
 			"warranty": "1 year"
@@ -1507,7 +1466,6 @@
 					"Operating System": ["iOS 15"]
 				}
 			],
-			"available_colors": "Black",
 			"ratings": "4.9",
 			"stock_status": "Out of Stock",
 			"warranty": "2 year"
@@ -1543,7 +1501,6 @@
 					"Operating System": ["iOS 15"]
 				}
 			],
-			"available_colors": "Blue",
 			"ratings": "4.4",
 			"stock_status": "In Stock",
 			"warranty": "1 year"
@@ -1579,7 +1536,6 @@
 					"Operating System": ["iOS 15"]
 				}
 			],
-			"available_colors": "Black",
 			"ratings": "4.7",
 			"stock_status": "In Stock",
 			"warranty": "1 year"
@@ -1615,7 +1571,6 @@
 					"Operating System": ["iOS 15"]
 				}
 			],
-			"available_colors": "White",
 			"ratings": "4.1",
 			"stock_status": "Out of Stock",
 			"warranty": "2 year"
@@ -1651,7 +1606,6 @@
 					"Operating System": ["iOS 15"]
 				}
 			],
-			"available_colors": "Black",
 			"ratings": "4.3",
 			"stock_status": "Out of Stock",
 			"warranty": "2 year"
@@ -1687,7 +1641,6 @@
 					"Operating System": ["iOS 15"]
 				}
 			],
-			"available_colors": "Black",
 			"ratings": "4.1",
 			"stock_status": "Out of Stock",
 			"warranty": "1 year"
@@ -1723,7 +1676,6 @@
 					"Operating System": ["iOS 15"]
 				}
 			],
-			"available_colors": "Silver",
 			"ratings": "4.5",
 			"stock_status": "Out of Stock",
 			"warranty": "2 year"
@@ -1759,7 +1711,6 @@
 					"Operating System": ["iOS 15"]
 				}
 			],
-			"available_colors": "Blue",
 			"ratings": "4.9",
 			"stock_status": "Out of Stock",
 			"warranty": "2 year"
@@ -1795,7 +1746,6 @@
 					"Operating System": ["iOS 15"]
 				}
 			],
-			"available_colors": "Silver",
 			"ratings": "4.7",
 			"stock_status": "Out of Stock",
 			"warranty": "2 year"
@@ -1833,7 +1783,6 @@
 					"Audio": ["20W speakers", "Dolby Atmos"]
 				}
 			],
-			"available_colors": "Blue",
 			"ratings": "4.7",
 			"stock_status": "In Stock",
 			"warranty": "2 year"
@@ -1869,7 +1818,6 @@
 					"Audio": ["20W speakers", "Dolby Atmos"]
 				}
 			],
-			"available_colors": "White",
 			"ratings": "4.5",
 			"stock_status": "In Stock",
 			"warranty": "1 year"
@@ -1905,7 +1853,6 @@
 					"Audio": ["20W speakers", "Dolby Atmos"]
 				}
 			],
-			"available_colors": "Black",
 			"ratings": "4.2",
 			"stock_status": "In Stock",
 			"warranty": "1 year"
@@ -1941,7 +1888,6 @@
 					"Audio": ["20W speakers", "Dolby Atmos"]
 				}
 			],
-			"available_colors": "Black",
 			"ratings": "4.3",
 			"stock_status": "Out of Stock",
 			"warranty": "1 year"
@@ -1977,7 +1923,6 @@
 					"Audio": ["20W speakers", "Dolby Atmos"]
 				}
 			],
-			"available_colors": "Black",
 			"ratings": "4.1",
 			"stock_status": "In Stock",
 			"warranty": "1 year"
@@ -2013,7 +1958,6 @@
 					"Audio": ["20W speakers", "Dolby Atmos"]
 				}
 			],
-			"available_colors": "Red",
 			"ratings": "4.1",
 			"stock_status": "In Stock",
 			"warranty": "1 year"
@@ -2049,7 +1993,6 @@
 					"Audio": ["20W speakers", "Dolby Atmos"]
 				}
 			],
-			"available_colors": "Red",
 			"ratings": "4.9",
 			"stock_status": "In Stock",
 			"warranty": "2 year"
@@ -2085,7 +2028,6 @@
 					"Audio": ["20W speakers", "Dolby Atmos"]
 				}
 			],
-			"available_colors": "Blue",
 			"ratings": "4.9",
 			"stock_status": "In Stock",
 			"warranty": "2 year"
@@ -2121,7 +2063,6 @@
 					"Audio": ["20W speakers", "Dolby Atmos"]
 				}
 			],
-			"available_colors": "Blue",
 			"ratings": "4.5",
 			"stock_status": "Out of Stock",
 			"warranty": "2 year"
@@ -2157,7 +2098,6 @@
 					"Audio": ["20W speakers", "Dolby Atmos"]
 				}
 			],
-			"available_colors": "Silver",
 			"ratings": "4.8",
 			"stock_status": "Out of Stock",
 			"warranty": "2 year"
@@ -2193,7 +2133,6 @@
 					"Audio": ["20W speakers", "Dolby Atmos"]
 				}
 			],
-			"available_colors": "Red",
 			"ratings": "4.1",
 			"stock_status": "In Stock",
 			"warranty": "1 year"
@@ -2229,7 +2168,6 @@
 					"Audio": ["20W speakers", "Dolby Atmos"]
 				}
 			],
-			"available_colors": "White",
 			"ratings": "5.0",
 			"stock_status": "In Stock",
 			"warranty": "1 year"
@@ -2265,7 +2203,6 @@
 					"Audio": ["20W speakers", "Dolby Atmos"]
 				}
 			],
-			"available_colors": "Red",
 			"ratings": "4.9",
 			"stock_status": "Out of Stock",
 			"warranty": "2 year"
@@ -2301,7 +2238,6 @@
 					"Audio": ["20W speakers", "Dolby Atmos"]
 				}
 			],
-			"available_colors": "Red",
 			"ratings": "4.8",
 			"stock_status": "Out of Stock",
 			"warranty": "2 year"
@@ -2337,7 +2273,6 @@
 					"Audio": ["20W speakers", "Dolby Atmos"]
 				}
 			],
-			"available_colors": "Blue",
 			"ratings": "4.6",
 			"stock_status": "In Stock",
 			"warranty": "2 year"
@@ -2373,7 +2308,6 @@
 					"Audio": ["20W speakers", "Dolby Atmos"]
 				}
 			],
-			"available_colors": "Blue",
 			"ratings": "5.0",
 			"stock_status": "In Stock",
 			"warranty": "2 year"
@@ -2409,7 +2343,6 @@
 					"Audio": ["20W speakers", "Dolby Atmos"]
 				}
 			],
-			"available_colors": "Silver",
 			"ratings": "4.3",
 			"stock_status": "Out of Stock",
 			"warranty": "1 year"
@@ -2445,7 +2378,6 @@
 					"Audio": ["20W speakers", "Dolby Atmos"]
 				}
 			],
-			"available_colors": "Red",
 			"ratings": "4.9",
 			"stock_status": "In Stock",
 			"warranty": "2 year"
@@ -2481,7 +2413,6 @@
 					"Audio": ["20W speakers", "Dolby Atmos"]
 				}
 			],
-			"available_colors": "Black",
 			"ratings": "4.5",
 			"stock_status": "Out of Stock",
 			"warranty": "2 year"
@@ -2517,7 +2448,6 @@
 					"Audio": ["20W speakers", "Dolby Atmos"]
 				}
 			],
-			"available_colors": "Red",
 			"ratings": "4.4",
 			"stock_status": "Out of Stock",
 			"warranty": "1 year"
@@ -2553,7 +2483,6 @@
 					"Audio": ["20W speakers", "Dolby Atmos"]
 				}
 			],
-			"available_colors": "Blue",
 			"ratings": "4.7",
 			"stock_status": "In Stock",
 			"warranty": "2 year"
@@ -2589,7 +2518,6 @@
 					"Audio": ["20W speakers", "Dolby Atmos"]
 				}
 			],
-			"available_colors": "Silver",
 			"ratings": "4.3",
 			"stock_status": "Out of Stock",
 			"warranty": "1 year"
@@ -2625,7 +2553,6 @@
 					"Audio": ["20W speakers", "Dolby Atmos"]
 				}
 			],
-			"available_colors": "Blue",
 			"ratings": "4.4",
 			"stock_status": "In Stock",
 			"warranty": "2 year"
@@ -2661,7 +2588,6 @@
 					"Audio": ["20W speakers", "Dolby Atmos"]
 				}
 			],
-			"available_colors": "Blue",
 			"ratings": "4.8",
 			"stock_status": "Out of Stock",
 			"warranty": "1 year"
@@ -2697,7 +2623,6 @@
 					"Audio": ["20W speakers", "Dolby Atmos"]
 				}
 			],
-			"available_colors": "White",
 			"ratings": "5.0",
 			"stock_status": "In Stock",
 			"warranty": "2 year"
@@ -2705,7 +2630,7 @@
 	],
 	"headphones": [
 		{
-			"product_id":"MSE076",
+			"product_id": "MSE076",
 			"category": "headphones",
 			"image": "http://localhost:5000/products/images/headphones/1.jpg",
 			"product_name": "JBL Headphones Model 112",
@@ -2726,18 +2651,14 @@
 				},
 				{
 					"Connectivity": ["Bluetooth 5.0", "USB-C Charging"]
-				},
-				{
-					"Colors": ["Black", "White"]
 				}
 			],
-			"available_colors": "Silver",
 			"ratings": "4.3",
 			"stock_status": "In Stock",
 			"warranty": "2 year"
 		},
 		{
-			"product_id":"MSE077",
+			"product_id": "MSE077",
 			"category": "headphones",
 			"image": "http://localhost:5000/products/images/headphones/10.jpg",
 			"product_name": "Bose Headphones Model 726",
@@ -2758,18 +2679,14 @@
 				},
 				{
 					"Connectivity": ["Bluetooth 5.0", "USB-C Charging"]
-				},
-				{
-					"Colors": ["Black", "White"]
 				}
 			],
-			"available_colors": "Black",
 			"ratings": "4.8",
 			"stock_status": "In Stock",
 			"warranty": "2 year"
 		},
 		{
-			"product_id":"MSE078",
+			"product_id": "MSE078",
 			"category": "headphones",
 			"image": "http://localhost:5000/products/images/headphones/11.jpg",
 			"product_name": "Sony Headphones Model 259",
@@ -2790,18 +2707,14 @@
 				},
 				{
 					"Connectivity": ["Bluetooth 5.0", "USB-C Charging"]
-				},
-				{
-					"Colors": ["Black", "White"]
 				}
 			],
-			"available_colors": "White",
 			"ratings": "4.6",
 			"stock_status": "In Stock",
 			"warranty": "2 year"
 		},
 		{
-			"product_id":"MSE079",
+			"product_id": "MSE079",
 			"category": "headphones",
 			"image": "http://localhost:5000/products/images/headphones/12.jpg",
 			"product_name": "Sennheiser Headphones Model 635",
@@ -2822,18 +2735,14 @@
 				},
 				{
 					"Connectivity": ["Bluetooth 5.0", "USB-C Charging"]
-				},
-				{
-					"Colors": ["Black", "White"]
 				}
 			],
-			"available_colors": "Silver",
 			"ratings": "4.8",
 			"stock_status": "In Stock",
 			"warranty": "1 year"
 		},
 		{
-			"product_id":"MSE080",
+			"product_id": "MSE080",
 			"category": "headphones",
 			"image": "http://localhost:5000/products/images/headphones/13.jpg",
 			"product_name": "Bose Headphones Model 557",
@@ -2854,18 +2763,14 @@
 				},
 				{
 					"Connectivity": ["Bluetooth 5.0", "USB-C Charging"]
-				},
-				{
-					"Colors": ["Black", "White"]
 				}
 			],
-			"available_colors": "Blue",
 			"ratings": "4.8",
 			"stock_status": "In Stock",
 			"warranty": "1 year"
 		},
 		{
-			"product_id":"MSE081",
+			"product_id": "MSE081",
 			"category": "headphones",
 			"image": "http://localhost:5000/products/images/headphones/14.jpg",
 			"product_name": "Sony Headphones Model 771",
@@ -2886,18 +2791,14 @@
 				},
 				{
 					"Connectivity": ["Bluetooth 5.0", "USB-C Charging"]
-				},
-				{
-					"Colors": ["Black", "White"]
 				}
 			],
-			"available_colors": "Blue",
 			"ratings": "4.6",
 			"stock_status": "Out of Stock",
 			"warranty": "1 year"
 		},
 		{
-			"product_id":"MSE082",
+			"product_id": "MSE082",
 			"category": "headphones",
 			"image": "http://localhost:5000/products/images/headphones/15.jpg",
 			"product_name": "Beats Headphones Model 602",
@@ -2918,18 +2819,14 @@
 				},
 				{
 					"Connectivity": ["Bluetooth 5.0", "USB-C Charging"]
-				},
-				{
-					"Colors": ["Black", "White"]
 				}
 			],
-			"available_colors": "Black",
 			"ratings": "4.0",
 			"stock_status": "Out of Stock",
 			"warranty": "2 year"
 		},
 		{
-			"product_id":"MSE083",
+			"product_id": "MSE083",
 			"category": "headphones",
 			"image": "http://localhost:5000/products/images/headphones/16.jpg",
 			"product_name": "Sennheiser Headphones Model 415",
@@ -2950,18 +2847,14 @@
 				},
 				{
 					"Connectivity": ["Bluetooth 5.0", "USB-C Charging"]
-				},
-				{
-					"Colors": ["Black", "White"]
 				}
 			],
-			"available_colors": "Silver",
 			"ratings": "4.6",
 			"stock_status": "In Stock",
 			"warranty": "1 year"
 		},
 		{
-			"product_id":"MSE084",
+			"product_id": "MSE084",
 			"category": "headphones",
 			"image": "http://localhost:5000/products/images/headphones/17.jpg",
 			"product_name": "Sony Headphones Model 937",
@@ -2982,18 +2875,14 @@
 				},
 				{
 					"Connectivity": ["Bluetooth 5.0", "USB-C Charging"]
-				},
-				{
-					"Colors": ["Black", "White"]
 				}
 			],
-			"available_colors": "Black",
 			"ratings": "4.3",
 			"stock_status": "In Stock",
 			"warranty": "1 year"
 		},
 		{
-			"product_id":"MSE085",
+			"product_id": "MSE085",
 			"category": "headphones",
 			"image": "http://localhost:5000/products/images/headphones/18.jpg",
 			"product_name": "Beats Headphones Model 148",
@@ -3014,18 +2903,14 @@
 				},
 				{
 					"Connectivity": ["Bluetooth 5.0", "USB-C Charging"]
-				},
-				{
-					"Colors": ["Black", "White"]
 				}
 			],
-			"available_colors": "Silver",
 			"ratings": "4.5",
 			"stock_status": "Out of Stock",
 			"warranty": "1 year"
 		},
 		{
-			"product_id":"MSE086",
+			"product_id": "MSE086",
 			"category": "headphones",
 			"image": "http://localhost:5000/products/images/headphones/19.jpg",
 			"product_name": "Bose Headphones Model 766",
@@ -3046,18 +2931,14 @@
 				},
 				{
 					"Connectivity": ["Bluetooth 5.0", "USB-C Charging"]
-				},
-				{
-					"Colors": ["Black", "White"]
 				}
 			],
-			"available_colors": "Blue",
 			"ratings": "4.7",
 			"stock_status": "Out of Stock",
 			"warranty": "1 year"
 		},
 		{
-			"product_id":"MSE087",
+			"product_id": "MSE087",
 			"category": "headphones",
 			"image": "http://localhost:5000/products/images/headphones/2.jpg",
 			"product_name": "Beats Headphones Model 126",
@@ -3078,18 +2959,14 @@
 				},
 				{
 					"Connectivity": ["Bluetooth 5.0", "USB-C Charging"]
-				},
-				{
-					"Colors": ["Black", "White"]
 				}
 			],
-			"available_colors": "Black",
 			"ratings": "4.2",
 			"stock_status": "Out of Stock",
 			"warranty": "1 year"
 		},
 		{
-			"product_id":"MSE088",
+			"product_id": "MSE088",
 			"category": "headphones",
 			"image": "http://localhost:5000/products/images/headphones/20.jpg",
 			"product_name": "Sennheiser Headphones Model 388",
@@ -3110,18 +2987,14 @@
 				},
 				{
 					"Connectivity": ["Bluetooth 5.0", "USB-C Charging"]
-				},
-				{
-					"Colors": ["Black", "White"]
 				}
 			],
-			"available_colors": "Red",
 			"ratings": "5.0",
 			"stock_status": "In Stock",
 			"warranty": "2 year"
 		},
 		{
-			"product_id":"MSE089",
+			"product_id": "MSE089",
 			"category": "headphones",
 			"image": "http://localhost:5000/products/images/headphones/21.jpg",
 			"product_name": "Sennheiser Headphones Model 960",
@@ -3142,18 +3015,14 @@
 				},
 				{
 					"Connectivity": ["Bluetooth 5.0", "USB-C Charging"]
-				},
-				{
-					"Colors": ["Black", "White"]
 				}
 			],
-			"available_colors": "Blue",
 			"ratings": "4.0",
 			"stock_status": "Out of Stock",
 			"warranty": "2 year"
 		},
 		{
-			"product_id":"MSE090",
+			"product_id": "MSE090",
 			"category": "headphones",
 			"image": "http://localhost:5000/products/images/headphones/22.jpg",
 			"product_name": "Sennheiser Headphones Model 443",
@@ -3174,18 +3043,14 @@
 				},
 				{
 					"Connectivity": ["Bluetooth 5.0", "USB-C Charging"]
-				},
-				{
-					"Colors": ["Black", "White"]
 				}
 			],
-			"available_colors": "Silver",
 			"ratings": "4.2",
 			"stock_status": "In Stock",
 			"warranty": "2 year"
 		},
 		{
-			"product_id":"MSE091",
+			"product_id": "MSE091",
 			"category": "headphones",
 			"image": "http://localhost:5000/products/images/headphones/23.jpg",
 			"product_name": "Sony Headphones Model 543",
@@ -3206,18 +3071,14 @@
 				},
 				{
 					"Connectivity": ["Bluetooth 5.0", "USB-C Charging"]
-				},
-				{
-					"Colors": ["Black", "White"]
 				}
 			],
-			"available_colors": "Red",
 			"ratings": "4.6",
 			"stock_status": "In Stock",
 			"warranty": "2 year"
 		},
 		{
-			"product_id":"MSE092",
+			"product_id": "MSE092",
 			"category": "headphones",
 			"image": "http://localhost:5000/products/images/headphones/24.jpg",
 			"product_name": "Sony Headphones Model 546",
@@ -3238,18 +3099,14 @@
 				},
 				{
 					"Connectivity": ["Bluetooth 5.0", "USB-C Charging"]
-				},
-				{
-					"Colors": ["Black", "White"]
 				}
 			],
-			"available_colors": "Blue",
 			"ratings": "4.1",
 			"stock_status": "In Stock",
 			"warranty": "1 year"
 		},
 		{
-			"product_id":"MSE093",
+			"product_id": "MSE093",
 			"category": "headphones",
 			"image": "http://localhost:5000/products/images/headphones/25.png",
 			"product_name": "Sony Headphones Model 488",
@@ -3270,18 +3127,14 @@
 				},
 				{
 					"Connectivity": ["Bluetooth 5.0", "USB-C Charging"]
-				},
-				{
-					"Colors": ["Black", "White"]
 				}
 			],
-			"available_colors": "Blue",
 			"ratings": "4.2",
 			"stock_status": "In Stock",
 			"warranty": "1 year"
 		},
 		{
-			"product_id":"MSE094",
+			"product_id": "MSE094",
 			"category": "headphones",
 			"image": "http://localhost:5000/products/images/headphones/3.jpg",
 			"product_name": "Sony Headphones Model 256",
@@ -3302,18 +3155,14 @@
 				},
 				{
 					"Connectivity": ["Bluetooth 5.0", "USB-C Charging"]
-				},
-				{
-					"Colors": ["Black", "White"]
 				}
 			],
-			"available_colors": "White",
 			"ratings": "4.1",
 			"stock_status": "In Stock",
 			"warranty": "2 year"
 		},
 		{
-			"product_id":"MSE095",
+			"product_id": "MSE095",
 			"category": "headphones",
 			"image": "http://localhost:5000/products/images/headphones/4.jpg",
 			"product_name": "Sony Headphones Model 133",
@@ -3334,18 +3183,14 @@
 				},
 				{
 					"Connectivity": ["Bluetooth 5.0", "USB-C Charging"]
-				},
-				{
-					"Colors": ["Black", "White"]
 				}
 			],
-			"available_colors": "Red",
 			"ratings": "4.8",
 			"stock_status": "Out of Stock",
 			"warranty": "2 year"
 		},
 		{
-			"product_id":"MSE096",
+			"product_id": "MSE096",
 			"category": "headphones",
 			"image": "http://localhost:5000/products/images/headphones/5.jpg",
 			"product_name": "Sony Headphones Model 101",
@@ -3366,18 +3211,14 @@
 				},
 				{
 					"Connectivity": ["Bluetooth 5.0", "USB-C Charging"]
-				},
-				{
-					"Colors": ["Black", "White"]
 				}
 			],
-			"available_colors": "Red",
 			"ratings": "4.5",
 			"stock_status": "Out of Stock",
 			"warranty": "2 year"
 		},
 		{
-			"product_id":"MSE097",
+			"product_id": "MSE097",
 			"category": "headphones",
 			"image": "http://localhost:5000/products/images/headphones/6.jpg",
 			"product_name": "Beats Headphones Model 889",
@@ -3398,18 +3239,14 @@
 				},
 				{
 					"Connectivity": ["Bluetooth 5.0", "USB-C Charging"]
-				},
-				{
-					"Colors": ["Black", "White"]
 				}
 			],
-			"available_colors": "Silver",
 			"ratings": "4.7",
 			"stock_status": "In Stock",
 			"warranty": "1 year"
 		},
 		{
-			"product_id":"MSE098",
+			"product_id": "MSE098",
 			"category": "headphones",
 			"image": "http://localhost:5000/products/images/headphones/7.jpg",
 			"product_name": "Bose Headphones Model 835",
@@ -3430,18 +3267,14 @@
 				},
 				{
 					"Connectivity": ["Bluetooth 5.0", "USB-C Charging"]
-				},
-				{
-					"Colors": ["Black", "White"]
 				}
 			],
-			"available_colors": "Black",
 			"ratings": "4.4",
 			"stock_status": "In Stock",
 			"warranty": "2 year"
 		},
 		{
-			"product_id":"MSE099",
+			"product_id": "MSE099",
 			"category": "headphones",
 			"image": "http://localhost:5000/products/images/headphones/8.jpg",
 			"product_name": "Beats Headphones Model 597",
@@ -3462,18 +3295,14 @@
 				},
 				{
 					"Connectivity": ["Bluetooth 5.0", "USB-C Charging"]
-				},
-				{
-					"Colors": ["Black", "White"]
 				}
 			],
-			"available_colors": "White",
 			"ratings": "5.0",
 			"stock_status": "In Stock",
 			"warranty": "1 year"
 		},
 		{
-			"product_id":"MSE100",
+			"product_id": "MSE100",
 			"category": "headphones",
 			"image": "http://localhost:5000/products/images/headphones/9.jpg",
 			"product_name": "Sony Headphones Model 907",
@@ -3494,12 +3323,8 @@
 				},
 				{
 					"Connectivity": ["Bluetooth 5.0", "USB-C Charging"]
-				},
-				{
-					"Colors": ["Black", "White"]
 				}
 			],
-			"available_colors": "Black",
 			"ratings": "4.6",
 			"stock_status": "Out of Stock",
 			"warranty": "1 year"
