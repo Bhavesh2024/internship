@@ -3,7 +3,7 @@ import React, { useState, useEffect } from "react";
 import AdminTableTool from "../layout/toolbar/AdminTableTool";
 
 const ProductDataTable = () => {
-	const [productData, setProductData] = useState([]);
+	const [productData, setProductData] = useState({});
 
 	const fields = [
 		"ID",
@@ -23,19 +23,19 @@ const ProductDataTable = () => {
 		"DELETE",
 	];
 	const fetchProducts = async () => {
-		const response = await axios.get("../../../product.json");
-
+		
 		try {
+			const response = await axios.get("http://localhost:5000/api/products");
 			if (response.status == 200) {
 				const data = response.data;
-				// console.log(data);
-				const filteredData = Object.entries(data).filter(
-					([key]) => key == "smartphones"
-				);
-				console.log(filteredData);
-				const smartPhoneData = filteredData[0][1].map((value) => value);
-				console.log(smartPhoneData[0].product_id);
-				setProductData(smartPhoneData);
+				console.log(data);
+				// const filteredData = Object.entries(data).filter(
+				// 	([key]) => key == "smartphones"
+				// );
+				// console.log(filteredData);
+				// const smartPhoneData = filteredData[0][1].map((value) => value);
+				// console.log(smartPhoneData[0].product_id);
+				setProductData(data);
 			}
 		} catch (error) {
 			console.log(error);
@@ -44,9 +44,9 @@ const ProductDataTable = () => {
 	useEffect(() => {
 		fetchProducts();
 	}, []);
-	if (productData.length != 0) {
-		console.log("data : " + productData[0].product_id);
-	}
+	// if (productData.length != 0) {
+	// 	console.log("data : " + productData[0].product_id);
+	// }
 
 	const joinSpecifications = (productSpecifications) => {
 		let specifications = [];
@@ -82,10 +82,18 @@ const ProductDataTable = () => {
 	// 				value.map((value) => (features += value + ", ")))
 	// 	) + "<br/>";
 	// };
-	return (
+	if(!productData){
+	return <div>Loading.....</div>
+  } else{
+		// console.log(productData[0].smartphones[0].product_id)
+	}
+	return (<>
+		
+			
 		<div className="w-full max-w-full p-5">
 			<AdminTableTool />
-			<table className="text-nowrap table-auto border border-gray-500">
+	
+			<table className="text-nowrap table-auto border border-gray-500 mt-20">
 				<thead>
 					{fields.map((value) =>
 						value == "PRICE" ? (
@@ -106,13 +114,14 @@ const ProductDataTable = () => {
 					)}
 				</thead>
 				<tbody className="text-nowrap text-center">
-					{productData.map((value) => (
+					{Object.values(productData).map((value,key) => (
+					  value.map((value,key) =>(
 						<tr>
 							<td className="border-b border-gray-400 p-3">
 								{value.product_id}
 							</td>
 							<td className="border-b border-gray-400 p-3">
-								{value.image}
+								<img src={value.image} alt="" />
 							</td>
 							<td className="border-b border-gray-400 p-3">
 								{value.category}
@@ -159,10 +168,12 @@ const ProductDataTable = () => {
 								<button>Remove</button>
 							</td>
 						</tr>
+				))
 					))}
 				</tbody>
 			</table>
 		</div>
+	</>
 	);
 };
 

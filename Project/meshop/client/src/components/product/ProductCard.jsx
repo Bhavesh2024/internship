@@ -1,44 +1,52 @@
 import axios from "axios";
 import React, { useEffect, useState } from "react";
 import { Link} from "react-router-dom";
+import { useParams } from "react-router-dom";
+import { useSelector,useDispatch } from "react-redux";
+import { addToCart } from "../../redux/features/cartSlice";
+export const fetchProductData = async(data,handler,id) =>{
+	try{
+		const response = await axios.get(`http://localhost:5000/api/products/id/${id}`)
+		if(response.status == 200){
+				console.log( response.data);
+				
+				handler(prevData => ({ ...prevData, ...response.data }));
+				
+		}
+	}catch(e){
+		// console.log(e)
+	}
+}
 const ProductCard = ({productId}) => {
 	const [productData,setProductData] = useState({});
-	const fetchProductData = async() =>{
-		try{
-			const response = await axios.get(`http://localhost:5000/api/products/id/${productId}`)
-			if(response.status == 200){
-					console.log( response.data);
-					
-					setProductData(prevData => ({ ...prevData, ...response.data }));
-
-						 if(Object.values(productData).length != 0){
-
-							 console.log("productData" + productData)
-							 console.log(productData.image)
-						 }
-					
-			}
-		}catch(e){
-			// console.log(e)
-		}
-	}
+	const cart = useSelector((state) => state.productCart)
+	const {username} = useParams();
+	const dispatch = useDispatch();
 	useEffect(() =>{
-			fetchProductData();
-			
+			fetchProductData(productData,setProductData,productId);
 	},[])
 	// fetchProductData()
+
+	const handleProduct = () =>{
+		if(username != '' && username != null && username != undefined){
+			console.log(username)
+			dispatch(addToCart({productId,username}));
+		}else{
+			alert('You are not login')
+		}
+	}
 	return (
-		<div className="border w-full md:w-1/6 flex flex-col justify-center items-center bg-[url('../../../images/card-bg.jpg')]">
-			<div className="p-5">
+		<div className="border rounded-sm w-11/12 flex flex-col justify-center items-center bg-[url('../../../images/card-bg.jpg')] p-0">
+			<div className="w-full">
 				<img
 					src={`${productData !== null ? productData.image : ""}`}
 					alt=""
-					className="w-11/12 h-48 flex mx-auto"
+					className="h-48 w-full"
 				/>
 			</div>
 			<div className="text-center">
-				<div className="text-lg font-semibold">
-					<Link to="/"> {productData.product_name} </Link>
+				<div className="text-md font-semibold text-nowrap">
+					<Link to={`/product/${productId}`}> {productData.product_name} </Link>
 				</div>
 				<div>
 					<span className="text-xl font-semibold text-slate-600">
@@ -54,9 +62,9 @@ const ProductCard = ({productId}) => {
 					</div> */}
 				</div>
 				<div className="text-sm px-3 my-1">
-					{productData.description}
+					{productData.description ? productData.description.slice(0,100) : productData.description}
 				</div>
-				<button className=" bg-gradient-to-r from-slate-900 to-gray-800 rounded-full py-2 px-5 text-white inline-block w-fit text-sm my-3">
+				<button className=" bg-gradient-to-r from-slate-900 to-gray-800 rounded-full py-2 px-5 text-white inline-block w-fit text-sm my-3" onClick={handleProduct}>
 					Add to Cart
 				</button>
 			</div>

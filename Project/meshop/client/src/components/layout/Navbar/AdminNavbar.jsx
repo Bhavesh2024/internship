@@ -33,7 +33,7 @@ const AdminNavbar = () => {
 					<i className="fa-solid fa-bell"></i>
 					<i
 						className="fa-solid fa-user-circle text-2xl relative"
-						onClick={() => setToggleDropDown(!toggleDropDown)}
+						onClick={() => setToggleDropDown(!toggleDropDown)} ref={dropDownRef}
 						id="admin"
 					>
 						<UserActivityDropDown
@@ -43,6 +43,7 @@ const AdminNavbar = () => {
 							}
 							open={toggleDropDown}
 							parentId={"admin"}
+							refs={dropDownRef}
 						/>
 					</i>
 				</div>

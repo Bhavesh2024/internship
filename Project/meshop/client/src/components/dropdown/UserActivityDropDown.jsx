@@ -11,6 +11,7 @@ const UserActivityDropDown = ({
 	refs,
 	parentId,
 }) => {
+	console.log(document.getElementById(refs))
 	return createPortal(
 		open && (
 			<div className={classes} style={style} ref={refs}>

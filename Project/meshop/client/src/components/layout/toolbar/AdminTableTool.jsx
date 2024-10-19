@@ -36,8 +36,10 @@ const AdminTableTool = () => {
 					</option>
 				</select>
 			</div>
-			<Modal open={openModal} onClose={setOpenModal}>
+			<Modal open={openModal} onClose={setOpenModal} closeIcon={false}>
+				<div className="w-screen">
 				<ProductDetailForm />
+				</div>
 			</Modal>
 		</div>
 	);

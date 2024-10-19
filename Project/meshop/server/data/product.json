@@ -2631,7 +2631,7 @@
 	"headphones": [
 		{
 			"product_id": "MSE076",
-			"category": "headphones",
+			"category": "headphone",
 			"image": "http://localhost:5000/products/images/headphones/1.jpg",
 			"product_name": "JBL Headphones Model 112",
 			"brand": "Sony",
@@ -2659,7 +2659,7 @@
 		},
 		{
 			"product_id": "MSE077",
-			"category": "headphones",
+			"category": "headphone",
 			"image": "http://localhost:5000/products/images/headphones/10.jpg",
 			"product_name": "Bose Headphones Model 726",
 			"brand": "Sennheiser",
@@ -2687,7 +2687,7 @@
 		},
 		{
 			"product_id": "MSE078",
-			"category": "headphones",
+			"category": "headphone",
 			"image": "http://localhost:5000/products/images/headphones/11.jpg",
 			"product_name": "Sony Headphones Model 259",
 			"brand": "Bose",
@@ -2715,7 +2715,7 @@
 		},
 		{
 			"product_id": "MSE079",
-			"category": "headphones",
+			"category": "headphone",
 			"image": "http://localhost:5000/products/images/headphones/12.jpg",
 			"product_name": "Sennheiser Headphones Model 635",
 			"brand": "Beats",
@@ -2743,7 +2743,7 @@
 		},
 		{
 			"product_id": "MSE080",
-			"category": "headphones",
+			"category": "headphone",
 			"image": "http://localhost:5000/products/images/headphones/13.jpg",
 			"product_name": "Bose Headphones Model 557",
 			"brand": "Bose",
@@ -2771,7 +2771,7 @@
 		},
 		{
 			"product_id": "MSE081",
-			"category": "headphones",
+			"category": "headphone",
 			"image": "http://localhost:5000/products/images/headphones/14.jpg",
 			"product_name": "Sony Headphones Model 771",
 			"brand": "Sennheiser",
@@ -2799,7 +2799,7 @@
 		},
 		{
 			"product_id": "MSE082",
-			"category": "headphones",
+			"category": "headphone",
 			"image": "http://localhost:5000/products/images/headphones/15.jpg",
 			"product_name": "Beats Headphones Model 602",
 			"brand": "Sennheiser",
@@ -2827,7 +2827,7 @@
 		},
 		{
 			"product_id": "MSE083",
-			"category": "headphones",
+			"category": "headphone",
 			"image": "http://localhost:5000/products/images/headphones/16.jpg",
 			"product_name": "Sennheiser Headphones Model 415",
 			"brand": "Sony",
@@ -2855,7 +2855,7 @@
 		},
 		{
 			"product_id": "MSE084",
-			"category": "headphones",
+			"category": "headphone",
 			"image": "http://localhost:5000/products/images/headphones/17.jpg",
 			"product_name": "Sony Headphones Model 937",
 			"brand": "Sony",
@@ -2883,7 +2883,7 @@
 		},
 		{
 			"product_id": "MSE085",
-			"category": "headphones",
+			"category": "headphone",
 			"image": "http://localhost:5000/products/images/headphones/18.jpg",
 			"product_name": "Beats Headphones Model 148",
 			"brand": "Sennheiser",
@@ -2911,7 +2911,7 @@
 		},
 		{
 			"product_id": "MSE086",
-			"category": "headphones",
+			"category": "headphone",
 			"image": "http://localhost:5000/products/images/headphones/19.jpg",
 			"product_name": "Bose Headphones Model 766",
 			"brand": "JBL",
@@ -2939,7 +2939,7 @@
 		},
 		{
 			"product_id": "MSE087",
-			"category": "headphones",
+			"category": "headphone",
 			"image": "http://localhost:5000/products/images/headphones/2.jpg",
 			"product_name": "Beats Headphones Model 126",
 			"brand": "Sennheiser",
@@ -2967,7 +2967,7 @@
 		},
 		{
 			"product_id": "MSE088",
-			"category": "headphones",
+			"category": "headphone",
 			"image": "http://localhost:5000/products/images/headphones/20.jpg",
 			"product_name": "Sennheiser Headphones Model 388",
 			"brand": "Bose",
@@ -2995,7 +2995,7 @@
 		},
 		{
 			"product_id": "MSE089",
-			"category": "headphones",
+			"category": "headphone",
 			"image": "http://localhost:5000/products/images/headphones/21.jpg",
 			"product_name": "Sennheiser Headphones Model 960",
 			"brand": "Sennheiser",
@@ -3023,7 +3023,7 @@
 		},
 		{
 			"product_id": "MSE090",
-			"category": "headphones",
+			"category": "headphone",
 			"image": "http://localhost:5000/products/images/headphones/22.jpg",
 			"product_name": "Sennheiser Headphones Model 443",
 			"brand": "Sony",
@@ -3051,7 +3051,7 @@
 		},
 		{
 			"product_id": "MSE091",
-			"category": "headphones",
+			"category": "headphone",
 			"image": "http://localhost:5000/products/images/headphones/23.jpg",
 			"product_name": "Sony Headphones Model 543",
 			"brand": "Sennheiser",
@@ -3079,7 +3079,7 @@
 		},
 		{
 			"product_id": "MSE092",
-			"category": "headphones",
+			"category": "headphone",
 			"image": "http://localhost:5000/products/images/headphones/24.jpg",
 			"product_name": "Sony Headphones Model 546",
 			"brand": "Beats",
@@ -3107,7 +3107,7 @@
 		},
 		{
 			"product_id": "MSE093",
-			"category": "headphones",
+			"category": "headphone",
 			"image": "http://localhost:5000/products/images/headphones/25.png",
 			"product_name": "Sony Headphones Model 488",
 			"brand": "Sony",
@@ -3135,7 +3135,7 @@
 		},
 		{
 			"product_id": "MSE094",
-			"category": "headphones",
+			"category": "headphone",
 			"image": "http://localhost:5000/products/images/headphones/3.jpg",
 			"product_name": "Sony Headphones Model 256",
 			"brand": "Bose",
@@ -3163,7 +3163,7 @@
 		},
 		{
 			"product_id": "MSE095",
-			"category": "headphones",
+			"category": "headphone",
 			"image": "http://localhost:5000/products/images/headphones/4.jpg",
 			"product_name": "Sony Headphones Model 133",
 			"brand": "Sennheiser",
@@ -3191,7 +3191,7 @@
 		},
 		{
 			"product_id": "MSE096",
-			"category": "headphones",
+			"category": "headphone",
 			"image": "http://localhost:5000/products/images/headphones/5.jpg",
 			"product_name": "Sony Headphones Model 101",
 			"brand": "JBL",
@@ -3219,7 +3219,7 @@
 		},
 		{
 			"product_id": "MSE097",
-			"category": "headphones",
+			"category": "headphone",
 			"image": "http://localhost:5000/products/images/headphones/6.jpg",
 			"product_name": "Beats Headphones Model 889",
 			"brand": "Sony",
@@ -3247,7 +3247,7 @@
 		},
 		{
 			"product_id": "MSE098",
-			"category": "headphones",
+			"category": "headphone",
 			"image": "http://localhost:5000/products/images/headphones/7.jpg",
 			"product_name": "Bose Headphones Model 835",
 			"brand": "Sony",
@@ -3275,7 +3275,7 @@
 		},
 		{
 			"product_id": "MSE099",
-			"category": "headphones",
+			"category": "headphone",
 			"image": "http://localhost:5000/products/images/headphones/8.jpg",
 			"product_name": "Beats Headphones Model 597",
 			"brand": "JBL",
@@ -3303,7 +3303,7 @@
 		},
 		{
 			"product_id": "MSE100",
-			"category": "headphones",
+			"category": "headphone",
 			"image": "http://localhost:5000/products/images/headphones/9.jpg",
 			"product_name": "Sony Headphones Model 907",
 			"brand": "Sennheiser",

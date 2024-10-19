@@ -52,7 +52,7 @@ const Home = ({ withCarousel }) => {
       <Navbar />
       {!withCarousel ? <ProductCarouselContainer /> : <Outlet />}
 			{/* {withCarousel &} */}
-			<ProductCard productId="MSE005" />
+			{/* <ProductCard productId="MSE005" /> */}
       <Footer />
     </div>
   );

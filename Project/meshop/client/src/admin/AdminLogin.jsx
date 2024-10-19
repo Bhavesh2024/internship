@@ -5,10 +5,11 @@ import Error from "../components/modal/Error";
 import Success from "../components/modal/Success";
 import axios from "axios";
 import 'dotenv'
-const AdminLogin = ({user}) => {
+const AdminLogin = () => {
 	const [loginData, setLoginData] = useState({
-		user: "",
+		username: "",
 		password: "",
+		token:localStorage.getItem('token')
 	});
 
 	const [togglePassword, setTogglePassword] = useState(false);
@@ -26,46 +27,28 @@ const AdminLogin = ({user}) => {
 		setLoginData({ ...loginData, [name]: value });
 	};
 
+	const handleAdminLogin = async() =>{
+		try{
+			const request = await axios.post('http://localhost:5000/login/admin',loginData);
+			if(request.status == 200){
+				setMessage({...message,error:false,success:true,text:request.data.message});
+				 setOpenModal(!openModal);
+			}
+		} catch(e){
+			if(e.response.data.message){
+				setMessage({...message,error:true,text:e.response.data.message})
+				setOpenModal(!openModal)
+			}
+		}
+		 
+	}
 	const handleSubmit = async (e) => {
 		e.preventDefault();
-		// console.log('hello')
-    console.log(import.meta.env.VITE_USERNAME);  // Should output 'admin'
-console.log(import.meta.env.VITE_PASSWORD);  // Should output 'admin@123'
-console.log(import.meta.env.VITE_TOKEN);     // Should output the token
 
-		// try{
-			  
-		// 		const response = await axios.post('http://localhost:5000/user/login',loginData)
-		// 		if(response.status == 200){
-		// 			// console.log(response.data.message);
-		// 			// console.log(response.data.username)
-		// 			setUsername(response.data.username);
-		// 			setMessage({...message,text:response.data.message,success:true})
-		// 			setOpenModal(!openModal);
-					
-		// 		}
-				
-		// }catch(e){
-		// 	   const error = e.response.data.message;
-		// 		console.log(e)
-		// 			setMessage({...message,text:error,error:true})
-		// 			setOpenModal(!openModal);
-		// }
-  
+		handleAdminLogin();
+		
 	}
 
-	const moveToHome = () =>{
-		 const navigate = useNavigate();
-
-		 navigate('/');
-	}
-
-
-	useEffect(() => {
-      // if(localStorage.getItem('token') != process.env.TOKEN){
-         
-      // }
-  },[])
 	return (
 		<div>
 			<form className="flex justify-center min-h-dvh items-center p-3" onSubmit={handleSubmit}>
@@ -76,10 +59,10 @@ console.log(import.meta.env.VITE_TOKEN);     // Should output the token
 					<div className="grid grid-cols-1">
 						<input
 							type="text"
-							name={"user"}
-							id="user"
-							value={loginData.email}
-							placeholder="Username or Email"
+							name={"username"}
+							id="username"
+							value={loginData.username}
+							placeholder="Username"
 							className="border px-4 py-3 rounded-md"
 							onChange={handleInput}
 							required
@@ -92,6 +75,7 @@ console.log(import.meta.env.VITE_TOKEN);     // Should output the token
 							name="password"
 							placeholder="Password"
 							className="border px-4 py-3 rounded-md "
+							value={loginData.password}
 							onChange={handleInput}
 							required
 						/>
@@ -117,11 +101,9 @@ console.log(import.meta.env.VITE_TOKEN);     // Should output the token
 			</form>
 			{
 				<Modal open={openModal} onClose={setOpenModal}>
-					{ 
-						console.log(username)
-					}
+					
 						{
-							message.error ? <Error message={message.text} handler={setMessage} onClose={setOpenModal}  /> : <Success message={message.text} handler={setMessage} onClose={setOpenModal} redirect={`/user/${username}/`}/>
+							message.error ? <Error message={message.text} handler={setMessage} onClose={setOpenModal}  /> : <Success message={message.text} handler={setMessage} onClose={setOpenModal} redirect={`/user/${loginData.username}/`}/>
 						}
 				</Modal>
 			}

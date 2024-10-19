@@ -112,7 +112,7 @@ const Login = ({user}) => {
 				</fieldset>
 			</form>
 			{
-				<Modal open={openModal} onClose={setOpenModal}>
+				<Modal open={openModal} onClose={setOpenModal} style={{zIndex:50}}>
 					{ 
 						console.log(username)
 					}

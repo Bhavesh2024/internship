@@ -34,11 +34,13 @@ const addUser = async (req, res) => {
           //  Object.values(user).push(userData)
           const username = userData.username;
           console.log(user)
-          const newUser = {...user,[username]:userData,isLogin:false}
+          const newUser = {...user,[username]:{...userData,isLogin:false}}
           console.log(newUser)
             fs.writeFile('./data/user.json',JSON.stringify(newUser),(error) =>{
               console.log(error)
             })
+            createCart(username);
+            // fs.writeFile('./data/cart.json',)
             return res.status(200).json({message:'You are Registered Successfully'})
           } else{
             return res.status(409).json({message:'Username Already Exist'});
@@ -51,7 +53,28 @@ const addUser = async (req, res) => {
   
 };
 
-
+const createCart = (username) =>{
+   const result = fs.readFileSync('./data/cart.json');
+   console.log(result);
+   if(result == null){
+      fs.writeFileSync('./data/cart.json',`{
+          "${username}" : {
+             "username":"${username}",
+             "cart":[]
+          }
+        }`)
+   }else{
+     console.log(result);
+     const cart = JSON.parse(result);
+     const newObj = {
+       username:username,
+       cart:[]
+     }
+     const newData = {...cart,[username]:newObj}
+     console.log(newData);
+     fs.writeFileSync('./data/cart.json',JSON.stringify(newData));
+   }
+}
 const checkExistData = (user,data) => {
   // const isExist = Object.keys(user).map(key => {
   //   Object.entries(key).filter(([key,value]) =>{

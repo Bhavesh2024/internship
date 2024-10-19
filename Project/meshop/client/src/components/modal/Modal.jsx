@@ -1,6 +1,6 @@
 import React from "react";
 import { createPortal } from "react-dom";
-const Modal = ({ children, open, onClose, style }) => {
+const Modal = ({ children, open, onClose, style,closeIcon=true }) => {
 	if (open) {
 		document.body.setAttribute(
 			"class",
@@ -9,16 +9,21 @@ const Modal = ({ children, open, onClose, style }) => {
 	}
 	return createPortal(
 		open && (
-			<div className="modal absolute w-full min-h-screen top-0 start-0 bg-slate-900 flex justify-center items-center bg-opacity-55">
+			<div className="modal fixed w-full h-screen overflow-scroll scrollbar-none top-0 start-0 bg-slate-900 flex justify-center items-center bg-opacity-55">
 				<div
-					className="modal-content relative w-full h-vh"
+					className="modal-content w-full h-vh flex items-center justify-center"
 					style={style}
 				>
+					<div className="relative h-fit">
+					{
+						closeIcon &&
 					<i
 						className="fa-solid fa-xmark text-xl absolute top-0 end-0 me-3 mt-2"
 						onClick={() => onClose(false)}
 					></i>
+					}
 					{children}
+					</div>
 				</div>
 			</div>
 		),

@@ -4,6 +4,8 @@ const app = express();
 const loginRoute = require('./routes/login')
 const imageRoute = require('./routes/product');
 const apiRoute = require ('./routes/api')
+const adminRoute = require('./routes/admin')
+require('dotenv').config();
 app.use(
 	cors({
 		origin: "http://localhost:5173",
@@ -21,5 +23,6 @@ app.get('/',(req,res) =>{
 app.use('/user',loginRoute);
 app.use('/api',apiRoute);
 app.use('/products/images/',imageRoute)
+app.use('/login',adminRoute)
 const PORT = 5000;
 app.listen(PORT, () => console.log(`Server Started at PORT::${PORT}`));

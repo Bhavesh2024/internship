@@ -1,8 +1,12 @@
 import React, { useEffect, useState } from "react";
 import axios from "axios";
+import Modal from "../modal/Modal";
+import PermissionModal from "../modal/PermissionModal";
 
 const UserDataTable = () => {
 	const [userData, setUserData] = useState([]);
+	const [openModal,setOpenModal] = useState(false);
+	const [username,setUsername] = useState('');
 	const fields = [
 		"ID",
 		"USERNAME",
@@ -20,7 +24,7 @@ const UserDataTable = () => {
 	];
 
 	const fetchUserData = async () => {
-		const response = await axios.get("../../../user.json");
+		const response = await axios.get('http://localhost:5000/api/users');
 
 		try {
 			if (response.status === 200) {
@@ -42,14 +46,32 @@ const UserDataTable = () => {
 		return `${address.suite}, ${address.street}, ${address.city}, ${address.state}`;
 	};
 
-	const handleRemove = (username) => {
-		// Implement the remove logic here
-		console.log("Remove user:", username);
+	const handleUser = (username) =>{
+		 	setOpenModal(!openModal);
+			setUsername(username);
+	}
+	const handleRemove = async() => {
+		
+		try{
+
+			const response = await axios.delete(`http://localhost:5000/api/users/${username}`)
+
+			if(response.status == 200){
+						// setUserData(response.data.user);
+						fetchUserData();
+						setOpenModal(false);
+						// console.log('hello')
+			}
+		}catch(error){
+			console.log(error);
+		}
+		
 	};
 
 	useEffect(() => {
 		fetchUserData();
 	}, []);
+
 
 	return (
 		<div className="w-full p-5">
@@ -73,8 +95,8 @@ const UserDataTable = () => {
 						>
 							<td className="p-2">{user.id}</td>
 							<td className="p-2">{user.username}</td>
-							<td className="p-2">{user.name}</td>
-							<td className="p-2">{user.birthDate}</td>
+							<td className="p-2">{user.fname + " " + user.lname}</td>
+							<td className="p-2">{user.dob}</td>
 							<td className="p-2">{user.age}</td>
 							<td className="p-2">{user.gender}</td>
 							<td className="p-2">{joinAddress(user.address)}</td>
@@ -89,7 +111,7 @@ const UserDataTable = () => {
 							</td>
 							<td>
 								<button
-									onClick={() => handleRemove(user.username)}
+									onClick={() => handleUser(user.username)}
 								>
 									Remove
 								</button>
@@ -98,6 +120,11 @@ const UserDataTable = () => {
 					))}
 				</tbody>
 			</table>
+			<Modal open={openModal} onClose={setOpenModal}>
+				   { openModal &&
+							<PermissionModal title={'Delete'} message={'Are You Sure to Delete'} onClose={setOpenModal} positiveAction={handleRemove} />
+					 }
+			</Modal>
 		</div>
 	);
 };
