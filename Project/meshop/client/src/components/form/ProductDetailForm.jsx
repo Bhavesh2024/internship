@@ -1,62 +1,89 @@
-import React, { useEffect, useRef, useState } from 'react'
-import ProductBaseInfo from './ProductBaseInfo';
-import ProductSpecification from './ProductSpecification';
+import React, { useContext, useEffect, useRef, useState } from "react";
+import ProductBaseInfo from "./ProductBaseInfo";
+import ProductSpecification from "./ProductSpecification";
+import { ProductContext } from "../../context/ProductContext";
 
 const ProductDetailForm = () => {
-	const [productData,setProductData] = useState({
-	    product_id: "",
-			category: "",
-			image: "",
-			product_name: "",
-			brand: "",
-			price: "",
-			discount: "",
-			final_price: "",
-			description: "",
-			detailed_specifications: [],
-			ratings: 0,
-			stock_status: "",
-			warranty: ""
-		}
-	);
-	const [productSpecification,setProductSpecification] = useState([]);
-	const [switchForm,setSwitchForm] = useState(true);
+	const {
+		productData,
+		setProductData,
+		productSpecification,
+		setProductSpecification,
+	} = useContext(ProductContext);
+	const [switchForm, setSwitchForm] = useState(true);
+	const [isValid, setIsValid] = useState(false);
+
 	const btnRef = useRef(0);
 
-	const handleSubmit = (e) =>{
-			e.preventDefault();
+	const handleSubmit = (e) => {
+		e.preventDefault();
+		console.log(
+			productSpecification.some(
+				(data) => Array.isArray(data) && data.items.le
+			)
+		);
+		const isValidSpecification = productSpecification.every((obj) => {
+			return Object.values(obj).every(
+				(arr) => Array.isArray(arr) && arr.length > 0
+			);
+		});
+		console.log(productSpecification);
+		setIsValid(isValidSpecification);
+		console.log(isValidSpecification);
+		if (!isValid) {
+			console.log("Please Fill Out All Specification");
+		} else {
+			console.log("all is well");
+		}
+	};
 
-			console.log(productData);
-	}
-
-	useEffect(() =>{
-    if(btnRef.current){
+	useEffect(() => {
+		if (btnRef.current) {
 			btnRef.current.disabled = true;
 		}
-  },[])
+	}, []);
 	return (
-		<div className='flex mx-auto w-1/2 bg-white rounded-md flex-col overflow-auto scrollbar-none max-h-96'>
-				<div className='text-2xl font-semibold text-center p-4 w-full'>
-							Add Product
-				</div>
-				<div className='w-full flex justify-around'>
-					 	<button className='p-3 font-semibold text-indigo-800'  onClick={() => setSwitchForm(true)}>Product Info</button>
-					 	<button className='p-3 font-semibold text-indigo-800 disabled:text-indigo-200' ref={btnRef} onClick={() => setSwitchForm(false)}>Specification</button>
-				</div>
-				<div className='flex justify-center overflow-auto scrollbar-none'>
-							{
-								switchForm ? <ProductBaseInfo data={productData} handler={setProductData} specification={setProductSpecification} ref={btnRef}  /> : <ProductSpecification data={productSpecification} handler={setProductSpecification} info={setProductData} />
-							}
-				</div>
+		<div className="flex mx-auto w-1/2 bg-white rounded-md flex-col overflow-auto scrollbar-none h-70vh p-5">
+			<div className="text-2xl font-semibold text-center p-4 w-full">
+				Add Product
+			</div>
+			<div className="w-full flex justify-around">
+				<button
+					className="p-3 font-semibold text-indigo-800"
+					onClick={() => setSwitchForm(true)}
+				>
+					Product Info
+				</button>
+				<button
+					className="p-3 font-semibold text-indigo-800 disabled:text-indigo-200"
+					ref={btnRef}
+					onClick={() => setSwitchForm(false)}
+				>
+					Specification
+				</button>
+			</div>
+			<div className="flex justify-center overflow-auto scrollbar-none p-4">
+				{switchForm ? (
+					<ProductBaseInfo
+						data={productData}
+						handler={setProductData}
+						specification={setProductSpecification}
+						refs={btnRef}
+						submitHandler={handleSubmit}
+					/>
+				) : (
+					<ProductSpecification
+						data={productSpecification}
+						handler={setProductSpecification}
+						info={setProductData}
+					/>
+				)}
+			</div>
 		</div>
-	)
-}
+	);
+};
 
-export default ProductDetailForm
-
-
-
-
+export default ProductDetailForm;
 
 // import React, { useEffect, useRef, useState } from "react";
 // import { smartPhone, smartTv, headphone } from "./productDefault";
@@ -264,7 +291,7 @@ export default ProductDetailForm
 // 		<>
 // 			<form>
 // 				{data.map((value, key) => (
-					
+
 // 						<input
 // 							type="text"
 // 							className="border p-2"

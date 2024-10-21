@@ -1,6 +1,7 @@
 import React, { useState } from "react";
 import Modal from "../../modal/Modal";
 import ProductDetailForm from "../../form/ProductDetailForm";
+import ProductContextProvider from "../../../context/ProductContext";
 const AdminTableTool = () => {
 	const [openModal, setOpenModal] = useState(false);
 	return (
@@ -38,7 +39,9 @@ const AdminTableTool = () => {
 			</div>
 			<Modal open={openModal} onClose={setOpenModal} closeIcon={false}>
 				<div className="w-screen">
-				<ProductDetailForm />
+					<ProductContextProvider>
+						<ProductDetailForm />
+					</ProductContextProvider>
 				</div>
 			</Modal>
 		</div>

@@ -1,11 +1,20 @@
-const express = require('express');
-const path = require('path');
+const express = require("express");
+const path = require("path");
 const router = express.Router();
 
-router.get('/:category/:imageFile',(req,res) =>{
-  const {category,imageFile} = req.params;
-  const imagePath = `e:/internship/project/meshop/server/images/products/${category}/${imageFile}`;
-   return res.sendFile(imagePath,(e) => console.log(e))
-})
+// Use an environment variable or set a base path
+const basePath = path.join(__dirname, "../images/products");
 
-module.exports = router
+router.get("/:category/:imageFile", (req, res) => {
+	const { category, imageFile } = req.params;
+	const imagePath = path.join(basePath, category, imageFile);
+
+	return res.sendFile(imagePath, (err) => {
+		if (err) {
+			console.error(err);
+			res.status(err.status).end();
+		}
+	});
+});
+
+module.exports = router;
