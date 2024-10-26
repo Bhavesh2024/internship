@@ -9,12 +9,13 @@ const Modal = ({ children, open, onClose, style,closeIcon=true }) => {
 	}
 	return createPortal(
 		open && (
-			<div className="modal fixed w-full h-screen overflow-scroll scrollbar-none top-0 start-0 bg-slate-900 flex justify-center items-center bg-opacity-55">
+			<div className="modal fixed w-full h-screen overflow-scroll scrollbar-none top-0 start-0 bg-slate-900 flex justify-center items-center bg-opacity-55" onClick={() => onClose(false)}>
 				<div
-					className="modal-content w-full h-vh flex items-center justify-center"
+					className="modal-content"
 					style={style}
+				
 				>
-					<div className="relative h-fit">
+					<div className="relative h-fit" onClick={(e) => e.stopPropagation()}>
 					{
 						closeIcon &&
 					<i

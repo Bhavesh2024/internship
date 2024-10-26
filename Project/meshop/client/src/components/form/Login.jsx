@@ -35,9 +35,13 @@ const Login = ({user}) => {
 					// console.log(response.data.message);
 					// console.log(response.data.username)
 					setUsername(response.data.username);
-					setMessage({...message,text:response.data.message,success:true})
-					setOpenModal(!openModal);
-					
+					setLoginData({...loginData,user:"",password:""});
+					if(loginData.user && loginData.password){
+
+						setMessage({...message,text:response.data.message,success:true})
+						setOpenModal(!openModal);
+						localStorage.setItem('isLogin',true);
+					}
 				}
 				
 		}catch(e){
@@ -74,7 +78,7 @@ const Login = ({user}) => {
 							type="text"
 							name={"user"}
 							id="user"
-							value={loginData.email}
+							value={loginData.user}
 							placeholder="Username or Email"
 							className="border px-4 py-3 rounded-md"
 							onChange={handleInput}
@@ -89,6 +93,7 @@ const Login = ({user}) => {
 							placeholder="Password"
 							className="border px-4 py-3 rounded-md "
 							onChange={handleInput}
+							value={loginData.password}
 							required
 						/>
 						<i

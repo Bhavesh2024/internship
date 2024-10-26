@@ -4,12 +4,15 @@ import { useLocation, useNavigate } from "react-router-dom";
 import { useDispatch, useSelector } from "react-redux";
 import cart from "../../redux/cart";
 import { deleteFromCart } from "../../redux/features/cartSlice";
+import Modal from "../modal/Modal";
+import PermissionModal from "../modal/PermissionModal";
 
 const CartProduct = ({productId,handler}) => {
 	const [cartProductData,setCartProductData] = useState(null)
 	const dispatch = useDispatch();
 	const navigate = useNavigate();
 	const location = useLocation();
+	const [openModal,setOpenModal] = useState(false);
 	useEffect(() =>{
 		fetchProductData(cartProductData,setCartProductData,productId);
 	},[])
@@ -21,6 +24,7 @@ const CartProduct = ({productId,handler}) => {
 	}
 	if(cartProductData == null) return <div> Loading ....</div>
 	return (
+		<>
 		<div className="flex gap-5">
 			{
 					(cartProductData !== null) && <>	<div className="flex w-2/5 md:w-1/3 lg:w-1/4 xl:w-1/5 h-48">
@@ -49,12 +53,16 @@ const CartProduct = ({productId,handler}) => {
 				</ul>
 				<div className="flex gap-3 text-sm">
 					<button className="font-semibold" onClick={() => navigate(`/product/${cartProductData.product_id}`)}>VIEW DETAIL</button>
-					<button className="font-semibold" onClick={removeCartProduct}>REMOVE</button>
+					<button className="font-semibold" onClick={()=> setOpenModal(!openModal)}>REMOVE</button>
 				</div>
 			</div>
 			</>
 }
 		</div>
+		<Modal open={openModal} onClose={setOpenModal}>
+			<PermissionModal title={'Delete'} message={'Are you sure to remove from cart ?'} onClose={setOpenModal} positiveAction={removeCartProduct}/>
+		</Modal>
+		</>
 	);
 };
 

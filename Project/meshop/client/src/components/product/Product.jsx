@@ -44,8 +44,8 @@ const Product = () => {
            {
             (productData !== null) ? 
             <>
-            <div className='flex items-center min-h-72'>
-            <div className='w-full md:w-1/3 h-full'>
+            <div className='flex items-center min-h-72 flex-col md:flex-row'>
+            <div className='w-full md:w-1/3 h-60 md:h-full'>
                 <img src={productData.image} alt="product Image" className='h-full w-full' />
             </div>
             <div className='flex flex-col gap-2 w-full p-3'>

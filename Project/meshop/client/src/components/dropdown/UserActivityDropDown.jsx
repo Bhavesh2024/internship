@@ -32,7 +32,7 @@ const UserActivityDropDown = ({
 				)}
 			</div>
 		),
-		document.body
+		document.getElementById('dropdown-root')
 	);
 };
 

@@ -31,10 +31,10 @@ const SpecificationInput = ({
 	);
 };
 
-const ProductSpecification = ({ data, handler }) => {
-	const [specifications, setSpecifications] = useState(() =>
-		data.map((spec) => ({ ...spec }))
-	); // Directly copying initial state
+const ProductSpecification = ({ data, handler,info }) => {
+	// const [specifications, setSpecifications] = useState(() =>
+	// 	data.map((spec) => ({ ...spec }))
+	// );
 	const [inputValues, setInputValues] = useState({});
 
 	// Handle input change
@@ -46,7 +46,7 @@ const ProductSpecification = ({ data, handler }) => {
 	// Add value to the specification array
 	const addValueToSpecification = (key) => {
 		if (inputValues[key]) {
-			setSpecifications((prev) =>
+			handler((prev) =>
 				prev.map((spec) => {
 					const updatedSpec = { ...spec }; // Deep copy
 					if (Object.keys(spec)[0] === key) {
@@ -62,14 +62,21 @@ const ProductSpecification = ({ data, handler }) => {
 		}
 	};
 
-	// Call handler to update parent with new specifications
-	useEffect(() => {
-		handler(specifications); // Sync changes with parent
-	}, [specifications, handler]);
+	// // Call handler to update parent with new specifications
+	// useEffect(() => {
+	// 	handler(specifications); // Sync changes with parent
+	// }, [specifications, handler]);
 
+	const handleSubmit = (e) =>{
+		
+		console.log(data);
+		info((prev) => ({...prev,detailed_specifications:data}))
+		
+	}
 	return (
 		<div className="w-full">
-			{specifications.map((spec, index) => {
+			{/* <form action="" onSubmit={handleSubmit}> */}
+			{data.map((spec, index) => {
 				const key = Object.keys(spec)[0]; // Access the key (e.g., 'Display', 'Processor')
 				return (
 					<SpecificationInput
@@ -85,9 +92,12 @@ const ProductSpecification = ({ data, handler }) => {
 					/>
 				);
 			})}
+
+			<button type="button" name="submit" className="bg-slate-900 text-white p-2 px-5 rounded-md flex m-auto" onClick={handleSubmit}>Submit</button>
+			{/* </form> */}
 			<h4 className="mt-4">Specifications Values:</h4>
 			<pre className="bg-gray-100 p-2 rounded">
-				{JSON.stringify(specifications, null, 2)}
+				{JSON.stringify(data, null, 2)}
 			</pre>
 		</div>
 	);

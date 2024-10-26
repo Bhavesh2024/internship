@@ -6,9 +6,17 @@ import axios from "axios";
 import { Outlet, useNavigate, useParams } from "react-router-dom";
 import ProductCard from "../product/ProductCard";
 import NotFound from "../../routes/NotFound";
+import { useDispatch,useSelector } from "react-redux";
+import { initUserCartData } from "../../redux/features/cartSlice";
+import cart from "../../redux/cart";
 const Home = ({ withCarousel }) => {
 	const navigate = useNavigate();
-	const { username } = useParams();
+	// const { username } = useParams();
+	const {user} = useParams();
+	const username = user !== undefined ? user : localStorage.getItem('user')
+	const cartInitData = useSelector(initUserCartData)
+	console.log(cartInitData)
+	const dispatch = useDispatch();
 	const checkLogin = async (path = "") => {
 		const user = localStorage.getItem("user");
 		console.log(user);
@@ -40,10 +48,13 @@ const Home = ({ withCarousel }) => {
 	useEffect(() => {
 		// Trigger the checkLogin function when the component mounts
 		!withCarousel && checkLogin();
+		dispatch(() => initUserCartData({username}));
 	}, []); // Empty dependency array means it will run once on mount
 
+
+
 	if ((username != "" || username != null) && withCarousel) {
-		if (username != localStorage.getItem("user")) {
+		if (username != localStorage.getItem("user") || localStorage.getItem("isLogin") == '') {
 			return <NotFound />;
 		}
 	}
@@ -53,7 +64,7 @@ const Home = ({ withCarousel }) => {
 			{!withCarousel ? <ProductCarouselContainer /> : <Outlet />}
 			{/* {withCarousel &} */}
 			{/* <ProductCard productId="MSE005" /> */}
-			<Footer />
+			<Footer/>
 		</div>
 	);
 };

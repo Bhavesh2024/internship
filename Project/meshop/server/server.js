@@ -1,6 +1,7 @@
 const express = require("express");
 const cors = require("cors");
 const app = express();
+// const multer = require('multer')
 const loginRoute = require('./routes/login')
 const imageRoute = require('./routes/product');
 const apiRoute = require ('./routes/api')
@@ -15,6 +16,8 @@ app.use(
 );
 
 app.use(express.json());
+
+
 app.use(express.urlencoded({extended:true}))
 app.get('/',(req,res) =>{
 	console.log('hello');

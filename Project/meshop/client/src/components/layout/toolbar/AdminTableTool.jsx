@@ -40,7 +40,7 @@ const AdminTableTool = () => {
 			<Modal open={openModal} onClose={setOpenModal} closeIcon={false}>
 				<div className="w-screen">
 					<ProductContextProvider>
-						<ProductDetailForm />
+						<ProductDetailForm closeModal={setOpenModal}/>
 					</ProductContextProvider>
 				</div>
 			</Modal>

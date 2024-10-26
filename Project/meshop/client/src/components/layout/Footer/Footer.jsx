@@ -1,7 +1,7 @@
 import React from "react";
 import { Link } from "react-router-dom";
 
-const Footer = () => {
+const Footer = ({style}) => {
 	const currentYear = new Date().getFullYear();
 	const contacts = [
 		{
@@ -43,7 +43,7 @@ const Footer = () => {
 
 	const products = ["SmartPhone", "T.V.", "Headphones"];
 	return (
-		<footer className="bg-slate-800 text-gray-200 font-light w-full">
+		<footer className="bg-slate-800 text-gray-200 font-light w-full" style={style}>
 			<div className="flex justify-around items-center flex-col md:flex-row gap-4">
 				<div className="logo w-full md:w-1/3 flex flex-col gap-2 p-5">
 					<h1 className="text-6xl font-mono font-bold text-center md:text-start">

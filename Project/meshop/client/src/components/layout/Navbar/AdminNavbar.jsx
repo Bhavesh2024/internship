@@ -1,6 +1,7 @@
 import React, { act, useContext, useRef, useState } from "react";
 import { ToggleSidebarContext } from "../../../context/SideBarContext";
 import UserActivityDropDown from "../../dropdown/UserActivityDropDown";
+import { Link } from "react-router-dom";
 
 const AdminNavbar = () => {
 	const { toggleSidebar, setToggleSidebar } =
@@ -9,14 +10,7 @@ const AdminNavbar = () => {
 	const [toggleDropDown, setToggleDropDown] = useState(false);
 	const dropDownRef = useRef(0);
 	const activities = [
-		{
-			item: "Dashboard",
-			link: "/user/admin",
-		},
-		{
-			item: "Logout",
-			link: "/",
-		},
+		
 	];
 	return (
 		<>
@@ -26,26 +20,36 @@ const AdminNavbar = () => {
 						className="fa-solid fa-bars inline-block"
 						onClick={() => setToggleSidebar(!toggleSidebar)}
 					></i>
-					<i className="fa-solid fa-house"></i>
+					<Link to={'/'} className="text-gray-200"><i className="fa-solid fa-house"></i></Link>
 				</div>
 				<div className="flex gap-4 text-xl items-center">
 					<i className="fa-solid fa-gear"></i>
 					<i className="fa-solid fa-bell"></i>
+					<div className="relative">
+
 					<i
 						className="fa-solid fa-user-circle text-2xl relative"
 						onClick={() => setToggleDropDown(!toggleDropDown)} ref={dropDownRef}
 						id="admin"
 					>
-						<UserActivityDropDown
-							activityList={activities}
-							classes={
-								"absolute top-0 bottom-0 end-0 bg-gray-500 h-fit"
-							}
-							open={toggleDropDown}
-							parentId={"admin"}
-							refs={dropDownRef}
-						/>
+						
 					</i>
+					{
+						toggleDropDown &&
+					<div className="absolute w-full flex justify-end">
+							 <ul className="text-sm bg-white px-5 p-2 border rounded-md w-fit flex m-auto flex-col gap-1 z-10 relative start-3 md:start-5">
+										{
+											activities.map(value =>(
+												<>
+													<li><Link to={value.link} className="text-slate-500 flex items-center">{value.icon}&nbsp;{value.item}</Link></li>
+												</>
+											))
+										}
+										<li className="flex justify-center"><button className="text-slate-500  flex items-center justify-center"><i class="fa-solid fa-right-from-bracket"></i> &nbsp;Logout</button></li>
+							 </ul>
+						</div>
+					}
+					</div>
 				</div>
 			</nav>
 		</>

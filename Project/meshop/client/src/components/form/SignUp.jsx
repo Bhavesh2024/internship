@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useRef, useState } from "react";
 import { Link } from "react-router-dom";
 import Swal from 'sweetalert2/dist/sweetalert2.js'
 import SweetAlert2 from 'react-sweetalert2'
@@ -23,26 +23,32 @@ const SignUp = () => {
 
 
  // Form states 
-	const [formData, setFormData] = useState({
-		fname: "",
-		lname: "",
-		dob: "",
-		gender: "",
-		age: 0,
-		address:{},
-		phone: "",
-		username: "",
-		email: "",
-		password: "",
-		isAgree: false,
-	});
+ const userObj = {
+	fname: "",
+	lname: "",
+	dob: "",
+	gender: "",
+	age: 0,
+	address:{},
+	phone: "",
+	username: "",
+	email: "",
+	password: "",
+	isAgree: false,
+ }
 
-  const [addressData,setAddressData] = useState({
-		suite:"",
-		street:"",
-		state:"",
-		city:"",
-	}
+ const addressObj = {
+	suite:"",
+	street:"",
+	state:"",
+	city:"",
+ }
+
+ const genderRef = useRef(0);
+ const formRef = useRef(0);
+	const [formData, setFormData] = useState(userObj);
+
+  const [addressData,setAddressData] = useState(addressObj
 	)
 	const [togglePassword, setTogglePassword] = useState(false);
 	const [isChecked,setIsChecked] = useState(false);
@@ -156,6 +162,7 @@ const validateField = (field, value) => {
 				if(!addressKeys.includes(name))
 				{
 					setFormData({ ...formData, [name]: value });
+					
 				}else{
 			// const splitAddress = addressData.name.split
 			setAddressData({ ...addressData, [name]: value });
@@ -219,18 +226,23 @@ const validateField = (field, value) => {
 										//  console.log(request.statusText)
 										//  console.log('hello')
 										const responseMessage = request.data.message;
-										 setMessage({...message,status:true,success:true,text:responseMessage})
-									setOpenModal(!openModal);
+										setFormData(userObj);
+									setAddressData(addressObj);
+									// setIsChecked(false);
+								  //  genderRef.current.checked=false;
+									formRef.current.reset();
+										setMessage({...message,status:true,success:true,text:responseMessage})
+										setOpenModal(!openModal);
 									}
-							 }catch(e){
-								if(e.status >= 400 && e.status < 500){
-									const errorMessage = e.response.data.message;
-									console.log(e.response.data.message);
-									setMessage({...message,status:true,error:true,text:errorMessage})
-									setOpenModal(!openModal);
-							 }
-								//  console.log(e)
-							 }
+								}catch(e){
+									if(e.status >= 400 && e.status < 500){
+										const errorMessage = e.response.data.message;
+										console.log(e.response.data.message);
+										setMessage({...message,status:true,error:true,text:errorMessage})
+										setOpenModal(!openModal);
+									}
+									//  console.log(e)
+								}
 					}
 				}
 				else{
@@ -244,7 +256,7 @@ const validateField = (field, value) => {
 	}
 	return (
 		<div>
-			<form className="flex justify-center h-dvh overflow-auto scrollbar-none p-3 relative" onSubmit={handleSubmit}>
+			<form className="flex justify-center h-dvh overflow-auto scrollbar-none p-3 relative" onSubmit={handleSubmit} ref={formRef}>
 				<fieldset className="flex flex-col gap-3 border p-5 rounded-md w-full h-fit md:w-2/3 lg:w-1/2 xl:w-1/3 relative">
 					<legend className="text-center px-3 text-3xl font-bold">
 						Sign Up
@@ -298,6 +310,7 @@ const validateField = (field, value) => {
 								name="gender"
 								value={"male"}
 								onChange={handleInput}
+								ref={genderRef}
 								required
 							/>
 							<label htmlFor="male">Male</label>
@@ -309,6 +322,7 @@ const validateField = (field, value) => {
 								name="gender"
 								value={"female"}
 								onChange={handleInput}
+								ref={genderRef}
 								required
 							/>
 							<label htmlFor="female">Female</label>
@@ -319,6 +333,7 @@ const validateField = (field, value) => {
 								id="other"
 								name="gender"
 								value={"other"}
+								ref={genderRef}
 								onChange={handleInput}
 								required
 							/>
@@ -434,6 +449,7 @@ const validateField = (field, value) => {
 							placeholder="Password"
 							className={`border px-4 py-3 rounded-md w-full ${formData.password != '' ? !validateInput[4].password.status ? 'border-red-500' : 'border-green-500' : ''}`}
 							onChange={handleInput}
+							value={formData.password}
 							required
 						/>
 						<i

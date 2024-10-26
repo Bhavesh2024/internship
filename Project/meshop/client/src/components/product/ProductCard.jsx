@@ -4,6 +4,7 @@ import { Link} from "react-router-dom";
 import { useParams } from "react-router-dom";
 import { useSelector,useDispatch } from "react-redux";
 import { addToCart } from "../../redux/features/cartSlice";
+import AddToCartBtn from "./AddToCartBtn";
 export const fetchProductData = async(data,handler,id) =>{
 	try{
 		const response = await axios.get(`http://localhost:5000/api/products/id/${id}`)
@@ -27,14 +28,9 @@ const ProductCard = ({productId}) => {
 	},[])
 	// fetchProductData()
 
-	const handleProduct = () =>{
-		if(username != '' && username != null && username != undefined){
-			console.log(username)
-			dispatch(addToCart({productId,username}));
-		}else{
-			alert('You are not login')
-		}
-	}
+	
+
+
 	return (
 		<div className="border rounded-sm w-11/12 flex flex-col justify-center items-center bg-[url('../../../images/card-bg.jpg')] p-0">
 			<div className="w-full">
@@ -64,9 +60,10 @@ const ProductCard = ({productId}) => {
 				<div className="text-sm px-3 my-1">
 					{productData.description ? productData.description.slice(0,100) : productData.description}
 				</div>
-				<button className=" bg-gradient-to-r from-slate-900 to-gray-800 rounded-full py-2 px-5 text-white inline-block w-fit text-sm my-3" onClick={handleProduct}>
+				{/* <button className=" bg-gradient-to-r from-slate-900 to-gray-800 rounded-full py-2 px-5 text-white inline-block w-fit text-sm my-3" onClick={handleProduct}>
 					Add to Cart
-				</button>
+				</button> */}
+				<AddToCartBtn productId={productId}/>
 			</div>
 		</div>
 	);

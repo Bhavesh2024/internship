@@ -1,53 +1,95 @@
-import { createSlice } from "@reduxjs/toolkit";
-import axios from 'axios'
-export const cartSlice = createSlice({
-  name:'cart',
-  initialState:[],
-  reducers:{
-    addToCart: (state,action) =>{
-      // console.log('product added')
-      const {productId,username} = action.payload;
-      console.log(productId)
-      console.log(username)
-      // await fetch(`http://localhost:5000/api/users/${username}/cart/${productId}`,{
-      //   method:'POST',
-      //   body:JSON.stringify(action.payload),
-      // }).then(res =>{
-      //   if(res.status == 'OK' || res.status == 200){
-      //      console.log('product Added');
-      //   }
-      // }).catch(e => console.error(e))
-      try{
-        const response = axios.post(`http://localhost:5000/api/users/${username}/cart/${productId}`,{username:username,product_id:productId});
-        if(response.status == 200){
-          console.log('product added');
-        }
-      }catch(e){
-        console.log(e);
+import { createSlice, createAsyncThunk } from '@reduxjs/toolkit';
+import axios from 'axios';
+import Modal from '../../components/modal/Modal';
+
+// Async action for adding a product to the cart
+export const addToCart = createAsyncThunk(
+  'cart/addToCart',
+  async ({ productId, username }, { rejectWithValue }) => {
+    try {
+      const response = await axios.post(`http://localhost:5000/api/users/${username}/cart/${productId}`, {
+        username,
+        product_id: productId,
+      });
+      if (response.status === 200) {
+        return { productId, username };
       }
-      
-    },
-    deleteFromCart:(state,action)=>{
-      const {productId,username,handler} = action.payload
-      console.log(productId);
-      console.log(username);
-       try{
-          axios.delete(`http://localhost:5000/api/users/${username}/cart/${productId}`).then(res => {
-            if(res.status == 'OK' || res.status == 200){
-              console.log('Product Deleted Successfully');
-              console.log(res.data);
-            }
-          })
-       }catch(e){
-          console.log(e);
-       }
-    },
-    productCount:(state)=>{
-
-    },
+    } catch (error) {
+      return rejectWithValue(error.response.data);
+    }
   }
-})
+);
 
-export const { addToCart,deleteFromCart,productCount} = cartSlice.actions;
+// Async action for deleting a product from the cart
+export const deleteFromCart = createAsyncThunk(
+  'cart/deleteFromCart',
+  async ({ productId, username }, { rejectWithValue }) => {
+    try {
+      const response = await axios.delete(`http://localhost:5000/api/users/${username}/cart/${productId}`);
+      if (response.status === 200) {
+        return { productId, username };
+      }
+    } catch (error) {
+      return rejectWithValue(error.response.data);
+    }
+  }
+);
 
-export default cartSlice.reducer
+// Async action for initializing user cart data
+export const initUserCartData = createAsyncThunk(
+  'cart/initUserCartData',
+  async ({ username }, { rejectWithValue }) => {
+    try {
+      const response = await axios.get(`http://localhost:5000/api/users/${username}/cart`);
+      return response.data; // Expected format: { username: "bhavesh_1724", cart: ["MSE004"] }
+    } catch (error) {
+      return rejectWithValue(error.response.data);
+    }
+  }
+);
+
+export const cartSlice = createSlice({
+  name: 'cart',
+  initialState: {}, // Initial state as an object to accommodate the API response structure
+  reducers: {
+    // Any synchronous reducers can be added here if needed
+  },
+  extraReducers: (builder) => {
+    builder
+      // Handle addToCart
+      .addCase(addToCart.fulfilled, (state, action) => {
+        const { productId, username } = action.payload;
+        if (!state[username]) {
+          state[username] = { cart: [] };
+        }
+        state[username].cart.push(productId);
+      
+      })
+      .addCase(addToCart.rejected, (state, action) => {
+        console.log('Failed to add product to cart:', action.payload);
+      })
+      // Handle deleteFromCart
+      .addCase(deleteFromCart.fulfilled, (state, action) => {
+        const { productId, username } = action.payload;
+        if (state[username] && state[username].cart) {
+          state[username].cart = state[username].cart.filter((id) => id !== productId);
+        }
+      })
+      .addCase(deleteFromCart.rejected, (state, action) => {
+        console.log('Failed to delete product from cart:', action.payload);
+      })
+      // Handle initUserCartData
+      .addCase(initUserCartData.fulfilled, (state, action) => {
+        const { username, cart } = action.payload;
+        state[username] = { cart };
+      })
+      .addCase(initUserCartData.rejected, (state, action) => {
+        console.log('Failed to initialize cart data:', action.payload);
+      })
+      .addCase(initUserCartData.pending, (state) => {
+        // Optional: Add a loading state if needed
+      });
+  },
+});
+
+export default cartSlice.reducer;

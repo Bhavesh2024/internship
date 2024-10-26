@@ -107,7 +107,7 @@ const Account = () => {
 
   if(!data) return <div>Loading....</div>
   return (
-    <div>
+    <div className='h-60vh flex items-center'>
        <form action="" onSubmit={handleSubmit} className='w-full p-3 flex items-center justify-center'>
          <fieldset className='w-full md:w-2/3 xl:w-2/5 border p-4 rounded-md'>
            <legend className='text-center text-2xl font-bold px-4'>Account</legend>

@@ -1,3 +1,4 @@
+const { format } = require("path");
 const { getCartData } = require("./cart");
 const { getAllUserData } = require("./login");
 const fs = require('fs')
@@ -125,4 +126,28 @@ const updateUserCart = (username,cart,newUsername,key) =>{
    console.log(updatedCart)
    fs.writeFileSync('./data/cart.json',JSON.stringify(updatedCart))
 }
-module.exports = { getAllUser, getUser, deleteUser, updateUser };
+
+const logoutUser = async(req,res) =>{
+  const {username} = req.body;
+  console.log(username);
+
+  const users = getAllUserData();
+
+  const updatedUser = Object.entries(users).map(([key,value]) =>{
+    if(key == username){
+        value.isLogin = false;
+    } 
+    return value;
+  })
+
+  // console.log(updatedUser);
+  if(updatedUser.length != 0){
+    const formattedData = Object.fromEntries(updatedUser.map(u => [u.username,u]));
+    // console.log(formattedData)
+    fs.writeFileSync('./data/user.json',JSON.stringify(formattedData));
+    return res.status(200).json({message:"Logout Successfully"});
+  }
+  return res.status(404).json({message:'User Not Found'})
+  
+}
+module.exports = { getAllUser, getUser, deleteUser, updateUser,logoutUser };

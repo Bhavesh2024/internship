@@ -1,4 +1,5 @@
 const fs = require('fs');
+const { getAllProductData } = require('./product');
 const getCartData = () =>{
    const result = fs.readFileSync('./data/cart.json');
    if(result !== null){
@@ -63,4 +64,53 @@ const getUserCart = async (req, res) => {
       }
    })
 };
-module.exports = { addToCart, removeFromCart, getUserCart,getCartData };
+
+const getCartDetail = async (req,res) =>{
+      const {username} = req.params;
+      const data = req.body;
+      console.log('cart data')
+      console.log(username);
+      console.log(data);
+
+      const products = getAllProductData();
+
+      const priceContainer = [];
+      const discountContainer = [];
+      Object.entries(products).map(([key,value])=>{
+         
+      //   console.log(value.includes(data.cart[0]));
+      value.map(value =>{
+         if(data.cart.includes(value.product_id)){
+            // console.log('hello')
+            const price = convertToNum(value.price);
+            const discount =  convertToNum(value.discount);
+            console.log('price :' + price);
+            console.log('discount : ',+discount);
+            priceContainer.push(price);
+            discountContainer.push(discount);
+         }
+      })
+      })
+      let priceAmount = 0;
+      let discountAmount = 0;
+      priceContainer.map((value,index) =>{
+         priceAmount = priceAmount + value;
+         discountAmount = discountAmount + parseInt(value * discountContainer[index] / 100)
+      })
+
+      console.log('price Amount :  ' + priceAmount + '\n' + 'Discount Amount : ' +  discountAmount);
+      // console.log('total price : ')
+      const cartData = {
+         price:priceAmount,
+         discount:discountAmount,
+         totalPrice:priceAmount - discountAmount
+      };
+      return res.status(200).json({detail:cartData})
+}
+
+const convertToNum = (value) =>{
+      //  console.log(value.slice(1,value.length - 1));
+      const splittedValue = value[value.length - 1] == '%' ? value.split('%') : value.slice(1,value.length - 1)
+      return parseInt(splittedValue);
+}
+module.exports = { addToCart, removeFromCart, getUserCart,getCartData,getCartDetail };

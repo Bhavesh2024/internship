@@ -16,14 +16,14 @@ const AdminPanel = () => {
 					<div className="flex flex-col w-full">
 						<AdminNavbar />
 						<Content>
-							<div className="flex items-center justify-center w-full box-border h-60vh overflow-y-scroll scrollbar-none">
+							<div className="flex items-center justify-center w-full box-border h-dvh overflow-y-scroll scrollbar-none">
 								<div className="overflow-x-auto w-fit m-auto scrollbar-none">
 									<Outlet />
 								</div>
 							</div>
-							<div className="w-full fixed bottom-0 my-0">
+							{/* <div className="w-full fixed bottom-0 my-0">
 								<Footer />
-							</div>
+							</div> */}
 						</Content>
 					</div>
 				</div>
