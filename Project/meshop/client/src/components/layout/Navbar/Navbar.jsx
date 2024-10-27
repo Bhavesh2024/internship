@@ -5,7 +5,7 @@ import { Link, useNavigate, useParams } from "react-router-dom";
 import Modal from "../../modal/Modal";
 import Login from "../../form/Login";
 import CartModal from "../../modal/CartModal";
-import {ErrorBoundary} from 'react-error-boundary'
+import { ErrorBoundary } from "react-error-boundary";
 import UserActivityDropDown from "../../dropdown/UserActivityDropDown";
 import axios from "axios";
 import PermissionModal from "../../modal/PermissionModal";
@@ -25,25 +25,28 @@ const Navbar = () => {
 		console.log(userRef.current);
 	}
 	const [login, setLogin] = useState(false);
-	const [alertModal,setAlertModal] = useState(false);
-	const [errorModal,setErrorModal] = useState(false);
-	const [cartProductCount,setCartProductCount] = useState(0);
-	const [errorMessage,setErrorMessage] = useState({
-		success:false,
-		error:false,
-		message:''
+	const [alertModal, setAlertModal] = useState(false);
+	const [errorModal, setErrorModal] = useState(false);
+	const [cartProductCount, setCartProductCount] = useState(0);
+	const [errorMessage, setErrorMessage] = useState({
+		success: false,
+		error: false,
+		message: "",
 	});
 	const { username } = useParams();
-  const cartData = useSelector((state) => state.productCart[username] || { cart: [] });
+	const cartData = useSelector(
+		(state) => state.productCart[username] || { cart: [] }
+	);
 	const dispatch = useDispatch();
-	console.log(cartData)
+	console.log(cartData);
 	// const cartData = useSelector((state) => state.productCart[username] || { cart: [] });
 	// console.log(cartData)
-	
+
 	const isLogin = () => {
 		if (
 			localStorage.getItem("user") !== "" &&
-			localStorage.getItem("user") !== null && localStorage.getItem('isLogin')
+			localStorage.getItem("user") !== null &&
+			localStorage.getItem("isLogin")
 		) {
 			return setLogin(true);
 		}
@@ -64,26 +67,32 @@ const Navbar = () => {
 	useEffect(() => {
 		isLogin();
 		// getCartCount();
-		dispatch(initUserCartData({username:localStorage.getItem('user')}))
+		dispatch(initUserCartData({ username: localStorage.getItem("user") }));
 	}, []);
 	const customerActivityList = [
 		{
 			icon: <i className="fa-solid fa-home"></i>,
-			link:`/user/${username !== undefined ? username : localStorage.getItem('user')}`,
-			item:"Home"
+			link: `/user/${
+				username !== undefined ? username : localStorage.getItem("user")
+			}`,
+			item: "Home",
 		},
 		{
-			icon:<i class="fa-solid fa-address-card"></i>,
-			link:`/user/${username !== undefined ? username : localStorage.getItem('user')}/account`,
+			icon: <i class="fa-solid fa-address-card"></i>,
+			link: `/user/${
+				username !== undefined ? username : localStorage.getItem("user")
+			}/account`,
 			item: "Account",
 		},
 		{
 			icon: <i className="fa-solid fa-shopping-cart"></i>,
-			link: `/user/${username !== undefined ? username : localStorage.getItem('user')}/cart`,
+			link: `/user/${
+				username !== undefined ? username : localStorage.getItem("user")
+			}/cart`,
 			item: "My Cart",
 		},
 	];
- 
+
 	const handleLoginModal = () => {
 		setOpenLoginModal(!openLoginModal);
 	};
@@ -91,7 +100,11 @@ const Navbar = () => {
 	const handleCart = () => {
 		if (!login) {
 			// alert("You are not login yet");
-			setErrorMessage({...errorMessage,error:true,message:'You are not Login yet'});
+			setErrorMessage({
+				...errorMessage,
+				error: true,
+				message: "You are not Login yet",
+			});
 			setErrorModal(true);
 		} else {
 			username == undefined
@@ -100,23 +113,30 @@ const Navbar = () => {
 		}
 	};
 
-	const logOutUser = async() =>{
-				try{
-					console.log(username)
-						const response = await axios.post('http://localhost:5000/api/users/logout',{username:username});
-						if(response.status == 200){
-							 localStorage.setItem('user','');
-							 localStorage.setItem('isLogin','');
-							 navigate('/');
-						}
-				}catch(e){
-					 console.log(e.response.data.message);
-					 setErrorMessage({...errorMessage,error:true,message:e.response.data.message})
-					 setErrorModal(true);
-				}finally{
-					setAlertModal(false);
-				}
-	}
+	const logOutUser = async () => {
+		try {
+			console.log(username);
+			const response = await axios.post(
+				"http://localhost:5000/api/users/logout",
+				{ username: username }
+			);
+			if (response.status == 200) {
+				localStorage.setItem("user", "");
+				localStorage.setItem("isLogin", "");
+				navigate("/");
+			}
+		} catch (e) {
+			console.log(e.response.data.message);
+			setErrorMessage({
+				...errorMessage,
+				error: true,
+				message: e.response.data.message,
+			});
+			setErrorModal(true);
+		} finally {
+			setAlertModal(false);
+		}
+	};
 	return (
 		<nav className=" flex justify-between md:justify-around items-center h-20  bg-gray-200 px-4">
 			<div className="flex items-center gap-5">
@@ -156,18 +176,25 @@ const Navbar = () => {
 					{/* <i className="fa-solid fa-magnifying-glass "></i> */}
 					<i className="fa-solid fa-sun hover:text-gray-500"></i>
 					<div className="relative">
-					<i
-						className="fa-solid fa-shopping-cart hover:text-gray-500"
-						onClick={handleCart}
-					></i>
-					<span className=" bg-indigo-200 rounded-full h-5 w-5 p-2 flex items-center justify-center absolute top-0 end-0 -mt-2 -me-3" style={{fontSize:'10px'}}>{cartData.cart.length}</span>
+						<i
+							className="fa-solid fa-shopping-cart hover:text-gray-500"
+							onClick={handleCart}
+						></i>
+						{cartData.cart.length !== 0 && (
+							<span
+								className=" bg-indigo-200 rounded-full h-5 w-5 p-2 flex items-center justify-center absolute top-0 end-0 -mt-2 -me-3"
+								style={{ fontSize: "10px" }}
+							>
+								{cartData.cart.length}
+							</span>
+						)}
 					</div>
 
 					{login ? (
 						// <div id="dropdown-root" className="flex flex-col relative items-center">
 						// <ErrorBoundary fallback={<div></div>}>
 						// {/* <Suspense fallback={<div>..</div>} > */}
-						
+
 						// <UserActivityDropDown
 						// 	open={dropdownToggle}
 						// 	activityList={customerActivityList}
@@ -175,42 +202,56 @@ const Navbar = () => {
 						// >
 						// 	<div>Hello World</div>
 						// </UserActivityDropDown>
-					
+
 						// {/* </Suspense> */}
 
 						// </ErrorBoundary>
 						<div className="relative">
-						<i
-							className="fa-solid fa-user-circle text-blue-500 text-3xl"
-							id="dropdown"
-							ref={userRef}
-							onClick={() => setDropdownToggle(!dropdownToggle)}
-						></i>
-						{
-							dropdownToggle &&
-						
-						<div className="absolute w-full flex justify-end">
-							 <ul className="text-sm bg-white px-5 p-2 border rounded-md w-fit flex m-auto flex-col gap-1 z-10 relative start-3 md:start-9">
-										{
-											customerActivityList.map(value =>(
-												<>
-													<li><Link to={value.link} className="text-slate-500 flex items-center">{value.icon}&nbsp;{value.item}</Link></li>
-												</>
-											))
-										}
-										<li className="flex justify-center"><button className="text-slate-500  flex items-center justify-center" onClick={() => setAlertModal(true)}><i class="fa-solid fa-right-from-bracket"></i> &nbsp;Logout</button></li>
-							 </ul>
+							<i
+								className="fa-solid fa-user-circle text-blue-500 text-3xl"
+								id="dropdown"
+								ref={userRef}
+								onClick={() =>
+									setDropdownToggle(!dropdownToggle)
+								}
+							></i>
+							{dropdownToggle && (
+								<div className="absolute w-full flex justify-end">
+									<ul className="text-sm bg-white px-5 p-2 border rounded-md w-fit flex m-auto flex-col gap-1 z-10 relative start-3 md:start-9">
+										{customerActivityList.map((value) => (
+											<>
+												<li>
+													<Link
+														to={value.link}
+														className="text-slate-500 flex items-center"
+													>
+														{value.icon}&nbsp;
+														{value.item}
+													</Link>
+												</li>
+											</>
+										))}
+										<li className="flex justify-center">
+											<button
+												className="text-slate-500  flex items-center justify-center"
+												onClick={() =>
+													setAlertModal(true)
+												}
+											>
+												<i class="fa-solid fa-right-from-bracket"></i>{" "}
+												&nbsp;Logout
+											</button>
+										</li>
+									</ul>
+								</div>
+							)}
 						</div>
-						}
-					</div>
 					) : (
 						<i
 							className="fa-solid fa-user-circle text-blue-500 text-3xl inline-block md:hidden"
 							onClick={handleLoginModal}
 						></i>
 					)}
-					
-			
 				</div>
 			</div>
 			{openLoginModal && (
@@ -235,20 +276,25 @@ const Navbar = () => {
 				</Modal>
 			)}
 
-			{
-				alertModal && (
-					<Modal open={alertModal} onClose={setAlertModal}>
-						 <PermissionModal title={'Logout'} message={'Are you sure to Logout ? '} positiveAction={logOutUser} onClose={setAlertModal}/>
-					</Modal>
-				)
-			}
-			{
-				errorModal && (
-					<Modal open={errorModal} onClose={setErrorModal}>
-						<Error message={errorMessage.message} onClose={setErrorModal} handler={setErrorMessage} />
-					</Modal>
-				)
-			}
+			{alertModal && (
+				<Modal open={alertModal} onClose={setAlertModal}>
+					<PermissionModal
+						title={"Logout"}
+						message={"Are you sure to Logout ? "}
+						positiveAction={logOutUser}
+						onClose={setAlertModal}
+					/>
+				</Modal>
+			)}
+			{errorModal && (
+				<Modal open={errorModal} onClose={setErrorModal}>
+					<Error
+						message={errorMessage.message}
+						onClose={setErrorModal}
+						handler={setErrorMessage}
+					/>
+				</Modal>
+			)}
 			{/* <i className="fa-solid fa-bars inline-block md:hidden"></i> */}
 		</nav>
 	);
