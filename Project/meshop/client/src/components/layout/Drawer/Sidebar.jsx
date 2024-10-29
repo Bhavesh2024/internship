@@ -14,10 +14,6 @@ const Sidebar = () => {
 			icon: <i className="material-symbols-outlined">dashboard</i>,
 		},
 		{
-			name: "Account",
-			icon: <i className="fa-solid fa-address-card"></i>,
-		},
-		{
 			name: "User",
 			icon: <i className="fa-solid fa-users"></i>,
 		},

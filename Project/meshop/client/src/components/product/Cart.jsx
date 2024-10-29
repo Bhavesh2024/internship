@@ -50,7 +50,7 @@ const Cart = () => {
   };
 
   return (
-    <div className='h-70vh p-3 bg-white w-full flex overflow-auto scrollbar-none'>
+    <div className='h-70vh p-3 bg-white w-full flex flex-col md:flex-row overflow-auto scrollbar-none'>
       <div className='flex flex-col gap-4 px-3'>
         {
           cartData.cart.map((productId) => (
@@ -62,7 +62,7 @@ const Cart = () => {
           ))
         }
       </div>
-      <div className='bg-slate-100 w-1/5 h-fit p-4'>
+      <div className='bg-slate-100 w-full md:w-1/5 h-fit p-4'>
         <div className='flex flex-col gap-2'>
           <div className='font-semibold text-xl mb-3'>PRICE DETAILS</div>
           <div className='flex justify-between'>

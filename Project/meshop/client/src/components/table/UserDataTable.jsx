@@ -2,11 +2,14 @@ import React, { useEffect, useState } from "react";
 import axios from "axios";
 import Modal from "../modal/Modal";
 import PermissionModal from "../modal/PermissionModal";
+import PaginationControl from "./PaginationControl";
 
 const UserDataTable = () => {
 	const [userData, setUserData] = useState([]);
 	const [openModal,setOpenModal] = useState(false);
 	const [username,setUsername] = useState('');
+	const [index,setIndex] = useState(0)
+	const [slicedRowData,setSlicedRowData] = useState([]);
 	const fields = [
 		"ID",
 		"USERNAME",
@@ -22,6 +25,54 @@ const UserDataTable = () => {
 		"STATUS",
 		"DELETE",
 	];
+
+	const createPagination = (data, rows,setSlicedRowData) => {
+    const isArray = Array.isArray(data);
+    const dividedDataArr = [];
+    let totalDataLength = 0;
+    console.log(data);
+    // console.log(isObject)
+    if (isArray){
+        totalDataLength = data.length;
+        console.log('hello' + data.length)
+        console.log('length ' + totalDataLength)
+        if(totalDataLength > 3){
+					let minIndex = 0,
+maxIndex = rows;
+           data.map((value,index) =>{
+            // console.log(value)
+              if(minIndex == index){
+							   console.log(minIndex)
+								 console.log(maxIndex)
+                  if(dividedDataArr.length !== 0){
+										dividedDataArr.map((arr) =>{
+											
+											console.log('hello page')
+                       if(arr.length < rows && arr.length != rows){
+                          let currentIndex = index;
+													console.log('my index ' + currentIndex)
+                         while(arr.length != rows){
+                          arr.push(data[currentIndex]);
+                          currentIndex += 1;
+                         }
+                         minIndex = currentIndex;
+                         maxIndex = rows + minIndex;
+                       }
+                     })
+                  }
+                  dividedDataArr.push(data.slice(minIndex,maxIndex));
+                  minIndex = maxIndex;
+                  maxIndex = minIndex + rows;
+									console.log(maxIndex)
+                }
+              });
+							console.log(dividedDataArr)
+              setSlicedRowData(dividedDataArr);
+        }
+    }
+  
+    // console.log(slicedRowData);
+  };
 
 	const fetchUserData = async () => {
 		const response = await axios.get('http://localhost:5000/api/users');
@@ -72,6 +123,12 @@ const UserDataTable = () => {
 		fetchUserData();
 	}, []);
 
+	useEffect(() =>{
+			if(userData.length !== 0 && slicedRowData.length == 0){
+				 createPagination(userData,5,setSlicedRowData)
+			}
+	},[userData])
+
 
 	return (
 		<div className="w-full p-5">
@@ -86,7 +143,10 @@ const UserDataTable = () => {
 					</tr>
 				</thead>
 				<tbody>
-					{userData.map((user) => (
+					{slicedRowData.length !== 0 && slicedRowData.map((value,key) => (
+						key == index && 
+						value.map((user) => (
+
 						<tr
 							key={user.id}
 							className={`border-b border-slate-500 ${
@@ -117,9 +177,11 @@ const UserDataTable = () => {
 								</button>
 							</td>
 						</tr>
+						))
 					))}
 				</tbody>
 			</table>
+			<PaginationControl slicedRowData={slicedRowData} activeIndex={index} setActiveIndex={setIndex}/>
 			<Modal open={openModal} onClose={setOpenModal}>
 				   { openModal &&
 							<PermissionModal title={'Delete'} message={'Are You Sure to Delete'} onClose={setOpenModal} positiveAction={handleRemove} />

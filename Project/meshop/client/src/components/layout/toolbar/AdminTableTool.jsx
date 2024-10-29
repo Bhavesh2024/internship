@@ -1,9 +1,22 @@
-import React, { useState } from "react";
+import React, { useContext, useState } from "react";
 import Modal from "../../modal/Modal";
 import ProductDetailForm from "../../form/ProductDetailForm";
-import ProductContextProvider from "../../../context/ProductContext";
-const AdminTableTool = () => {
+import ProductContextProvider, { ProductContext } from "../../../context/ProductContext";
+import axios from "axios";
+import { ProductTableContext } from "../../../context/ProductTableContext";
+// import { useSelector } from "react-redux";
+const AdminTableTool = ({data,handler}) => {
 	const [openModal, setOpenModal] = useState(false);
+	const {productTableData,setProductTableData,fetchProducts} = useContext(ProductTableContext)
+	// const [filter,setFilter] = useState('');
+	
+	const handleFilter = (e) =>{
+			const {name,value} = e.target;
+			handler(value);
+			fetchProducts(value);
+			// fetchDataFromCategory(value);
+		  
+	}
 	return (
 		<div className="flex justify-between my-3 px-4">
 			<h1 className="text-2xl font-semibold">Product</h1>
@@ -17,8 +30,9 @@ const AdminTableTool = () => {
 				<select
 					name="filter"
 					id="filter"
-					value={""}
+					value={data}
 					className="border px-1"
+					onChange={handleFilter}
 				>
 					<option value="" selected disabled>
 						Select Filter
@@ -26,13 +40,13 @@ const AdminTableTool = () => {
 					<option value="All" name="">
 						All
 					</option>
-					<option value="SmartTv" name="filter">
+					<option value="smartTvs" name="filter">
 						Smart TV
 					</option>
-					<option value="Smartphone" name="filter">
+					<option value="smartphones" name="filter">
 						Smart Phone
 					</option>
-					<option value="Headphone" name="filter">
+					<option value="headphones" name="filter">
 						Headphone
 					</option>
 				</select>

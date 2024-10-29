@@ -16,6 +16,7 @@ import NotFound from "./NotFound";
 import Test from "../components/form/Test";
 import AdminLogin from "../admin/AdminLogin";
 import ProductTableContextProvider from "../context/ProductTableContext";
+// import PaginationContextProvider, { PaginationContext } from "../context/PaginationContext";
 const CustomHome = CustomerHome(Home);
 const RouteConfig = () => {
 	return (
@@ -37,7 +38,7 @@ const RouteConfig = () => {
 				<Route path="/product/:id" element={<Product />} />
 				<Route path="/user/admin" element={<AdminPanel />}>
 					<Route path="" element={<Dashboard />} />
-					<Route path="account" element={<Account />} />
+					{/* <Route path="account" element={<Account />} /> */}
 					<Route path="products" element={<ProductTableContextProvider><ProductDataTable /></ProductTableContextProvider>} />
 					<Route path="users" element={<UserDataTable />} />
 				</Route>

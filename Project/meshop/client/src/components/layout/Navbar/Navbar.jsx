@@ -160,7 +160,9 @@ const Navbar = () => {
 						className="fa-solid fa-shopping-cart hover:text-gray-500"
 						onClick={handleCart}
 					></i>
-					<span className=" bg-indigo-200 rounded-full h-5 w-5 p-2 flex items-center justify-center absolute top-0 end-0 -mt-2 -me-3" style={{fontSize:'10px'}}>{cartData.cart.length}</span>
+					{
+						cartData.cart.length != 0 && <span className=" bg-indigo-200 rounded-full h-5 w-5 p-2 flex items-center justify-center absolute top-0 end-0 -mt-2 -me-3" style={{fontSize:'10px'}}>{cartData.cart.length}</span>
+					}
 					</div>
 
 					{login ? (
