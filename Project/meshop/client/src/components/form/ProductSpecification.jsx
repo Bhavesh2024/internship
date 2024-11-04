@@ -1,101 +1,139 @@
-import React, { useEffect, useState } from "react";
+import React, { useContext, useState } from "react";
 import PropTypes from "prop-types";
+import { ProductContext } from "../../context/ProductContext";
 
-const SpecificationInput = ({
-	id = "",
-	name = "",
-	value = "",
-	type = "text",
-	isRequired = false,
-	placeholder = "",
-	classes = "",
-	eventHandler,
-	onAddValue,
-}) => {
-	return (
-		<div className="input-container flex items-center mb-3">
-			<input
-				type={type}
-				id={id}
-				name={name}
-				value={value}
-				placeholder={placeholder}
-				onChange={eventHandler}
-				required={isRequired}
-				className={classes}
-			/>
-			<button type="button" onClick={onAddValue} className="ml-2">
-				<i className="fas fa-plus-circle text-blue-500"></i>
-			</button>
-		</div>
-	);
-};
+// Component for handling individual specification item editing
+const SpecificationItem = ({ value, onEdit, onDelete }) => (
+	<div className="flex items-center mb-2">
+		<input
+			type="text"
+			value={value}
+			onChange={(e) => onEdit(e.target.value)}
+			className="w-full p-2 rounded-md border"
+		/>
+		<button
+			type="button"
+			onClick={onDelete}
+			className="ml-2 text-red-500 hover:text-red-700"
+		>
+			<i className="fas fa-trash-alt"></i>
+		</button>
+	</div>
+);
 
-const ProductSpecification = ({ data, handler,info }) => {
-	// const [specifications, setSpecifications] = useState(() =>
-	// 	data.map((spec) => ({ ...spec }))
-	// );
+// Main Product Specification Form Component
+const ProductSpecification = ({ data, handler, info, form }) => {
 	const [inputValues, setInputValues] = useState({});
-
-	// Handle input change
+	const [newSpecInput, setNewSpecInput] = useState("");
+	const { productSpecification, setProductSpecification } =
+		useContext(ProductContext);
+	console.log(data);
+	// Handle change for specification input
 	const handleInputChange = (e) => {
 		const { name, value } = e.target;
-		setInputValues((prevData) => ({ ...prevData, [name]: value }));
+		setInputValues((prev) => ({ ...prev, [name]: value }));
 	};
 
-	// Add value to the specification array
-	const addValueToSpecification = (key) => {
+	// Add new value to the specification
+	const addSpecificationValue = (key) => {
 		if (inputValues[key]) {
-			handler((prev) =>
-				prev.map((spec) => {
-					const updatedSpec = { ...spec }; // Deep copy
-					if (Object.keys(spec)[0] === key) {
-						updatedSpec[key] = [
-							...(spec[key] || []),
-							inputValues[key],
-						]; // Append new value
-					}
-					return updatedSpec;
-				})
+			handler((prevSpecs) =>
+				prevSpecs.map((spec) =>
+					Object.keys(spec)[0] === key
+						? { [key]: [...(spec[key] || []), inputValues[key]] }
+						: spec
+				)
 			);
-			setInputValues((prevData) => ({ ...prevData, [key]: "" })); // Clear input after adding
+			setInputValues((prev) => ({ ...prev, [key]: "" }));
 		}
 	};
 
-	// // Call handler to update parent with new specifications
-	// useEffect(() => {
-	// 	handler(specifications); // Sync changes with parent
-	// }, [specifications, handler]);
+	// Edit a specific specification item
+	const editSpecificationValue = (key, index, newValue) => {
+		handler((prevSpecs) =>
+			prevSpecs.map((spec) =>
+				Object.keys(spec)[0] === key
+					? {
+							[key]: spec[key].map((val, i) =>
+								i === index ? newValue : val
+							),
+					  }
+					: spec
+			)
+		);
+	};
 
-	const handleSubmit = (e) =>{
-		
-		console.log(data);
-		info((prev) => ({...prev,detailed_specifications:data}))
-		
-	}
+	// Delete a specific specification item
+	const deleteSpecificationValue = (key, index) => {
+		setProductSpecification((prevSpecs) =>
+			prevSpecs.map((spec) =>
+				Object.keys(spec)[0] === key
+					? { [key]: spec[key].filter((_, i) => i !== index) }
+					: spec
+			)
+		);
+	};
+
+	// Submit all specifications to main product data
+	const handleSubmit = () => {
+		info((prev) => ({
+			...prev,
+			detailed_specifications: productSpecification,
+		}));
+		console.log("Updated Specifications:", productSpecification);
+	};
+
 	return (
 		<div className="w-full">
-			{/* <form action="" onSubmit={handleSubmit}> */}
-			{data.map((spec, index) => {
-				const key = Object.keys(spec)[0]; // Access the key (e.g., 'Display', 'Processor')
+			<h3 className="mb-4 text-xl font-bold">Product Specifications</h3>
+			{productSpecification.map((spec, index) => {
+				const key = Object.keys(spec)[0];
 				return (
-					<SpecificationInput
-						key={index}
-						id={key}
-						value={inputValues[key] || ""}
-						name={key}
-						isRequired={true}
-						placeholder={key}
-						eventHandler={handleInputChange}
-						onAddValue={() => addValueToSpecification(key)}
-						classes="w-full p-3 rounded-md border"
-					/>
+					<div key={index} className="mb-4">
+						<h4 className="font-semibold mb-2">{key}</h4>
+						{spec[key].map((value, i) => (
+							<SpecificationItem
+								key={i}
+								value={value}
+								onEdit={(newValue) =>
+									editSpecificationValue(key, i, newValue)
+								}
+								onDelete={() =>
+									deleteSpecificationValue(key, i)
+								}
+							/>
+						))}
+						<div className="flex items-center">
+							<input
+								type="text"
+								name={key}
+								value={inputValues[key] || ""}
+								onChange={handleInputChange}
+								placeholder={`Add ${key}`}
+								className="w-full p-2 rounded-md border"
+							/>
+							<button
+								type="button"
+								onClick={() => addSpecificationValue(key)}
+								className="ml-2 text-blue-500 hover:text-blue-700"
+							>
+								<i className="fas fa-plus-circle"></i>
+							</button>
+						</div>
+					</div>
 				);
 			})}
 
-			<button type="button" name="submit" className="bg-slate-900 text-white p-2 px-5 rounded-md flex m-auto" onClick={handleSubmit}>Submit</button>
-			{/* </form> */}
-			<h4 className="mt-4">Specifications Values:</h4>
+			<button
+				type="button"
+				name="submit"
+				className="bg-slate-900 text-white p-2 px-5 rounded-md mt-4"
+				onClick={handleSubmit}
+			>
+				Submit
+			</button>
+
+			<h4 className="mt-4">Specifications Data:</h4>
 			<pre className="bg-gray-100 p-2 rounded">
 				{JSON.stringify(data, null, 2)}
 			</pre>
@@ -106,6 +144,7 @@ const ProductSpecification = ({ data, handler,info }) => {
 ProductSpecification.propTypes = {
 	data: PropTypes.array.isRequired,
 	handler: PropTypes.func.isRequired,
+	info: PropTypes.func.isRequired,
 };
 
 export default ProductSpecification;

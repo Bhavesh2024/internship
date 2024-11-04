@@ -1,5 +1,10 @@
-<<<<<<< HEAD
-{"bhavesh_1724":{"username":"bhavesh_1724","cart":["MSE007","MSE009"]},"bhaveshweb17":{"username":"bhaveshweb17","cart":[]},"connect2local":{"username":"connect2local","cart":[]},"web_miner":{"username":"web_miner","cart":["MSE008"]},"procoder2024":{"username":"procoder2024","cart":[]}}
-=======
-{"bhavesh_1724":{"fname":"Bhavesh","lname":"Parmar","dob":"2004-02-17","gender":"male","age":25,"address":{"suite":"63","street":"Meldikrupa Society","state":"Gujarat","city":"Kadi"},"phone":"9723884857","username":"bhavesh_1724","email":"bparmar1722004@gmail.com","password":"Bhavesh@1724","isAgree":true,"isLogin":true},"bhaveshweb17":{"fname":"Bhavesh","lname":"Parmar","dob":"2004-02-17","gender":"male","age":20,"address":{"suite":"63","street":"Meldikrupa Society","state":"Gujarat","city":"Kadi"},"phone":"9316191314","username":"bhaveshweb17","email":"bhaveshwebstudio@gmail.com","password":"Bhavesh@1724","isAgree":true,"isLogin":false},"connect2local":{"fname":"Bhavesh","lname":"Parmar","dob":"2004-02-17","gender":"male","age":20,"address":{"suite":"63","street":"Meldikrupa Society","state":"Gujarat","city":"Kadi"},"phone":"7016647826","username":"connect2local","email":"connect2local247@gmail.com","password":"Connect@2024","isAgree":false,"isLogin":false},"web_miner":{"fname":"Bhavesh","lname":"Parmar","dob":"2004-02-17","gender":"male","age":0,"address":{"suite":"63","street":"Meldikrupa Society","state":"Gujarat","city":"Kadi"},"phone":"9033835047","username":"web_miner","email":"webmin2024@gmail.com","password":"WebMin@1724","isAgree":false,"isLogin":false}}
->>>>>>> 86a5f7a8642c0fc2b8883f9aaea1b4da9746698d
+{
+	"bhavesh_1724": {
+		"username": "bhavesh_1724",
+		"cart": ["MSE007", "MSE009"]
+	},
+	"bhaveshweb17": { "username": "bhaveshweb17", "cart": [] },
+	"connect2local": { "username": "connect2local", "cart": [] },
+	"web_miner": { "username": "web_miner", "cart": ["MSE008"] },
+	"procoder2024": { "username": "procoder2024", "cart": [] }
+}

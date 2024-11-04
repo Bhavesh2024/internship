@@ -5,13 +5,21 @@ import { useNavigate } from "react-router-dom";
 import { ProductTableContext } from "../../context/ProductTableContext";
 import Modal from "../modal/Modal";
 import PermissionModal from "../modal/PermissionModal";
-import ProductContextProvider from "../../context/ProductContext";
+import ProductContextProvider, {
+	ProductContext,
+} from "../../context/ProductContext";
+import ProductDetailForm from "../form/ProductDetailForm";
 
 const ProductDataTable = () => {
 	const navigate = useNavigate();
 	// const pagination =
-	const { fetchProducts, productTableData, setProductTableData,slicedRowData,createPagination } =
-		useContext(ProductTableContext);
+	const {
+		fetchProducts,
+		productTableData,
+		setProductTableData,
+		slicedRowData,
+		createPagination,
+	} = useContext(ProductTableContext);
 	// const [productData, setProductData] = useState({});
 	const [alertModal, setAlertModal] = useState(false);
 	const [productId, setProductId] = useState("");
@@ -20,7 +28,8 @@ const ProductDataTable = () => {
 	const [activeIndex, setActiveIndex] = useState(0);
 	const [isOverFlow, setIsOverFlow] = useState(true);
 	const [pageIndex, setPageIndex] = useState(0);
-	const [category,setCategory] = useState('All');
+	const [updateModal, setUpdateModal] = useState(false);
+	const [category, setCategory] = useState("All");
 	const fields = [
 		"ID",
 		"IMAGE",
@@ -39,25 +48,23 @@ const ProductDataTable = () => {
 		"DELETE",
 	];
 
-	
-	
 	useEffect(() => {
 		fetchProducts(category);
 	}, []);
 	useEffect(() => {
+		// setProductTableData(productTableData)
+		if (slicedRowData.length == 0) {
+			console.log("hello");
+			console.log(productTableData);
+			setActiveIndex(0);
+			setPageIndex(0);
+			createPagination(productTableData, 5);
+		}
+	}, [slicedRowData, productTableData]);
 
-			// setProductTableData(productTableData)
-			if(slicedRowData.length == 0){
-          console.log('hello')
-					console.log(productTableData)
-					setActiveIndex(0);
-					setPageIndex(0)
-				createPagination(productTableData,5);
-			}
-		
-
-	}, [slicedRowData,productTableData]);
-
+	// useEffect(() => {
+	// 	fetchProducts(category);
+	// }, [productTableData]);
 	const joinSpecifications = (productSpecifications) => {
 		let specifications = [];
 		// console.log(productSpecifications);
@@ -122,6 +129,11 @@ const ProductDataTable = () => {
 	} else {
 		// console.log(productData[0].smartphones[0].product_id)
 	}
+
+	const openEditModal = (id) => {
+		setProductId(id);
+		setUpdateModal(!updateModal);
+	};
 	return (
 		<>
 			<div className="w-full max-w-full p-5">
@@ -234,7 +246,14 @@ const ProductDataTable = () => {
 													</button>
 												</td>
 												<td className="border-b border-gray-400 p-3">
-													<button className="bg-yellow-600 text-white p-2 px-6 rounded-md">
+													<button
+														className="bg-yellow-600 text-white p-2 px-6 rounded-md"
+														onClick={() =>
+															openEditModal(
+																value.product_id
+															)
+														}
+													>
 														Edit
 													</button>
 												</td>
@@ -325,7 +344,14 @@ const ProductDataTable = () => {
 										? "bg-indigo-500 text-white"
 										: ""
 								}`}
-								onClick={() => setActiveIndex(pageIndex + 2 >= slicedRowData.length - 1 ? slicedRowData.length - 1 : pageIndex + 2)}
+								onClick={() =>
+									setActiveIndex(
+										pageIndex + 2 >=
+											slicedRowData.length - 1
+											? slicedRowData.length - 1
+											: pageIndex + 2
+									)
+								}
 							>
 								{pageIndex + 3}
 							</button>
@@ -367,6 +393,18 @@ const ProductDataTable = () => {
 						positiveAction={() => removeProduct(productId)}
 					/>
 				)}
+			</Modal>
+			<Modal open={updateModal} onClose={setUpdateModal}>
+				<ProductContextProvider>
+					<div className="w-screen">
+						<ProductDetailForm
+							id={productId}
+							type={"update"}
+							closeModal={setUpdateModal}
+							category={category}
+						/>
+					</div>
+				</ProductContextProvider>
 			</Modal>
 		</>
 	);

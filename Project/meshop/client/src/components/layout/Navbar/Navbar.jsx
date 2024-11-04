@@ -176,20 +176,11 @@ const Navbar = () => {
 					{/* <i className="fa-solid fa-magnifying-glass "></i> */}
 					<i className="fa-solid fa-sun hover:text-gray-500"></i>
 					<div className="relative">
-<<<<<<< HEAD
-					<i
-						className="fa-solid fa-shopping-cart hover:text-gray-500"
-						onClick={handleCart}
-					></i>
-					{
-						cartData.cart.length != 0 && <span className=" bg-indigo-200 rounded-full h-5 w-5 p-2 flex items-center justify-center absolute top-0 end-0 -mt-2 -me-3" style={{fontSize:'10px'}}>{cartData.cart.length}</span>
-					}
-=======
 						<i
 							className="fa-solid fa-shopping-cart hover:text-gray-500"
 							onClick={handleCart}
 						></i>
-						{cartData.cart.length !== 0 && (
+						{cartData.cart.length != 0 && (
 							<span
 								className=" bg-indigo-200 rounded-full h-5 w-5 p-2 flex items-center justify-center absolute top-0 end-0 -mt-2 -me-3"
 								style={{ fontSize: "10px" }}
@@ -197,7 +188,6 @@ const Navbar = () => {
 								{cartData.cart.length}
 							</span>
 						)}
->>>>>>> 86a5f7a8642c0fc2b8883f9aaea1b4da9746698d
 					</div>
 
 					{login ? (
