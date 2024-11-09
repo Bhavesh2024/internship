@@ -1,4 +1,4 @@
-import React from "react";
+import React, { lazy, Suspense } from "react";
 import { BrowserRouter, Route, Routes } from "react-router-dom";
 import Home from "../components/main/Home";
 import Login from "../components/form/Login";
@@ -14,7 +14,8 @@ import ProductDataTable from "../components/table/ProductDataTable";
 import UserDataTable from "../components/table/UserDataTable";
 import NotFound from "./NotFound";
 import Test from "../components/form/Test";
-import AdminLogin from "../admin/AdminLogin";
+// import AdminLogin from "../admin/AdminLogin";
+const AdminLogin = lazy(() => import('../admin/AdminLogin'));
 import ProductTableContextProvider from "../context/ProductTableContext";
 // import PaginationContextProvider, { PaginationContext } from "../context/PaginationContext";
 const CustomHome = CustomerHome(Home);
@@ -39,10 +40,10 @@ const RouteConfig = () => {
 				<Route path="/user/admin" element={<AdminPanel />}>
 					<Route path="" element={<Dashboard />} />
 					{/* <Route path="account" element={<Account />} /> */}
-					<Route path="products" element={<ProductTableContextProvider><ProductDataTable /></ProductTableContextProvider>} />
+					<Route path="products" caseSensitive={false} element={<ProductTableContextProvider><ProductDataTable /></ProductTableContextProvider>} />
 					<Route path="users" element={<UserDataTable />} />
 				</Route>
-				<Route path="/user/admin/login" element={<AdminLogin/>} />
+				<Route path="/user/admin/login" element={<Suspense fallback={<div>loading...</div>}><AdminLogin/></Suspense>} />
 				<Route path="*" element={<NotFound />} />
 			</Routes>
 		</BrowserRouter>

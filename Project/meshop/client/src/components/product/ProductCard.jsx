@@ -1,10 +1,11 @@
 import axios from "axios";
-import React, { useEffect, useState } from "react";
+import React, { useContext, useEffect, useState } from "react";
 import { Link} from "react-router-dom";
 import { useParams } from "react-router-dom";
 import { useSelector,useDispatch } from "react-redux";
 import { addToCart } from "../../redux/features/cartSlice";
 import AddToCartBtn from "./AddToCartBtn";
+import { ThemeContext } from "../../context/ThemeContext";
 export const fetchProductData = async(data,handler,id) =>{
 	try{
 		const response = await axios.get(`http://localhost:5000/api/products/id/${id}`)
@@ -19,6 +20,7 @@ export const fetchProductData = async(data,handler,id) =>{
 	}
 }
 const ProductCard = ({productId}) => {
+	const {theme,setTheme} = useContext(ThemeContext)
 	const [productData,setProductData] = useState({});
 	const cart = useSelector((state) => state.productCart)
 	const {username} = useParams();
@@ -32,7 +34,7 @@ const ProductCard = ({productId}) => {
 
 
 	return (
-		<div className="border rounded-sm w-11/12 flex flex-col justify-center items-center bg-[url('../../../images/card-bg.jpg')] p-0">
+		<div className={`border rounded-sm w-11/12 flex flex-col justify-center items-center ${theme == 'dark' ? `bg-[url('../../../images/card-bg.jpg')]` : 'dark:bg-slate-900'} p-0`}>
 			<div className="w-full">
 				<img
 					src={`${productData !== null ? productData.image : ""}`}
@@ -46,7 +48,7 @@ const ProductCard = ({productId}) => {
 				</div>
 				<div>
 					<span className="text-xl font-semibold text-slate-600">
-						{productData.price}
+					₹{productData.price}
 					</span>
 					<span className="text-md underline-offset-4 text-slate-500 line-through">
 						&nbsp;{productData.final_price}

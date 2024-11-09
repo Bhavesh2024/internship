@@ -3,7 +3,7 @@ import React, { useState, useEffect } from "react";
 import { useDispatch } from "react-redux";
 import { useNavigate } from "react-router-dom";
 import { addToCart } from "../../redux/features/cartSlice";
-const AddToCartBtn = ({ productId }) => {
+const AddToCartBtn = ({ productId,style = '' }) => {
 	const [isInCart, setIsInCart] = useState(false);
 	const username = localStorage.getItem("user");
 	const dispatch = useDispatch();
@@ -43,7 +43,7 @@ const AddToCartBtn = ({ productId }) => {
 		<>
 			{!isInCart ? (
 				<button
-					className=" bg-gradient-to-r from-slate-900 to-gray-800 rounded-full py-2 px-5 text-white inline-block w-fit text-sm my-3"
+					className={`${style == '' ? 'bg-gradient-to-r from-slate-900 to-gray-800 rounded-full py-2 px-5 text-white inline-block w-fit text-sm my-3' : style}`}
 					onClick={handleProduct}
 				>
 					Add to Cart

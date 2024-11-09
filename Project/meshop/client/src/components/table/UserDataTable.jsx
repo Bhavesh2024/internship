@@ -150,7 +150,7 @@ maxIndex = rows;
 						<tr
 							key={user.id}
 							className={`border-b border-slate-500 ${
-								user.id % 2 == 0 ? "bg-gray-200" : ""
+								user.id % 2 == 0 ? "bg-gray-200 text-black" : ""
 							}`}
 						>
 							<td className="p-2">{user.id}</td>

@@ -1,5 +1,6 @@
-import React, { useEffect, useRef, useState } from "react";
+import React, { useContext, useEffect, useRef, useState } from "react";
 import { headphone, smartPhone, smartTv } from "./productDefault";
+import { ProductContext } from "../../context/ProductContext";
 
 const ProductBaseInfo = ({
 	data,
@@ -9,21 +10,18 @@ const ProductBaseInfo = ({
 	submitHandler,
 	form,
 }) => {
-	const [image, setImage] = useState("");
-	const [price, setPrice] = useState(
-		parseInt(data.price.slice(1, data.price.length - 1))
-	);
-	const [discount, setDiscount] = useState(
-		parseInt(data.discount.split("%"))
-	);
+	const {image, setImage} = useContext(ProductContext);
+	const [isValid,setIsValid] = useState(false)
 	const fileRef = useRef(0);
-
+	const submitRef = useRef(0);
+  
 	const handleInput = (e) => {
 		const { name, value } = e.target;
 		// if (form == "update") {
 		// 	setPrice(parseInt(value));
 		// 	setDiscount(parseInt(value));
 		// }
+		validateField(name,value);
 		handler({ ...data, [name]: value });
 	};
 
@@ -50,14 +48,61 @@ const ProductBaseInfo = ({
 	const finalPrice = () => {
 		if (data.price != "" && data.discount != "") {
 			const price = data.price;
-			const discount = data.discount.includes("%")
-				? parseInt(data.discount.split("%"))
-				: parseInt(data.discount);
+			const discount = data.discount;
 
 			// handler({...data,final_price:parseInt(price - price * (discount / 100))})
 			return parseInt(price - price * (discount / 100));
 		}
 		return 0;
+	};
+
+	const [validateInput, setValidateInput] = useState([
+		{
+			product_id: {
+				pattern: /^MSE\d{3}$/,
+				message: 'Product ID must start with "MSE" followed by exactly three digits (e.g., MSE001).',
+				status: true,
+			},
+		},
+		{
+			product_name: {
+				pattern: /^[A-Za-z0-9\s,.'-]{1,100}$/,
+				message: 'Product name can contain letters, numbers, spaces, commas, periods, and dashes.',
+				status: true,
+			},
+		},
+		{
+			brand: {
+				pattern: /^[A-Za-z\s]{1,100}$/,
+				message: 'Brand name can contain only letters and spaces.',
+				status: true,
+			},
+		},
+		{
+			warranty: {
+				pattern: /^[1-9]\d*\s(years?|months?|days?|hours?)$/,
+				message: 'Warranty must start with a number followed by "year(s)", "month(s)", "day(s)", or "hour(s)" (e.g., 1 year, 6 months).',
+				status: true,
+			},
+		},
+	]);
+	
+
+	const validateField = (field, value) => {
+		const updatedValidation = validateInput.map((item) => {
+				if (item[field]) {
+						return {
+								...item,
+								[field]: {
+										...item[field],
+										status: item[field].pattern.test(value),
+								},
+						};
+				}
+				return item;
+		});
+	
+		setValidateInput(updatedValidation);
 	};
 
 	useEffect(() => {
@@ -67,15 +112,16 @@ const ProductBaseInfo = ({
 			switch (data.category) {
 				case "smartphone":
 					return form !== "update"
-						? specification(smartPhone)
+						? specification(data.detailed_specifications.length == 0 ? smartPhone : data.detailed_specifications)
 						: specification(data.detailed_specifications);
 				case "smartTv":
 					return form !== "update"
-						? specification(smartTv)
+						? specification(data.detailed_specifications.length == 0 ? smartTv : data.detailed_specifications)
+						
 						: specification(data.detailed_specifications);
 				case "headphone":
 					return form !== "update"
-						? specification(headphone)
+					? specification(data.detailed_specifications.length == 0 ? headphone : data.detailed_specifications)
 						: specification(data.detailed_specifications);
 			}
 		} else {
@@ -95,10 +141,23 @@ const ProductBaseInfo = ({
 	// 		setDiscount(data.discount.split("%"));
 	// 	}
 	// }, []);
+	useEffect(() =>{
+    const anyInvalid = validateInput.some(inputObj => {
+      const key = Object.keys(inputObj)[0];
+      return !inputObj[key].status;
+    });
+  
+    setIsValid(!anyInvalid); 
+  },[validateInput])
+
+  useEffect(()=>{
+     !isValid ? submitRef.current.disabled = true : submitRef.current.disabled=false;
+  },[isValid])
+
 	return (
 		<>
 			<form
-				action=""
+				// action=""
 				className="w-full p-4 flex flex-col gap-3 h-4/5"
 				onSubmit={submitHandler}
 			>
@@ -133,42 +192,49 @@ const ProductBaseInfo = ({
 						// required
 					/>
 				</div>
-				<div>
+				<div className="flex flex-col gap-1">
 					<input
 						type="text"
 						id="product_id"
 						name="product_id"
 						placeholder="Product Id"
 						value={data.product_id}
-						className="border w-full p-3 rounded-md text-gray-600 placeholder:text-slate-400 focus:outline-none"
+						className={`border w-full p-3 rounded-md text-gray-600 placeholder:text-slate-400 ${validateInput[0].product_id.status ? '' : 'border-red-500'}`}
 						onChange={handleInput}
 						disabled={form == "update"}
 						required
 					/>
+					<div className="text-xs text-red-500">
+						 {!validateInput[0].product_id.status ? validateInput[0].product_id.message : '' }
+					</div>
 				</div>
-				<div>
+				<div className="flex flex-col gap-1">
 					<input
 						type="text"
 						id="product_name"
 						name="product_name"
 						placeholder="Product Name"
 						value={data.product_name}
-						className="border w-full p-3 rounded-md text-gray-600 placeholder:text-slate-400"
+						className={`border w-full p-3 rounded-md text-gray-600 placeholder:text-slate-400 ${validateInput[1].product_name.status? '' : 'border-red-500'}`}
 						onChange={handleInput}
 						required
 					/>
+										<div className="text-xs text-red-500">
+						 {!validateInput[1].product_name.status ? validateInput[1].product_name.message : '' }
+					</div>
 				</div>
-				<div>
+				<div className="flex flex-col gap-1">
 					<input
 						type="text"
 						id="brand"
 						name="brand"
 						placeholder="Brand"
 						value={data.brand}
-						className="border w-full p-3 rounded-md text-gray-600 placeholder:text-slate-400"
+						className={`border w-full p-3 rounded-md text-gray-600 placeholder:text-slate-400 ${validateInput[2].brand.status? '' : 'border-red-500'}`}
 						onChange={handleInput}
 						required
 					/>
+					<div className="text-xs text-red-500">{!validateInput[2].brand.status ? validateInput[2].brand.message :''}</div>
 				</div>
 				<div>
 					<select
@@ -201,7 +267,7 @@ const ProductBaseInfo = ({
 						name="price"
 						min={0}
 						placeholder="Price"
-						value={form == "update" ? price : data.price}
+						value={data.price}
 						className="border w-full p-3 rounded-md text-gray-600 placeholder:text-slate-400"
 						onChange={handleInput}
 						required
@@ -216,7 +282,7 @@ const ProductBaseInfo = ({
 						min={0}
 						max={100}
 						placeholder="Discount"
-						value={form == "update" ? discount : data.discount}
+						value={data.discount}
 						className="border w-full p-3 rounded-md text-gray-600 placeholder:text-slate-400"
 						onChange={handleInput}
 						required
@@ -231,14 +297,7 @@ const ProductBaseInfo = ({
 						placeholder="Sale Price"
 						// min={100}
 						value={
-							form == "update"
-								? parseInt(
-										data.final_price.slice(
-											1,
-											data.final_price.length - 1
-										)
-								  )
-								: finalPrice()
+							finalPrice()
 						}
 						className="border w-full p-3 rounded-md text-gray-600 placeholder:text-slate-400"
 						onChange={handleInput}
@@ -269,24 +328,29 @@ const ProductBaseInfo = ({
 						</option>
 					</select>
 				</div>
-				<div>
+				<div className="flex flex-col gap-1">
 					<input
 						type="text"
 						id="warranty"
 						name="warranty"
 						placeholder="Warranty"
 						value={data.warranty}
-						className="border w-full p-3 rounded-md text-gray-600 placeholder:text-slate-400"
+						className={`border w-full p-3 rounded-md text-gray-600 placeholder:text-slate-400 ${validateInput[3].warranty.status? '' : 'border-red-500'}`}
 						onChange={handleInput}
 						required
 					/>
+					<div className="text-xs text-red-500">
+								{!validateInput[3].warranty.status ? validateInput[3].warranty.message : ''}
+					</div>
 				</div>
+				
 				<div>
 					<textarea
 						name="description"
 						id="description"
 						className="w-full border p-2"
 						rows={4}
+						minLength={100}
 						value={data.description}
 						placeholder="Write description..."
 						onChange={handleInput}
@@ -295,8 +359,9 @@ const ProductBaseInfo = ({
 				<div>
 					<button
 						type="submit"
-						className="text-sm bg-slate-900 text-white p-3 rounded-md px-6 flex mx-auto "
+						className="text-sm bg-slate-900 text-white p-3 rounded-md px-6 flex mx-auto disabled:bg-gray-200 "
 						name="submit"
+						ref={submitRef}
 					>
 						Submit
 					</button>

@@ -15,7 +15,7 @@ const Modal = ({ children, open, onClose, style,closeIcon=true }) => {
 					style={style}
 				
 				>
-					<div className="relative h-fit" onClick={(e) => e.stopPropagation()}>
+					<div className="relative h-fit text-black" onClick={(e) => e.stopPropagation()}>
 					{
 						closeIcon &&
 					<i

@@ -60,31 +60,42 @@ const getProductFromId = async (req, res) => {
 const addProduct = async (req, res) => {
 	const productData = req.body; // Product data excluding the file
 	const { price, discount } = productData;
-	productData.final_price = `₹${price - (price * discount) / 100}`;
-	productData.price = `₹${price}`;
-	productData.discount = `${discount}%`;
-
+	productData.final_price = `${price - (price * discount) / 100}`;
+	productData.price = `${price}`;
+	productData.discount = `${discount}`;
+  let isExistProductId = false;
+	let productCategory = '';
 	console.log(productData);
-	console.log(productData.detailed_specifications);
-	console.log(JSON.stringify(productData));
+	// console.log(productData.detailed_specifications);
+	// console.log(JSON.stringify(productData));
 	const products = getAllProductData();
-
-	console.log(products);
+  
+	// console.log(products);
 	if (products !== null && products !== undefined) {
-		console.log("hello");
-		const newProduct = Object.entries(products).map(([key, value]) => {
-			console.log(value.includes(productData.product_id));
-			if (value.includes(productData.product_id)) {
-				return res
-					.status(409)
-					.json({ message: "Product Id Already Exist" });
-			}
+		// console.log("hello");
+		const newProduct = Object.entries(products).forEach(([key, value]) => {
+			// console.log(value.includes(productData.product_id));
+			value.map((data,index) =>{
+				if( data.product_id == productData.product_id){
+					isExistProductId = true;	
+					
+				}
+			})
 			if (value[0].category == productData.category) {
-				value.push(productData);
+				// value.push(productData);
+				productCategory = `${productData.category.toLowerCase()}s`
 			}
 			return value;
 		});
 		//  console.log(newProduct[1][0].category);
+		if(isExistProductId){
+
+			return res
+							.status(405)
+							.json({ message: "Product Id Already Exist" });
+		}else{
+			Object.entries(products[productCategory]).push(productData);
+		}
 		const newProductData = Object.fromEntries(
 			newProduct.map((data) => [data[1].category + "s", data])
 		);

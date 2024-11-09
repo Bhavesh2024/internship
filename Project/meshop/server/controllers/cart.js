@@ -123,12 +123,7 @@ const getCartDetail = async (req, res) => {
 };
 
 const convertToNum = (value) => {
-	//  console.log(value.slice(1,value.length - 1));
-	const splittedValue =
-		value[value.length - 1] == "%"
-			? value.split("%")
-			: value.slice(1, value.length - 1);
-	return parseInt(splittedValue);
+	return parseInt(value);
 };
 module.exports = {
 	addToCart,

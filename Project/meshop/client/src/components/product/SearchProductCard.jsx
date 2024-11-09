@@ -1,8 +1,11 @@
-import React, { useEffect, useState } from "react";
+import React, { useContext, useEffect, useState } from "react";
 import { fetchProductData } from "./ProductCard";
 import { Link } from "react-router-dom";
+import { ThemeContext } from "../../context/ThemeContext";
+import AddToCartBtn from "./AddToCartBtn";
 const SearchProductCard = ({productId}) => {
 	const [searchProductData,setSearchProductData] = useState(null);
+	const {theme} = useContext(ThemeContext)
 	useEffect(() =>{
 		fetchProductData(searchProductData,setSearchProductData,productId)
 	},[])
@@ -61,20 +64,19 @@ const SearchProductCard = ({productId}) => {
 					</div>
 				</div>
 				<div className="items-center flex flex-row justify-center md:flex-col flex-wrap gap-1">
-					<div className="text-2xl font-semibold">{searchProductData.final_price}</div>
+					<div className="text-2xl font-semibold">₹{searchProductData.final_price}</div>
 					<div className="flex gap-2 items-center">
 						<span className="line-through text-slate-500">
-							{searchProductData.price}
+						₹{searchProductData.price}
 						</span>
-						<span className="text-xs bg-slate-900 text-white p-1 px-2 rounded-full">{searchProductData.discount} off</span>
+						<span className="text-xs bg-slate-900 text-white p-1 px-2 rounded-full">{searchProductData.discount}% off</span>
 					</div>
 					<div className="flex gap-3 items-center flex-row md:flex-col">
-					<Link to={`/product/${productId}`} className="bg-zinc-300 p-2 px-5 rounded-lg font-semibold">
+					<Link to={`/product/${productId}`} className={`${theme == 'light' ? 'bg-indigo-700': 'bg-zinc-300'} p-2 px-5 rounded-lg font-semibold`}>
 						View Detail
 					</Link>
-					<button className="p-2 bg-slate-800 text-gray-100 px-5 rounded-lg font-semibold my-1">
-						Add to Cart
-					</button>
+				<AddToCartBtn productId={productId} style="bg-gradient-to-r from-slate-900 to-gray-800 rounded-md py-3 px-5 text-white inline-block w-fit text-sm"/>
+					
 					</div>
 				</div>
 			</div>

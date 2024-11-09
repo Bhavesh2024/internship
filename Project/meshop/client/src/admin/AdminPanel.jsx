@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useEffect, useState } from "react";
 import { Outlet } from "react-router-dom";
 import AdminNavbar from "../components/layout/Navbar/AdminNavbar";
 import Sidebar from "../components/layout/Drawer/Sidebar";
@@ -6,9 +6,32 @@ import SideBarContext from "../context/SideBarContext";
 import { createPortal } from "react-dom";
 import Content from "../components/layout/Content/Content";
 import Footer from "../components/layout/Footer/Footer";
+import axios from 'axios'
 const AdminPanel = () => {
+	const [isLogin,setIsLogin] = useState(false);
+  const user = localStorage.getItem('user');
+	const checkIsLogin = async() =>{
+		try{
+			const response = await axios.post('http://localhost:5000/admin/auth',{username:user},{withCredentials:true});
+			if(response.status == 200){
+				 console.log('hello')
+			
+				 setIsLogin(true);
+
+			 }else{
+				 setIsLogin(false);
+			 }
+		}catch(e){
+			console.log(e);
+		}
+	}
+	useEffect(()=>{
+			checkIsLogin();
+	},[])
+
+	if(!isLogin) return <div>Not Found</div>
 	return (
-		<div className="relative">
+		isLogin && <div className="relative">
 			<SideBarContext>
 				<div className="flex ">
 					{/* {createPortal(<Sidebar />, document.getElementById("root"))} */}

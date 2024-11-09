@@ -1,13 +1,16 @@
 import React, { useContext, useState } from "react";
-import { NavLink, useSearchParams } from "react-router-dom";
+import { NavLink, useNavigate, useSearchParams } from "react-router-dom";
 import { ToggleSidebarContext } from "../../../context/SideBarContext";
 import Modal from "../../modal/Modal";
-
+import PermissionModal from '../../modal/PermissionModal'
+import axios from "axios";
+import { ThemeContext } from "../../../context/ThemeContext";
 const Sidebar = () => {
 	const { toggleSidebar, setToggleSidebar } =
 		useContext(ToggleSidebarContext);
-
+  const {theme} = useContext(ThemeContext);
 	const [open, setOpen] = useState(false);
+	const navigate = useNavigate();
 	const activities = [
 		{
 			name: "Dashboard",
@@ -23,11 +26,27 @@ const Sidebar = () => {
 		},
 	];
 
+	const logoutAdmin = async() =>{
+		const user = localStorage.getItem('user');
+		try{
+				const response = await axios.post('http://localhost:5000/admin/logout',{username:user},{withCredentials:true});
+				if(response.status == 200){
+					 localStorage.setItem('isLogin',false);
+					 localStorage.setItem('user','');
+					
+					 navigate('/user/admin/login');
+				}
+		}catch(e){
+			 console.log(e);
+		}
+	}
 	return (
 		<>
 			{open && (
 				<Modal open={open} onClose={setOpen}>
-					<div className="bg-white w-72 h-48">Home</div>
+					<div className="bg-white w-72 ">
+						<PermissionModal onClose={setOpen} title={'Logout'} message={'Are you sure to logout ?'} positiveAction={logoutAdmin}  />
+					</div>
 				</Modal>
 			)}
 			<div
@@ -35,7 +54,7 @@ const Sidebar = () => {
 					${!toggleSidebar ? "-translate-x-full " : "translate-x-0"}`}
 			>
 				<div
-					className={`bg-gray-100 h-dvh max-h-dvh flex w-full justify-center relative`}
+					className={`${theme == 'dark' ? 'bg-slate-100' : 'bg-slate-800'} h-dvh max-h-dvh flex w-full justify-center relative`}
 				>
 					<ul className="w-fit text-lg mt-9">
 						{activities.map((value, index) => (

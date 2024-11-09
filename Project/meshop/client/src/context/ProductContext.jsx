@@ -3,7 +3,7 @@ import { createContext, useState } from "react";
 export const ProductContext = createContext(0);
 
 const ProductContextProvider = ({ children }) => {
-	const [productData, setProductData] = useState({
+	const productDataObj = {
 		product_id: "",
 		category: "",
 		image: "",
@@ -17,8 +17,10 @@ const ProductContextProvider = ({ children }) => {
 		ratings: 0,
 		stock_status: "",
 		warranty: "",
-	});
+	}
+	const [productData, setProductData] = useState(productDataObj);
 	const [productSpecification, setProductSpecification] = useState([]);
+	const [image,setImage] = useState('');
 	return (
 		<>
 			<ProductContext.Provider
@@ -27,6 +29,8 @@ const ProductContextProvider = ({ children }) => {
 					setProductData,
 					productSpecification,
 					setProductSpecification,
+					productDataObj,
+					image,setImage
 				}}
 			>
 				{children}

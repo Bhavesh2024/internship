@@ -33,10 +33,10 @@ const CartProduct = ({productId,handler}) => {
 			<div className="flex flex-col gap-1">
 				<div className="text-xl font-semibold">{cartProductData.product_name}</div>
 				{/* <div className="text-sm">8 GB RAM | 256 GB ROM</div> */}
-				<div className="flex gap-2 items-baseline">
-					<span className="text-md line-through">{cartProductData.price}</span>
-					<span className="text-xl">{cartProductData.final_price}</span>
-					<span className="text-xs text-white bg-slate-900 rounded-full p-1 px-2">{cartProductData.discount} off</span>
+				<div className="flex gap-2 items-baseline flex-wrap">
+					<span className="text-md line-through">₹{cartProductData.price}</span>
+					<span className="text-xl">₹{cartProductData.final_price}</span>
+					<span className="text-xs text-white bg-slate-900 rounded-full p-1 px-2">{cartProductData.discount}% off</span>
 				</div>
 				<ul className="text-sm">
 					{/* <li>1.25 GHz pOLED Display</li>

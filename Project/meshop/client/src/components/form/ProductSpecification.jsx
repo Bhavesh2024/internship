@@ -1,6 +1,7 @@
-import React, { useContext, useState } from "react";
+import React, { useContext, useEffect, useState } from "react";
 import PropTypes from "prop-types";
 import { ProductContext } from "../../context/ProductContext";
+import Modal from "../modal/Modal";
 
 // Component for handling individual specification item editing
 const SpecificationItem = ({ value, onEdit, onDelete }) => (
@@ -24,7 +25,8 @@ const SpecificationItem = ({ value, onEdit, onDelete }) => (
 // Main Product Specification Form Component
 const ProductSpecification = ({ data, handler, info, form }) => {
 	const [inputValues, setInputValues] = useState({});
-	const [newSpecInput, setNewSpecInput] = useState("");
+	// const [newSpecInput, setNewSpecInput] = useState("");
+	const [open,setOpen] = useState(false);
 	const { productSpecification, setProductSpecification } =
 		useContext(ProductContext);
 	console.log(data);
@@ -80,9 +82,15 @@ const ProductSpecification = ({ data, handler, info, form }) => {
 			...prev,
 			detailed_specifications: productSpecification,
 		}));
+		// setProductSpecification(productSpecification);
 		console.log("Updated Specifications:", productSpecification);
+		setOpen(!open)
+
 	};
 
+	useEffect(()=>{
+		console.log(productSpecification)
+	},[])
 	return (
 		<div className="w-full">
 			<h3 className="mb-4 text-xl font-bold">Product Specifications</h3>
@@ -130,13 +138,20 @@ const ProductSpecification = ({ data, handler, info, form }) => {
 				className="bg-slate-900 text-white p-2 px-5 rounded-md mt-4"
 				onClick={handleSubmit}
 			>
-				Submit
+				Save
 			</button>
 
 			<h4 className="mt-4">Specifications Data:</h4>
 			<pre className="bg-gray-100 p-2 rounded">
 				{JSON.stringify(data, null, 2)}
 			</pre>
+		<Modal open={open} onClose={setOpen}>
+					<div className="bg-white flex flex-col gap-3 justify-center items-center h-36 px-5">
+						<span></span>
+							<span className="text-sm">Specification Saved Successfully</span>
+							<button onClick={() => setOpen(!open)} className="bg-slate-800 text-white px-5 py-2 rounded-md w-fit">OK</button>
+					</div>
+		</Modal>
 		</div>
 	);
 };

@@ -29,8 +29,9 @@ const AdminLogin = () => {
 
 	const handleAdminLogin = async() =>{
 		try{
-			const request = await axios.post('http://localhost:5000/login/admin',loginData);
+			const request = await axios.post('http://localhost:5000/admin/login',loginData,{withCredentials:true});
 			if(request.status == 200){
+				localStorage.setItem('user','admin');
 				setMessage({...message,error:false,success:true,text:request.data.message});
 				 setOpenModal(!openModal);
 			}

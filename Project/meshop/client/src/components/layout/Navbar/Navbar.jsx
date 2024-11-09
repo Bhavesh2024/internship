@@ -1,4 +1,4 @@
-import React, { lazy, Suspense, useEffect, useRef, useState } from "react";
+import React, { lazy, Suspense, useContext, useEffect, useRef, useState } from "react";
 import { Link, useNavigate, useParams } from "react-router-dom";
 // const UserActivityDropDown = lazy(() => import("../../dropdown/UserActivityDropDown"));
 
@@ -14,8 +14,10 @@ import { useDispatch, useSelector } from "react-redux";
 import cart from "../../../redux/cart";
 import { combineSlices } from "@reduxjs/toolkit";
 import { initUserCartData } from "../../../redux/features/cartSlice";
+import { ThemeContext } from "../../../context/ThemeContext";
 const Navbar = () => {
 	const userRef = useRef(null);
+	const {theme,setTheme} = useContext(ThemeContext)
 	const [dropdownToggle, setDropdownToggle] = useState(false);
 	const [openLoginModal, setOpenLoginModal] = useState(false);
 	const [openCart, setOpenCart] = useState(false);
@@ -41,7 +43,7 @@ const Navbar = () => {
 	console.log(cartData);
 	// const cartData = useSelector((state) => state.productCart[username] || { cart: [] });
 	// console.log(cartData)
-
+  
 	const isLogin = () => {
 		if (
 			localStorage.getItem("user") !== "" &&
@@ -67,6 +69,16 @@ const Navbar = () => {
 	useEffect(() => {
 		isLogin();
 		// getCartCount();
+		
+      const systemPrefersDark = window.matchMedia('(prefers-color-scheme: dark)').matches;
+      if (systemPrefersDark) {
+        theme == 'dark' ? document.documentElement.classList.remove('dark') : document.documentElement.classList.add('dark');
+				setTheme('dark')
+      } else {
+				document.documentElement.classList.remove('dark');
+				setTheme('light')
+      }
+      
 		dispatch(initUserCartData({ username: localStorage.getItem("user") }));
 	}, []);
 	const customerActivityList = [
@@ -137,8 +149,20 @@ const Navbar = () => {
 			setAlertModal(false);
 		}
 	};
+
+	const toggleTheme = () =>{
+		// theme == 'dark' ? setTheme('light') : setTheme('dark')
+		if(theme == 'dark'){
+			document.documentElement.classList.add('dark')
+			//  setTheme('light')
+		}else{
+			document.documentElement.classList.remove('dark')
+			// setTheme('dark')
+		}
+		setTheme(theme == 'light' ? 'dark' : 'light')
+	}
 	return (
-		<nav className=" flex justify-between md:justify-around items-center h-20  bg-gray-200 px-4">
+		<nav className={`flex justify-between md:justify-around items-center h-20  ${theme == 'light' ? 'bg-gray-200' : 'border-b bg-slate-800'} px-4 `}>
 			<div className="flex items-center gap-5">
 				<div className="logo">
 					<h1 className="text-4xl font-mono font-bold">MeShop</h1>
@@ -174,7 +198,7 @@ const Navbar = () => {
 
 				<div className="gap-3 text-xl items-center flex ">
 					{/* <i className="fa-solid fa-magnifying-glass "></i> */}
-					<i className="fa-solid fa-sun hover:text-gray-500"></i>
+					<i className={`fa-solid ${theme == 'dark' ? 'fa-sun' : 'fa-moon'} hover:text-gray-500`} onClick={toggleTheme}></i>
 					<div className="relative">
 						<i
 							className="fa-solid fa-shopping-cart hover:text-gray-500"

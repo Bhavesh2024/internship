@@ -14,9 +14,11 @@ const ProductDetailForm = ({ closeModal, type, id, category }) => {
 		setProductData,
 		productSpecification,
 		setProductSpecification,
+		productDataObj
 	} = useContext(ProductContext);
 	const { setProductTableData, fetchProducts } =
 		useContext(ProductTableContext);
+		const {image,setImage} = useContext(ProductContext)
 	const [switchForm, setSwitchForm] = useState(true);
 	const [isValid, setIsValid] = useState(false);
 	const btnRef = useRef(0);
@@ -27,7 +29,7 @@ const ProductDetailForm = ({ closeModal, type, id, category }) => {
 		success: true,
 	});
 
-	const getProductFromId = async (productId) => {
+  	const getProductFromId = async (productId) => {
 		try {
 			const response = await axios.get(
 				`http://localhost:5000/api/products/id/${productId}`
@@ -40,155 +42,189 @@ const ProductDetailForm = ({ closeModal, type, id, category }) => {
 			console.log(e);
 		}
 	};
-
+  
 	const addProduct = async () => {
+		// e.preventDefault();
+		// console.log(productData)
+		// console.log('hello')
 		try {
-			const formData = new FormData();
-
-			// Append all regular product data
-			Object.keys(productData).forEach((key) => {
-				if (key !== "image") {
-					formData.append(key, productData[key]);
-				}
-			});
-
-			// Append the image if it exists
-			if (productData.image) {
-				formData.append("image", productData.image);
-			}
-
-			console.log(formData);
-			// Send formData in a POST request
-			const responseImage = await axios.post(
-				"http://localhost:5000/api/products/uploads",
-				formData,
-				{
-					headers: {
-						"Content-Type": "multipart/form-data",
-					},
-				}
-			);
-
-			if (responseImage.status === 200) {
-				// console.log("Product Added Successfully");
-				console.log(responseImage.data);
-				const updatedData = {
-					...productData,
-					image: responseImage.data.image,
-				};
-				console.log(updatedData);
-
-				const response = await axios.post(
-					"http://localhost:5000/api/products",
-					updatedData
-				);
-				if (response.status == 200) {
-					console.log("Product Added Successfully");
-					setMessage({
-						...message,
-						text: response.data.message,
-						success: true,
+		if(image == ''){
+				console.log('hello')
+			setMessage({...message,error:true,success:false,text:'Image Not Uploaded'});
+			setOpenModal(true)
+		} else{
+			  const validImage = typeof(productData.image) == 'string' ? productData.image.match('product') : false
+        if(validImage){
+					
+					const response = await axios.post(
+						"http://localhost:5000/api/products",
+						updatedData
+					);
+					if (response.status == 200) {
+						console.log("Product Added Successfully");
+						setMessage({
+							...message,
+							text: response.data.message,
+							success: true,
+							error:false
+						});
+						setOpenModal(!openModal);
+						setProductData(productDataObj)
+						setImage('')
+						fetchProducts();
+						// closeModal(false/) 
+						// fetchProducts(productData.);
+					}
+				} else{
+					const formData = new FormData();
+		
+					// Append all regular product data
+					Object.keys(productData).forEach((key) => {
+						if (key !== "image") {
+							formData.append(key, productData[key]);
+						}
 					});
-					setOpenModal(!openModal);
-
-					// fetchProducts(productData.);
+		
+					// Append the image if it exists
+					if (productData.image) {
+						formData.append("image", productData.image);
+					}
+		
+					console.log(formData);
+					// Send formData in a POST request
+					const responseImage = await axios.post(
+						"http://localhost:5000/api/products/uploads",
+						formData,
+						{
+							headers: {
+								"Content-Type": "multipart/form-data",
+							},
+						}
+					);
+		
+					if (responseImage.status === 200) {
+						// console.log("Product Added Successfully");
+						console.log(responseImage.data);
+						const updatedData = {
+							...productData,
+							image: responseImage.data.image,
+						};
+						console.log(updatedData);
+		        setProductData(updatedData);
+						const response = await axios.post(
+							"http://localhost:5000/api/products",
+							updatedData
+						);
+						if (response.status == 200) {
+							console.log("Product Added Successfully");
+							setMessage({
+								...message,
+								text: response.data.message,
+								success: true,
+								error:false
+							});
+							setOpenModal(!openModal);
+							setProductData(productDataObj)
+							setImage('')
+							fetchProducts();
+							// closeModal(false/) 
+							// fetchProducts(productData.);
+						}
+					}
 				}
 			}
-		} catch (error) {
-			console.log(error.response.data.message);
-			setMessage({
-				...message,
-				text: error.response.data.message,
-				error: true,
-			});
-			setOpenModal(!openModal);
-			fetchProducts();
-
-			// closeModal(false);
-		}
+			} catch (e) {
+				console.log(e);
+				setMessage({
+					...message,
+					text:e.response.data.message,
+					error: true,
+					success:false,
+				});
+				setOpenModal(true);
+				// closeModal(false);
+			}
+		
 	};
 
 	const updateProduct = async () => {
-		setProductData({
-			...productData,
-			price: `₹${productData.price}`,
-			discount: `${productData.discount}%`,
-		});
+		// setProductData({
+		// 	...productData,
+		// 	price: `₹${productData.price}`,
+		// 	discount: `${productData.discount}%`,
+		// });
+		
 		try {
-			const formData = new FormData();
-
-			// Append all regular product data
-			Object.keys(productData).forEach((key) => {
-				if (key !== "image") {
-					formData.append(key, productData[key]);
+				if(image !== ''){
+				const formData = new FormData();
+	
+				// Append all regular product data
+				Object.keys(productData).forEach((key) => {
+					if (key !== "image") {
+						formData.append(key, productData[key]);
+					}
+				});
+	
+				// Append the image if it exists
+				if (productData.image) {
+					formData.append("image", productData.image);
 				}
-			});
-
-			// Append the image if it exists
-			if (productData.image) {
-				formData.append("image", productData.image);
-			}
-
-			console.log(formData);
-			// Send formData in a POST request
-
-			const responseImage = await axios.post(
-				"http://localhost:5000/api/products/uploads",
-				formData,
-				{
-					headers: {
-						"Content-Type": "multipart/form-data",
-					},
-				}
-			);
-
-			if (responseImage.status === 200) {
-				// console.log("Product Added Successfully");
-				console.log(responseImage.data);
-				const updatedData = {
-					...productData,
-					image: responseImage.data.image,
-				};
-				console.log("updated Data : ");
-				console.log(updatedData);
-				const response = await axios.put(
-					"http://localhost:5000/api/products",
-					updatedData
+	
+				console.log(formData);
+				// Send formData in a POST request
+	
+				const responseImage = await axios.post(
+					"http://localhost:5000/api/products/uploads",
+					formData,
+					{
+						headers: {
+							"Content-Type": "multipart/form-data",
+						},
+					}
 				);
-				if (response.status == 200) {
-					console.log("Product Updated Successfully");
-					setMessage({
-						...message,
-						text: response.data.message,
-						success: true,
-					});
-					setOpenModal(!openModal);
+	
+				if (responseImage.status === 200) {
+					// console.log("Product Added Successfully");
+					console.log(responseImage.data);
+					const updatedData = {
+						...productData,
+						image: responseImage.data.image,
+					};
 					setProductData(updatedData);
-					// setProductTableData((prev) => ({
-					// 	...prev,
-					// 	[productData.category + "s"]: Object.values(
-					// 		productData.category + "s"
-					// 	).map((value, index) => {
-					// 		if (value.product_id == productData.product_id) {
-					// 			value = updatedData;
-					// 		}
-					// 		return value;
-					// 	}),
-					// }));
-					// closeModal(false);
-					fetchProducts(category);
+					console.log("updated Data : ");
+					console.log(updatedData);
+					
 				}
 			}
-		} catch (error) {
-			console.log(error.response.data.message);
-			setMessage({
-				...message,
-				text: error.response.data.message,
-				error: true,
-			});
-			setOpenModal(!openModal);
-		}
+			const response = await axios.put(
+						"http://localhost:5000/api/products",
+						productData
+					);
+					if (response.status == 200) {
+						console.log("Product Updated Successfully");
+						setMessage({
+							...message,
+							text: response.data.message,
+							success: true,
+						});
+						setOpenModal(!openModal);
+						// setProductData(updatedData);
+						fetchProducts(category);
+					}
+			} catch (e) {
+				// console.log(error.response.data.message);
+				console.log(e)
+				setMessage({
+					...message,
+					text:e.response.data.message,
+					error: true,
+				});
+				setOpenModal(true);
+			}
+		
 	};
+
+
 	const handleSubmit = (e) => {
 		e.preventDefault();
 		const isValidSpecification = productData.detailed_specifications.every(
@@ -201,7 +237,11 @@ const ProductDetailForm = ({ closeModal, type, id, category }) => {
 			isValidSpecification &&
 			productData.detailed_specifications.length !== 0
 		) {
+			 
 			setIsValid(true);
+		}else{
+			setMessage({...message,error:true,success:false,text:'Specifications not filled'})
+			setOpenModal(true);
 		}
 		// Validate specifications
 	};
@@ -233,7 +273,8 @@ const ProductDetailForm = ({ closeModal, type, id, category }) => {
 		}
 	}, [message]);
 	return (
-		<div className="flex mx-auto w-full md:w-1/2 bg-white rounded-md flex-col overflow-auto scrollbar-none h-70vh p-5">
+		<div className="flex mx-auto w-full md:w-1/2 bg-white rounded-md flex-col overflow-auto scrollbar-none h-70vh p-5 relative">
+			<i className="fa-solid fa-xmark absolute top-0 end-0 me-3 mt-3" onClick={() => closeModal(false)}></i>
 			<div className="text-2xl font-semibold text-center p-4 w-full">
 				{type !== "update" ? "Add Product" : "Update Product"}
 			</div>
