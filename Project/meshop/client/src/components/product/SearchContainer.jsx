@@ -1,8 +1,11 @@
 import React, { useEffect, useRef, useState,useContext } from 'react'
-import SearchProductCard from './SearchProductCard';
+// import SearchProductCard from './SearchProductCard';
 import axios from 'axios';
 import { ThemeContext } from '../../context/ThemeContext';
+import LazyComponent from '../../routes/LazyComponent';
+import ProductCardFallback from '../Fallback/ProductCardFallback';
 
+const SearchProductCard = LazyComponent(() => import('./SearchProductCard'),<ProductCardFallback/>)
 const SearchContainer = () => {
   const [searchResult,setSearchResult] = useState([]);
   const searchRef = useRef(0);
@@ -39,7 +42,7 @@ const SearchContainer = () => {
             <i className="fa-solid fa-magnifying-glass">
             </i>
            </div>
-           <div className={`p-3 md:p-10 mt-2 ${theme == 'dark' ? 'bg-white' : 'bg-slate-700'} rounded-md absolute w-full border z-10 ${searchValue == '' ? 'hidden' : 'flex flex-col gap-5'}`}>
+           <div className={`p-3 md:p-10 mt-2 ${theme == 'light' ? 'bg-white' : 'bg-slate-700'} rounded-md absolute w-full border z-10 ${searchValue == '' ? 'hidden' : 'flex flex-col gap-5'}`}>
                 {
                   searchResult.length !== 0 ? searchResult.map(value =>(
                     <>

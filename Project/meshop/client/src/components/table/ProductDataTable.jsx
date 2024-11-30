@@ -1,5 +1,5 @@
 import axios from "axios";
-import React, { useState, useEffect, useContext } from "react";
+import React, { useState, useEffect, useContext, Suspense } from "react";
 import AdminTableTool from "../layout/toolbar/AdminTableTool";
 import { useNavigate } from "react-router-dom";
 import { ProductTableContext } from "../../context/ProductTableContext";
@@ -9,6 +9,8 @@ import ProductContextProvider, {
 	ProductContext,
 } from "../../context/ProductContext";
 import ProductDetailForm from "../form/ProductDetailForm";
+import { LazyProductImageComponent } from "../product/ProductCard";
+import LoadImage from "../Fallback/LoadImage";
 
 const ProductDataTable = () => {
 	const navigate = useNavigate();
@@ -185,10 +187,13 @@ const ProductDataTable = () => {
 													{value.product_id}
 												</td>
 												<td className="border-b border-gray-400 p-3">
-													<img
+													{/* <img
 														src={value.image}
 														alt=""
-													/>
+													/> */}
+													<Suspense fallback={<LoadImage/>} >
+														<LazyProductImageComponent  src={value.image}/>
+													</Suspense>
 												</td>
 												<td className="border-b border-gray-400 p-3">
 													{value.category}

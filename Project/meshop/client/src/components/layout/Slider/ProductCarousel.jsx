@@ -1,12 +1,15 @@
-import React, { useEffect, useState } from "react";
-import ProductCard from "../../product/ProductCard";
+import React, { lazy, Suspense, useEffect, useState } from "react";
+// import ProductCard from "../../product/ProductCard";
+const ProductCard = lazy(() => import('../../product/ProductCard'));
 import CartProduct from "../../product/CartProduct";
 import Carousel from 'react-multi-carousel'
 import 'react-multi-carousel/lib/styles.css'
 import axios from "axios";
-import SuggestionCard from "../../product/SuggestionCard";
+// import SuggestionCard from "../../product/SuggestionCard";
 import ProductContextProvider from "../../../context/ProductContext";
-
+import ProductCardFallback from "../../Fallback/ProductCardFallback";
+import LazyComponent from "../../../routes/LazyComponent";
+const SuggestionCard = LazyComponent(() => import('../../product/SuggestionCard'),<ProductCardFallback />)
 const ProductCarousel = ({category,children,label,autoPlaySpeed,autoPlay,infinite,productData,setProductData}) => {
 	const responsive = {
 		superLargeDesktop: {
@@ -47,7 +50,7 @@ const ProductCarousel = ({category,children,label,autoPlaySpeed,autoPlay,infinit
 	},[])
 
 	if(products == null){
-		return <div>Loading....</div>
+		return <ProductCardFallback />
 	}
 	return (
 		 <>
@@ -59,7 +62,7 @@ const ProductCarousel = ({category,children,label,autoPlaySpeed,autoPlay,infinit
 								{
 									products !== null && products.map(value => (
 										
-											 !children ? <ProductCard productId={value.product_id} /> : <SuggestionCard productId={value.product_id} data={productData} handler={setProductData}/>
+											 !children ? <Suspense fallback={<ProductCardFallback />}><ProductCard productId={value.product_id} /></Suspense> : <SuggestionCard productId={value.product_id} data={productData} handler={setProductData}/>
 										
 							
 									))

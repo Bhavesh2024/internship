@@ -1,12 +1,15 @@
 import axios from "axios";
-import React, { useEffect, useState } from "react";
+import React, { Suspense, useEffect, useState } from "react";
 import { useParams } from "react-router-dom";
 import Navbar from "../layout/Navbar/Navbar";
 import Footer from "../layout/Footer/Footer";
 import ProductCarousel from "../layout/Slider/ProductCarousel";
 import SuggestionCard from "./SuggestionCard";
 // import {ReactStars} from 'react-stars'
-import { fetchProductData } from "./ProductCard";
+import { fetchProductData, LazyProductImageComponent } from "./ProductCard";
+import ProductCardFallback from "../Fallback/ProductCardFallback";
+import LoadPage from "../Fallback/LoadPage";
+import LoadImage from "../Fallback/LoadImage";
 const Product = () => {
 	const { id } = useParams();
 	const [productData, setProductData] = useState(null);
@@ -45,11 +48,14 @@ const Product = () => {
 					<>
 						<div className="flex items-center min-h-72 flex-col md:flex-row">
 							<div className="w-full md:w-1/3 h-60 md:h-80">
-								<img
+								{/* <img
 									src={productData.image}
 									alt="product Image"
 									className="w-full h-full"
-								/>
+								/> */}
+								<Suspense fallback={<LoadImage />}>
+									<LazyProductImageComponent src={productData.image} className={'w-full h-full'}/>
+								</Suspense>
 							</div>
 							<div className="flex flex-col gap-2 w-full p-3">
 								<h1 className="text-2xl font-semibold">
@@ -62,10 +68,10 @@ const Product = () => {
 										Price :
 									</h2>
 									<span className="text-xl">
-										{productData.final_price} /
+									₹{productData.final_price} /
 									</span>
 									<span className="line-through text-slate-400 text-xs ">
-										{productData.price}
+									₹{productData.price}
 									</span>
 									<span
 										className={`${
@@ -127,7 +133,7 @@ const Product = () => {
 						</div>
 					</>
 				) : (
-					<div>Loading...</div>
+					<LoadPage />
 				)}
 			</div>
 			<Footer />

@@ -15,6 +15,7 @@ import cart from "../../../redux/cart";
 import { combineSlices } from "@reduxjs/toolkit";
 import { initUserCartData } from "../../../redux/features/cartSlice";
 import { ThemeContext } from "../../../context/ThemeContext";
+import { logoutAdmin } from "../../../admin/AdminPanel";
 const Navbar = () => {
 	const userRef = useRef(null);
 	const {theme,setTheme} = useContext(ThemeContext)
@@ -36,11 +37,12 @@ const Navbar = () => {
 		message: "",
 	});
 	const { username } = useParams();
+  const user = localStorage.getItem('user');
 	const cartData = useSelector(
 		(state) => state.productCart[username] || { cart: [] }
 	);
 	const dispatch = useDispatch();
-	console.log(cartData);
+	// console.log(cartData);
 	// const cartData = useSelector((state) => state.productCart[username] || { cart: [] });
 	// console.log(cartData)
   
@@ -70,15 +72,21 @@ const Navbar = () => {
 		isLogin();
 		// getCartCount();
 		
-      const systemPrefersDark = window.matchMedia('(prefers-color-scheme: dark)').matches;
-      if (systemPrefersDark) {
-        theme == 'dark' ? document.documentElement.classList.remove('dark') : document.documentElement.classList.add('dark');
-				setTheme('dark')
-      } else {
-				document.documentElement.classList.remove('dark');
-				setTheme('light')
-      }
-      
+      // const systemPrefersDark = window.matchMedia('(prefers-color-scheme: dark)').matches;
+      // if (systemPrefersDark) {
+      //   theme == 'dark' ? document.documentElement.classList.remove('dark') : document.documentElement.classList.add('dark');
+			// 	setTheme('dark')
+      // } else {
+			// 	document.documentElement.classList.remove('dark');
+			// 	setTheme('light')
+      // }
+			if(theme == 'light'){
+				document.documentElement.classList.remove('light');
+				
+			}
+      if(user == 'admin' && localStorage.getItem('isLogin')){
+					setLogin(localStorage.getItem('isLogin'))
+			}
 		dispatch(initUserCartData({ username: localStorage.getItem("user") }));
 	}, []);
 	const customerActivityList = [
@@ -104,6 +112,14 @@ const Navbar = () => {
 			item: "My Cart",
 		},
 	];
+
+	const adminActivityList = [
+		{
+			item:"Dashboard",
+			link:`/user/admin`,
+			icon:<i className="material-symbols-outlined">dashboard</i>
+		}
+	]
 
 	const handleLoginModal = () => {
 		setOpenLoginModal(!openLoginModal);
@@ -153,16 +169,16 @@ const Navbar = () => {
 	const toggleTheme = () =>{
 		// theme == 'dark' ? setTheme('light') : setTheme('dark')
 		if(theme == 'dark'){
-			document.documentElement.classList.add('dark')
+			document.documentElement.classList.remove('dark')
 			//  setTheme('light')
 		}else{
-			document.documentElement.classList.remove('dark')
+			document.documentElement.classList.add('dark')
 			// setTheme('dark')
 		}
 		setTheme(theme == 'light' ? 'dark' : 'light')
 	}
 	return (
-		<nav className={`flex justify-between md:justify-around items-center h-20  ${theme == 'light' ? 'bg-gray-200' : 'border-b bg-slate-800'} px-4 `}>
+		<nav className={`flex justify-between md:justify-around items-center h-20  ${theme == 'light' ? 'bg-gray-200' : 'border-b text-white bg-slate-800'} px-4 `}>
 			<div className="flex items-center gap-5">
 				<div className="logo">
 					<h1 className="text-4xl font-mono font-bold">MeShop</h1>
@@ -241,8 +257,16 @@ const Navbar = () => {
 							></i>
 							{dropdownToggle && (
 								<div className="absolute w-full flex justify-end">
-									<ul className="text-sm bg-white px-5 p-2 border rounded-md w-fit flex m-auto flex-col gap-1 z-10 relative start-3 md:start-9">
-										{customerActivityList.map((value) => (
+									<ul className="text-sm bg-white px-5 p-2 border rounded-md w-fit flex m-auto flex-col gap-1 z-10 relative start-3 md:start-9 ">
+										
+										{user == 'admin' ? adminActivityList.map((value) =>(
+											<>
+												<Link
+												to={value.link} className="text-slate-500 flex items-start">
+													{value.icon}&nbsp;{value.item}
+												</Link>
+											</>
+										)) :customerActivityList.map((value) => (
 											<>
 												<li>
 													<Link
@@ -255,14 +279,14 @@ const Navbar = () => {
 												</li>
 											</>
 										))}
-										<li className="flex justify-center">
+										<li className="flex justify-center px-1">
 											<button
-												className="text-slate-500  flex items-center justify-center"
+												className="text-slate-500  flex items-center w-full"
 												onClick={() =>
 													setAlertModal(true)
 												}
 											>
-												<i class="fa-solid fa-right-from-bracket"></i>{" "}
+												<i class="fa-solid fa-right-from-bracket text-lg"></i>{" "}
 												&nbsp;Logout
 											</button>
 										</li>
@@ -305,7 +329,7 @@ const Navbar = () => {
 					<PermissionModal
 						title={"Logout"}
 						message={"Are you sure to Logout ? "}
-						positiveAction={logOutUser}
+						positiveAction={user == 'admin' ? logoutAdmin : logOutUser}
 						onClose={setAlertModal}
 					/>
 				</Modal>

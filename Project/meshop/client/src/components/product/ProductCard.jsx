@@ -1,11 +1,13 @@
 import axios from "axios";
-import React, { useContext, useEffect, useState } from "react";
+import React, { lazy, Suspense, useContext, useEffect, useState } from "react";
 import { Link} from "react-router-dom";
 import { useParams } from "react-router-dom";
 import { useSelector,useDispatch } from "react-redux";
 import { addToCart } from "../../redux/features/cartSlice";
 import AddToCartBtn from "./AddToCartBtn";
 import { ThemeContext } from "../../context/ThemeContext";
+import LoadImage from "../Fallback/LoadImage";
+
 export const fetchProductData = async(data,handler,id) =>{
 	try{
 		const response = await axios.get(`http://localhost:5000/api/products/id/${id}`)
@@ -19,6 +21,21 @@ export const fetchProductData = async(data,handler,id) =>{
 		// console.log(e)
 	}
 }
+
+
+export const LazyProductImageComponent = lazy(() => {
+	 return new Promise((resolve) =>{
+		setTimeout(()=>{
+			resolve({
+				default:(props) =>(
+					<img {...props}/>
+				)
+
+			}
+			)
+		},1000)
+	 })
+})
 const ProductCard = ({productId}) => {
 	const {theme,setTheme} = useContext(ThemeContext)
 	const [productData,setProductData] = useState({});
@@ -34,13 +51,17 @@ const ProductCard = ({productId}) => {
 
 
 	return (
-		<div className={`border rounded-sm w-11/12 flex flex-col justify-center items-center ${theme == 'dark' ? `bg-[url('../../../images/card-bg.jpg')]` : 'dark:bg-slate-900'} p-0`}>
+		<div className={`border rounded-sm w-11/12 flex flex-col justify-center items-center ${theme == 'light' ? `bg-[url('../../../images/card-bg.jpg')]` : 'text-white dark:bg-slate-900'} p-0`}>
 			<div className="w-full">
-				<img
+				{/* <img
 					src={`${productData !== null ? productData.image : ""}`}
 					alt=""
 					className="h-48 w-full"
-				/>
+					loading="lazy"
+				/> */}
+				<Suspense fallback={<LoadImage />} >
+							<LazyProductImageComponent src={`${productData !== null ? productData.image : ""}`} className={'h-48 w-full'}/>
+				</Suspense>
 			</div>
 			<div className="text-center">
 				<div className="text-md font-semibold text-nowrap">

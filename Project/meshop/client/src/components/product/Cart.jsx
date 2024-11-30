@@ -63,7 +63,7 @@ const Cart = () => {
           ))
         }
       </div>
-      <div className={`${theme == 'dark' ? 'bg-slate-100' : 'bg-slate-700' } w-full md:w-1/5 h-fit p-4`}>
+      <div className={`${theme == 'light' ? 'bg-slate-100' : 'text-white bg-slate-700' } w-full md:w-1/5 h-fit p-4`}>
         <div className='flex flex-col gap-2'>
           <div className='font-semibold text-xl mb-3'>PRICE DETAILS</div>
           <div className='flex justify-between'>
@@ -75,7 +75,7 @@ const Cart = () => {
           </div>
           <div className='flex justify-between'>
             <div>Discount </div>
-            <div className={`ps-3 text-sm ${theme == 'light' ? 'text-white' : 'text-blue-700'}`}>
+            <div className={`ps-3 text-sm ${theme == 'dark' ? 'text-white' : 'text-blue-700'}`}>
               {/* Add price calculations or details here */}
              - ₹{userCartDetail.discount}
             </div>

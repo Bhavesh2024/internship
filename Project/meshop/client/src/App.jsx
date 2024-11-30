@@ -9,7 +9,7 @@ import { ThemeContext } from './context/ThemeContext'
 function App() {
   const {theme} = useContext(ThemeContext);
   useEffect(() =>{
-      document.documentElement.classList.add(theme);
+      theme == 'dark' ? document.documentElement.classList.add(theme) : document.documentElement.classList.remove(theme);
   },[theme])
   return (
     <>

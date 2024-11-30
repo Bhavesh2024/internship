@@ -3,15 +3,13 @@ import { ToggleSidebarContext } from "../../../context/SideBarContext";
 import UserActivityDropDown from "../../dropdown/UserActivityDropDown";
 import { Link } from "react-router-dom";
 
-const AdminNavbar = () => {
+const AdminNavbar = ({open,setOpen}) => {
 	const { toggleSidebar, setToggleSidebar } =
 		useContext(ToggleSidebarContext);
 
 	const [toggleDropDown, setToggleDropDown] = useState(false);
 	const dropDownRef = useRef(0);
-	const activities = [
-		
-	];
+	
 	return (
 		<>
 			<nav className="bg-slate-600 text-gray-200 h-20 flex justify-between px-5 items-center w-full">
@@ -38,14 +36,14 @@ const AdminNavbar = () => {
 						toggleDropDown &&
 					<div className="absolute w-full flex justify-end">
 							 <ul className="text-sm bg-white px-5 p-2 border rounded-md w-fit flex m-auto flex-col gap-1 z-10 relative start-3 md:start-5">
-										{
+										{/* {
 											activities.map(value =>(
 												<>
 													<li><Link to={value.link} className="text-slate-500 flex items-center">{value.icon}&nbsp;{value.item}</Link></li>
 												</>
 											))
-										}
-										<li className="flex justify-center"><button className="text-slate-500  flex items-center justify-center"><i class="fa-solid fa-right-from-bracket"></i> &nbsp;Logout</button></li>
+										} */}
+										<li className="flex justify-center"><button className="text-slate-500  flex items-center justify-center" onClick={() => setOpen(!open)}><i class="fa-solid fa-right-from-bracket"></i> &nbsp;Logout</button></li>
 							 </ul>
 						</div>
 					}

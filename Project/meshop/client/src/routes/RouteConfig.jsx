@@ -5,18 +5,30 @@ import Login from "../components/form/Login";
 import SignUp from "../components/form/SignUp";
 import Cart from "../components/product/Cart";
 import Account from "../components/form/Account";
-import Product from "../components/product/Product";
-import Dashboard from "../admin/Dashboard";
-import AdminPanel from "../admin/AdminPanel";
+// import Product from "../components/product/Product";
+// import Dashboard from "../admin/Dashboard";
+// import AdminPanel from "../admin/AdminPanel";
 import CustomerHome from "../hocs/CustomerHome";
 import ProductCarouselContainer from "../components/layout/Slider/ProductCarouselContainer";
-import ProductDataTable from "../components/table/ProductDataTable";
-import UserDataTable from "../components/table/UserDataTable";
+import LazyComponent from "./LazyComponent";
+// import ProductDataTable from "../components/table/ProductDataTable";
+// import UserDataTable from "../components/table/UserDataTable";
 import NotFound from "./NotFound";
 import Test from "../components/form/Test";
 // import AdminLogin from "../admin/AdminLogin";
-const AdminLogin = lazy(() => import('../admin/AdminLogin'));
+const AdminLogin = LazyComponent(() => import('../admin/AdminLogin'),<LoadPage />);
+const AdminPanel = LazyComponent(() => import('../admin/AdminPanel'));
+const Dashboard = LazyComponent(() => import('../admin/Dashboard'),<LoadPage />)
+const ProductDataTable = LazyComponent(() => import('../components/table/ProductDataTable'),<LoadPage />);
+const UserDataTable = LazyComponent(() => import('../components/table/UserDataTable'),<LoadPage />)
+const Product = LazyComponent(() => import('../components/product/Product'),<LoadPage />)
+// const AdminLogin = LazyComponent('../admin/AdminLogin');
+// const AdminPanel = <LazyComponent path={'../admin/AdminPanel'} />
+// const Dashboard = <LazyComponent path={'../admin/Dashboard'} />
+// const ProductDataTable = <LazyComponent path={'../components/table/ProductDataTable'} />
+// const UserDataTable = <LazyComponent path={'../components/table/UserDataTable'} />
 import ProductTableContextProvider from "../context/ProductTableContext";
+import LoadPage from "../components/Fallback/LoadPage";
 // import PaginationContextProvider, { PaginationContext } from "../context/PaginationContext";
 const CustomHome = CustomerHome(Home);
 const RouteConfig = () => {

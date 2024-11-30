@@ -1,10 +1,13 @@
 import React, { useContext, useState } from "react";
 import Modal from "../../modal/Modal";
-import ProductDetailForm from "../../form/ProductDetailForm";
+// import ProductDetailForm from "../../form/ProductDetailForm";
 import ProductContextProvider, { ProductContext } from "../../../context/ProductContext";
 import axios from "axios";
 import { ProductTableContext } from "../../../context/ProductTableContext";
+import LazyComponent from "../../../routes/LazyComponent";
+import LoadImage from "../../Fallback/LoadImage";
 // import { useSelector } from "react-redux";
+const ProductDetailForm = LazyComponent(()=> import('../../form/ProductDetailForm'),<LoadImage />)
 const AdminTableTool = ({data,handler}) => {
 	const [openModal, setOpenModal] = useState(false);
 	const {productTableData,setProductTableData,fetchProducts} = useContext(ProductTableContext)

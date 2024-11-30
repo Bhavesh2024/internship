@@ -221,7 +221,7 @@ const validateField = (field, value) => {
                </div>
            </div>
            <div className='flex flex-col gap-1'>
-             <div className={`border rounded-sm flex items-center ${theme == 'light' ? 'text-black bg-white' : 'text-gray-400'}`}>
+             <div className={`border rounded-sm flex items-center ${theme == 'dark' ? 'text-black bg-white' : 'text-gray-400'}`}>
              <input type={togglePassword ? 'text' : 'password'} name='password' className={`w-full focus:outline-none p-2 ${(!validateInput[5].password.status) && 'border-red-600'}`} id='password' placeholder='Password' onChange={handleInput} value={data.password} required  />
               <i className={`fa-solid ${togglePassword ? 'fa-eye': 'fa-eye-slash'} me-2`} onClick={() => setTogglePassword(!togglePassword)}></i>
              </div>

@@ -43,7 +43,7 @@ const AddToCartBtn = ({ productId,style = '' }) => {
 		<>
 			{!isInCart ? (
 				<button
-					className={`${style == '' ? 'bg-gradient-to-r from-slate-900 to-gray-800 rounded-full py-2 px-5 text-white inline-block w-fit text-sm my-3' : style}`}
+					className={`${style == '' ? 'bg-gradient-to-r from-slate-900 to-gray-800 rounded-full py-2 px-5 text-white inline-block w-fit text-sm my-3 border' : style}`}
 					onClick={handleProduct}
 				>
 					Add to Cart

@@ -32,6 +32,9 @@ const AdminLogin = () => {
 			const request = await axios.post('http://localhost:5000/admin/login',loginData,{withCredentials:true});
 			if(request.status == 200){
 				localStorage.setItem('user','admin');
+				localStorage.setItem(
+					'isLogin',true
+				)
 				setMessage({...message,error:false,success:true,text:request.data.message});
 				 setOpenModal(!openModal);
 			}

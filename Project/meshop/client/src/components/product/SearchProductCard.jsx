@@ -1,8 +1,10 @@
-import React, { useContext, useEffect, useState } from "react";
-import { fetchProductData } from "./ProductCard";
+import React, { Suspense, useContext, useEffect, useState } from "react";
+import { fetchProductData, LazyProductImageComponent } from "./ProductCard";
 import { Link } from "react-router-dom";
 import { ThemeContext } from "../../context/ThemeContext";
 import AddToCartBtn from "./AddToCartBtn";
+import LoadImage from "../Fallback/LoadImage";
+import ProductCardFallback from "../Fallback/ProductCardFallback";
 const SearchProductCard = ({productId}) => {
 	const [searchProductData,setSearchProductData] = useState(null);
 	const {theme} = useContext(ThemeContext)
@@ -11,7 +13,7 @@ const SearchProductCard = ({productId}) => {
 	},[])
 
 	if(searchProductData == null){
-		return <div>Please Wait...</div>
+		return <ProductCardFallback />
 	}
 	return (
 		<>
@@ -21,11 +23,14 @@ const SearchProductCard = ({productId}) => {
 				<div className="flex items-center gap-5">
 					<div className="w-full md:w-1/2 lg:w-1/2 xl:w-1/3">
 						{" "}
-						<img
+						{/* <img
 							src={searchProductData.image}
 							alt=""
 							className="max-h-44 min-h-40"
-						/>
+						/> */}
+						<Suspense fallback={<LoadImage />}>
+							<LazyProductImageComponent src={searchProductData.image} className={'max-h-44 min-h-40'}/>
+						</Suspense>
 					</div>
 					<div>
 						<div className="font-semibold text-xl my-2">
@@ -72,7 +77,7 @@ const SearchProductCard = ({productId}) => {
 						<span className="text-xs bg-slate-900 text-white p-1 px-2 rounded-full">{searchProductData.discount}% off</span>
 					</div>
 					<div className="flex gap-3 items-center flex-row md:flex-col">
-					<Link to={`/product/${productId}`} className={`${theme == 'light' ? 'bg-indigo-700': 'bg-zinc-300'} p-2 px-5 rounded-lg font-semibold`}>
+					<Link to={`/product/${productId}`} className={`${theme == 'dark' ? 'bg-indigo-700': 'bg-zinc-300'} p-2 px-5 rounded-lg font-semibold`}>
 						View Detail
 					</Link>
 				<AddToCartBtn productId={productId} style="bg-gradient-to-r from-slate-900 to-gray-800 rounded-md py-3 px-5 text-white inline-block w-fit text-sm"/>

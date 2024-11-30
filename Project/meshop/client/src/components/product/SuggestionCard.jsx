@@ -1,6 +1,7 @@
-import React, { useEffect, useState } from "react";
-import { fetchProductData } from "./ProductCard";
+import React, { Suspense, useEffect, useState } from "react";
+import { fetchProductData, LazyProductImageComponent } from "./ProductCard";
 import { Link, useNavigate } from "react-router-dom";
+import LazyComponent from "../../routes/LazyComponent";
 const SuggestionCard = ({ productId, data, handler }) => {
 	const [suggestionProductData, setSuggestionProductData] = useState(null);
 	const navigate = useNavigate();
@@ -24,11 +25,14 @@ const SuggestionCard = ({ productId, data, handler }) => {
 				{suggestionProductData !== null && (
 					<>
 						<div className="h-48 w-11/12 flex m-auto">
-							<img
+							{/* <img
 								src={suggestionProductData.image}
 								alt=""
 								className="h-full w-11/12"
-							/>
+							/> */}
+							<Suspense>
+								<LazyProductImageComponent src={suggestionProductData.image} className="h-full w-11/12" />
+							</Suspense>
 						</div>
 						<div className="text-center">
 							<button
